@@ -1,0 +1,26 @@
+.input {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  cursor: inherit;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:hover {
+  opacity: 0.6;
+}
+
+/* :is(input:focus, input:valid) ~ label {
+  translate: -40px -40px;
+  scale: 0.875;
+} */
+
+/* .input:invalid {
+  border: 1px solid var(--error-color);
+}
+
+.input:valid {
+  border: 1px solid var(--ok-color);
+} */

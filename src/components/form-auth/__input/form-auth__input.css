@@ -1,0 +1,11 @@
+.form-auth__input {
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--button-color);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  padding: 8px 0 7px;
+  margin: 0;
+}

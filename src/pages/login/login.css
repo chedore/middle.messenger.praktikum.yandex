@@ -3,3 +3,9 @@
   place-content: center;
   min-height: 100vh;
 }
+
+.container__auth {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 159px;
+}

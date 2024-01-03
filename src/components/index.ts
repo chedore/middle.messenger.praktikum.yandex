@@ -1,2 +1,5 @@
 export { FormAuth } from './form-auth'
 export { FormAuthTitle } from './form-auth/__title'
+export { FormAuthLabel } from './form-auth/__label'
+export { FormAuthInput } from './form-auth/__input'
+export { FormAuthSpan } from './form-auth/__span'

@@ -1,8 +1,16 @@
-<div class="container">
+<main class="container">
 
-  {{#> FormAuth}} 
+  {{#> FormAuth}}
     {{> FormAuthTitle label="Вход" }}
+    <div class="container__auth">
+      {{> FormAuthLabel label="Логин"}}
+      {{> FormAuthInput type="text" name="login"}}
+      {{> FormAuthSpan }}
+      {{> FormAuthLabel label="Пароль"}}
+      {{> FormAuthInput type="password" name="password"}}
+      {{> FormAuthSpan }}
+    </div>
   {{/FormAuth}}
   
-</div>
+</main>
  

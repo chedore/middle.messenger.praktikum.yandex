@@ -1,0 +1,16 @@
+.form-auth__span {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0;
+  height: 0;
+  padding: 10px 0;
+  visibility: hidden;
+}
+
+.form-auth__span-error {
+  opacity: 1;
+  visibility: visible;
+  color: var(--error-color);
+}
