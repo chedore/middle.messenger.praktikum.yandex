@@ -4,7 +4,15 @@ import * as Pages from './pages';
 
 
 const pages = {
-  'login': [ Pages.LoginPage, {test: '123'} ]
+  'login': [ Pages.LoginPage],
+  'register': [ Pages.RegisterPage, {
+    main: 'pochta@yandex.ru', 
+    login: 'ivanivanov',
+    name: 'Иван',
+    surname: 'Иванов',
+    phone: '+7(909)967-30-30',
+    password: '11111'
+  }],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {

@@ -11,3 +11,11 @@
 .input:hover {
   opacity: 0.6;
 }
+
+.input:invalid {
+  border-right:  thick solid red;
+} 
+
+.input:valid {
+  border-right:  thick solid green;
+} 

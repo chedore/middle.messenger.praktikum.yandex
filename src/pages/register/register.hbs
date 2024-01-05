@@ -1,0 +1,36 @@
+<main class="container">
+  {{#> FormAuth}}
+    {{> FormAuthTitle label="Регистрация" }}
+    <div class="container__register">
+      {{> FormAuthLabel label="Почта"}}
+      {{> FormAuthInput type="email" name="mail" description=main}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Логин"}}
+      {{> FormAuthInput type="text" name="login" description=login}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Имя"}}
+      {{> FormAuthInput type="text" name="name" description=name}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Фамилия"}}
+      {{> FormAuthInput type="text" name="surname" description=surname}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Телефон"}}
+      {{> FormAuthInput type="tel" name="phone" description=phone}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Пароль"}}
+      {{> FormAuthInput type="password" name="password" description=password}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Пароль (ещё раз)"}}
+      {{> FormAuthInput type="password" name="password" description=password}}
+      {{> FormAuthSpan }}
+    </div>
+    {{> FormAuthButton label="Зарегистрироваться" type="button"}}
+    {{> FormAuthButton label="Войти" type="link" page="login"}}
+  {{/FormAuth}}
+</main>
