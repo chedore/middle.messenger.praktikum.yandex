@@ -2,8 +2,8 @@ import Handlebars from 'handlebars';
 import * as Components from './components';
 import * as Pages from './pages';
 
-
 const pages = {
+  'list': [ Pages.ListPage],
   'login': [ Pages.LoginPage, {login: 'ivanivanov', password: '11111'}],
   'register': [ Pages.RegisterPage, {
     main: 'pochta@yandex.ru', 
@@ -13,7 +13,7 @@ const pages = {
     phone: '+7(909)967-30-30',
     password: '11111'
   }],
-  'chat': [ Pages.ChatPage ],
+  'chat': [ Pages.ChatPage ,{login: 'ivanivanov'}],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {

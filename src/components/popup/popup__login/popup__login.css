@@ -1,0 +1,24 @@
+.popup__login {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px;
+}
+
+.popup__login-name {
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.popup__login-label {
+  color: var(--text-lable-color);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9px;
+}

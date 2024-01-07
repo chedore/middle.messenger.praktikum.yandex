@@ -2,6 +2,10 @@
 @import url(./vendor/fonts.css);
 @import url(./blocks/input/input.css);
 @import url(./blocks/button/button.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__opened/popup__opened.css);
+@import url(./blocks/popup/__close/popup__close.css);
 
 @import url(./components/form-auth/form-auth.css);
 @import url(./components/form-auth/__title/form-auth__title.css);
@@ -17,9 +21,14 @@
 @import url(./components/chat/__header/chat__header.css);
 @import url(./components/chat/__footer/chat__footer.css);
 
+@import url(./components/popup/popup__login/popup__login.css);
+
+@import url(./components/reference/reference.css);
+
 @import url(./pages/login/login.css);
 @import url(./pages/register/register.css);
 @import url(./pages/chat/chat.css);
+@import url(./pages/list/list.css);
 
 
 :root {
