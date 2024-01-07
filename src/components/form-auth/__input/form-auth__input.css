@@ -9,3 +9,7 @@
   padding: 7px 0;
   margin: 0;
 }
+
+.form-auth__input-error {
+  color: var(--error-color);
+}

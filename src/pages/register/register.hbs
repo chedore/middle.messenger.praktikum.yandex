@@ -23,14 +23,14 @@
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Пароль"}}
-      {{> FormAuthInput type="password" name="password" description=password}}
+      {{> FormAuthInput type="password" name="password" description=password error='Пароли не совпадают'}}
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Пароль (ещё раз)"}}
-      {{> FormAuthInput type="password" name="password" description=password}}
-      {{> FormAuthSpan }}
+      {{> FormAuthInput type="password" name="password" description=password error='Пароли не совпадают'}}
+      {{> FormAuthSpan error='Пароли не совпадают'}}
     </div>
-    {{> FormAuthButton label="Зарегистрироваться" type="button"}}
+    {{> FormAuthButton label="Зарегистрироваться" type="button" page="chat"}}
     {{> FormAuthButton label="Войти" type="link" page="login"}}
   {{/FormAuth}}
 </main>

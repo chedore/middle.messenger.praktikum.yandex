@@ -1,0 +1,23 @@
+.chat__link {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #999;
+  background: transparent;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  width: 100%;
+  padding: 0 10px;
+  text-decoration: none;
+	border: none;
+	margin: 21px auto 0;
+  gap: 8px;
+}
+
+.chat__link-search {
+  width: 8px;
+  height: 4px;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+}

@@ -10,11 +10,20 @@
 @import url(./components/form-auth/__span/form-auth__span.css);
 @import url(./components/form-auth/__button/form-auth__button.css);
 
+@import url(./components/chat/__button/chat__button.css);
+@import url(./components/chat/__link/chat__link.css);
+@import url(./components/chat/__card/chat__card.css);
+@import url(./components/chat/__card-list/chat__card-list.css);
+
 @import url(./pages/login/login.css);
 @import url(./pages/register/register.css);
+@import url(./pages/chat/chat.css);
+
 
 :root {
   --background-color: #fff;
+  --sidebar-color: #FBFBFB;
+  --gray-color: #EAEAEA;
   --text-color: #1e1e1e;
   --text-lable-color: #999;
   --button-color: #3369f3;

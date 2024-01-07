@@ -4,7 +4,7 @@ import * as Pages from './pages';
 
 
 const pages = {
-  'login': [ Pages.LoginPage],
+  'login': [ Pages.LoginPage, {login: 'ivanivanov', password: '11111'}],
   'register': [ Pages.RegisterPage, {
     main: 'pochta@yandex.ru', 
     login: 'ivanivanov',
@@ -13,6 +13,7 @@ const pages = {
     phone: '+7(909)967-30-30',
     password: '11111'
   }],
+  'chat': [ Pages.ChatPage ],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
