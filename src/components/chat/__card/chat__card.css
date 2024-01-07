@@ -68,7 +68,17 @@
   white-space: nowrap;
 }
 
-.card__time {}
+.card__time {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #999;
+  text-align: right;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+}
 
 .card__count {
   display: flex;

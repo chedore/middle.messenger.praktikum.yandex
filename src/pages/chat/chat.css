@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 310px repeat(1, 1fr);
-  grid-template-rows: 70px repeat(1, 1fr) 60px;
+  grid-template-rows: 55px repeat(1, 1fr) 60px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -18,12 +18,15 @@
 }
 
 .containerchat__header {
-  background: rgb(109, 223, 81);
+  /* background: rgb(109, 223, 81); */
   grid-area: header;
+  border-bottom: 1px solid var(--gray-color);
+  margin: 0 20px;
+  padding: 0;
 }
 
 .containerchat__main {
-  background: rgb(76, 49, 199);
+  /* background: rgb(76, 49, 199); */
   grid-area: main;
 }
 

@@ -1,7 +1,5 @@
-<div>
-  <ul>
-    {{#each (chats)}}
-      {{> ChatCard}}
-    {{/each}}
-  </ul>
-</div>
+<ul class="cards">
+  {{#each (chats)}}
+    <li class="cards-list">{{> ChatCard}}</li>
+  {{/each}}
+</ul>

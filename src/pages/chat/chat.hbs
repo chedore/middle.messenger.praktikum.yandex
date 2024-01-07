@@ -1,12 +1,10 @@
 <main class="containerchat">
-  <header class="containerchat__header"></header>
+  <header class="containerchat__header">{{> ChatHeader }}</header>
 
   <aside class="containerchat__sidebar">
     {{> ChatLink label="Профиль" type="link" page="chat"}}
     {{> ChatButton label="Поиск" type="button" page="chat"}}
-
-    {{> ChatCard name="Андрей" message="Друзья, у меня для вас особенный выпуск новостей!yyyyyyyy" owner=true}}
-    {{!-- {{> ListChatCards }} --}}
+    {{> ListChatCards }}
   </aside>
 
   <section class="containerchat__main"></section>

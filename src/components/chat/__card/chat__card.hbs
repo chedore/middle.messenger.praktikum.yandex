@@ -5,6 +5,8 @@
     <div class="card-info__wrap">
       {{#if owner}}<h3 class="card-info__owner">Вы:</h3>{{/if}}
       <p class="card-info__intro">{{message}}</p>
+     </div> 
   </div>
-  <div class="card__count">1</div>
+  <p class="card__time">{{time}}</p>
+  {{#if count}}<div class="card__count">{{count}}</div>{{/if}}
 </div>
