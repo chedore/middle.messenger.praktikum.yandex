@@ -1,1 +1,1 @@
-export { default as ReferenceLink } from './reference__link.hbs?raw';
+export { default as ReferenceLink } from "./reference__link.hbs?raw";

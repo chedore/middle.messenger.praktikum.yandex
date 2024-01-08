@@ -28,7 +28,7 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 600;
-  line-height: 13px; 
+  line-height: 13px;
   margin: 0;
   padding-bottom: 4px;
   max-width: 193px;
@@ -42,10 +42,10 @@
   flex-direction: row;
   max-height: 30px;
   max-width: 193px;
-  gap:4px;
- }
+  gap: 4px;
+}
 
-.card-info__owner { 
+.card-info__owner {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -54,7 +54,7 @@
   padding: 0;
 }
 
-.card-info__intro { 
+.card-info__intro {
   color: #999;
   font-size: 12px;
   font-style: normal;

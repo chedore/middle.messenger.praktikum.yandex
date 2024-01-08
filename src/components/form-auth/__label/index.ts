@@ -1,1 +1,1 @@
-export { default as FormAuthLabel } from './form-auth__label.hbs?raw';
+export { default as FormAuthLabel } from "./form-auth__label.hbs?raw";

@@ -1,1 +1,1 @@
-export { default as FormAuthInput } from './form-auth__input.hbs?raw';
+export { default as FormAuthInput } from "./form-auth__input.hbs?raw";

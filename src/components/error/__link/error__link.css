@@ -1,8 +1,8 @@
 .error__link {
   background: transparent;
   text-decoration: none;
-	border: none;
-	margin: 69px auto 0;
+  border: none;
+  margin: 69px auto 0;
   color: var(--button-color);
   text-align: center;
   font-size: 11px;

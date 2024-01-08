@@ -1,1 +1,1 @@
-export { default as ReferenceList } from './reference.hbs?raw';
+export { default as ReferenceList } from "./reference.hbs?raw";

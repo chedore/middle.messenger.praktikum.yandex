@@ -8,14 +8,14 @@
   font-style: normal;
   font-weight: 500;
   line-height: 12px;
-	text-align: center;
+  text-align: center;
   align-items: center;
   justify-content: center;
   gap: 4px;
-	margin: 23px auto 14px;
-	padding: 10px 0; 
-	width: 100%;
-	flex-shrink: 0;  
+  margin: 23px auto 14px;
+  padding: 10px 0;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .chat__button-searchform {

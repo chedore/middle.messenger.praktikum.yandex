@@ -1,1 +1,1 @@
-export { default as ErrorLink } from './error__link.hbs?raw';
+export { default as ErrorLink } from "./error__link.hbs?raw";
