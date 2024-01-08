@@ -24,3 +24,4 @@ export { ErrorDescription } from "./error/__description";
 export { ErrorLink } from "./error/__link";
 export { ProfileButtonChat } from "./profile/__sidebar";
 export { ProfileAvatar } from "./profile/__avatar";
+export { ProfileButtonSave } from "./profile/__button";

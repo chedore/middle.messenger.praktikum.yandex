@@ -1,0 +1,32 @@
+.profile__button {
+	display: flex;
+	justify-content: center; 
+  align-items: center;
+	border: none;
+	border-radius: 8px;
+	background: var(--button-color);
+	color: #fff;
+	text-align: center;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 13px;
+	margin: 0 auto 14px;
+	padding: 12px 0; 
+	flex-shrink: 0;
+	width: 280px;
+}
+
+.form-auth__link {
+  color: var(--button-color);
+	background: transparent;
+  text-align: center;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 11px;
+  padding: 0 0 0 6px;
+  text-decoration: none;
+	border: none;
+	margin: 0 auto 30px;
+}
