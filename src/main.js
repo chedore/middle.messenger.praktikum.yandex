@@ -16,6 +16,7 @@ const pages = {
   'chat': [ Pages.ChatPage ,{login: 'ivanivanov'}],
   '404': [ Pages.Page404 ],
   '500': [ Pages.Page500 ],
+  'profile': [ Pages.ProfilePage ],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {

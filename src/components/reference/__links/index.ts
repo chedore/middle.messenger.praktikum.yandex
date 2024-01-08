@@ -8,5 +8,6 @@ Handlebars.registerHelper('pages', () => {
     {page: 'chat'},
     {page: '404'},
     {page: '500'},
+    {page: 'profile'},
   ]
 })

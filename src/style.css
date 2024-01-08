@@ -35,10 +35,14 @@
 @import url(./components/error/__description/error__description.css);
 @import url(./components/error/__link/error__link.css);
 
+@import url(./components/profile/__sidebar/profile__sidebar.css);
+@import url(./components/profile/__avatar/profile__avatar.css);
+
 @import url(./pages/login/login.css);
 @import url(./pages/register/register.css);
 @import url(./pages/chat/chat.css);
 @import url(./pages/list/list.css);
+@import url(./pages/profile/profile.css);
 
 :root {
   --background-color: #fff;

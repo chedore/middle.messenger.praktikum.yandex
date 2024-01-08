@@ -22,3 +22,5 @@ export { ReferenceButton } from "./reference/__button";
 export { ErrorTitle } from "./error/__title";
 export { ErrorDescription } from "./error/__description";
 export { ErrorLink } from "./error/__link";
+export { ProfileButtonChat } from "./profile/__sidebar";
+export { ProfileAvatar } from "./profile/__avatar";
