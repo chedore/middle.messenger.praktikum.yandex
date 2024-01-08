@@ -21,20 +21,29 @@
 @import url(./components/chat/__header/chat__header.css);
 @import url(./components/chat/__footer/chat__footer.css);
 
-@import url(./components/popup/popup__login/popup__login.css);
+@import url(./components/popup/__label/popup__label.css);
+@import url(./components/popup/__input/popup__input.css);
+@import url(./components/popup/__span/popup__span.css);
+@import url(./components/popup/__login/popup__login.css);
+@import url(./components/popup/__button/popup__button.css);
 
 @import url(./components/reference/reference.css);
+@import url(./components/reference/__button/reference__button.css);
+
+@import url(./components/error/error.css);
+@import url(./components/error/__title/error__title.css);
+@import url(./components/error/__description/error__description.css);
+@import url(./components/error/__link/error__link.css);
 
 @import url(./pages/login/login.css);
 @import url(./pages/register/register.css);
 @import url(./pages/chat/chat.css);
 @import url(./pages/list/list.css);
 
-
 :root {
   --background-color: #fff;
-  --sidebar-color: #FBFBFB;
-  --gray-color: #EAEAEA;
+  --sidebar-color: #fbfbfb;
+  --gray-color: #eaeaea;
   --text-color: #1e1e1e;
   --text-lable-color: #999;
   --button-color: #3369f3;

@@ -3,12 +3,12 @@
     <button class="button popup__close" type="button" aria-label="close"></button>
     <div class="popup__login">
     <h2 class="popup__login-name">Добавить пользователя</h2>
-      {{> FormAuthLabel label="Логин"}}
-      {{> FormAuthInput type="text" name="login" description=login}}
-      {{> FormAuthSpan }}
+      {{> PopupLabel label="Логин"}}
+      {{> PopupInput type="text" name="login" description=login}}
+      {{> PopupSpan }}
     </div>
 
-    {{> FormAuthButton label="Добавить" type="button" page="chat"}}
+    {{> PopupButton label="Добавить" type="button" page="chat"}}
   </div>
 </div>
 

@@ -14,6 +14,8 @@ const pages = {
     password: '11111'
   }],
   'chat': [ Pages.ChatPage ,{login: 'ivanivanov'}],
+  '404': [ Pages.Page404 ],
+  '500': [ Pages.Page500 ],
 };
 
 Object.entries(Components).forEach(([ name, component ]) => {
@@ -26,7 +28,7 @@ function navigate(page) {
   container.innerHTML = Handlebars.compile(source)(context);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
+document.addEventListener('DOMContentLoaded', () => navigate('list'));
 
 document.addEventListener('click', e => {
   const page = e.target.getAttribute('page');

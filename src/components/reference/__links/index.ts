@@ -6,5 +6,7 @@ Handlebars.registerHelper('pages', () => {
     {page: 'login'},
     {page: 'register'},
     {page: 'chat'},
+    {page: '404'},
+    {page: '500'},
   ]
 })
