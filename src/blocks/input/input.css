@@ -13,9 +13,9 @@
 }
 
 .input:invalid {
-  border-right:  thick solid red;
-} 
+  border-right: thick solid red;
+}
 
 .input:valid {
-  border-right:  thick solid green;
-} 
+  border-right: thick solid green;
+}
