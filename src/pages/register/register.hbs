@@ -3,7 +3,7 @@
     {{> FormAuthTitle label="Регистрация" }}
     <div class="container__register">
       {{> FormAuthLabel label="Почта"}}
-      {{> FormAuthInput type="email" name="mail" description=main}}
+      {{> FormAuthInput type="email" name="email" description=email}}
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Логин"}}
@@ -11,11 +11,11 @@
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Имя"}}
-      {{> FormAuthInput type="text" name="name" description=name}}
+      {{> FormAuthInput type="text" name="first_name" description=first_name}}
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Фамилия"}}
-      {{> FormAuthInput type="text" name="surname" description=surname}}
+      {{> FormAuthInput type="text" name="second_name" description=second_name}}
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Телефон"}}

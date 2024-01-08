@@ -6,10 +6,10 @@ const pages = {
   'list': [ Pages.ListPage],
   'login': [ Pages.LoginPage, {login: 'ivanivanov', password: '11111'}],
   'register': [ Pages.RegisterPage, {
-    main: 'pochta@yandex.ru', 
+    email: 'pochta@yandex.ru', 
     login: 'ivanivanov',
-    name: 'Иван',
-    surname: 'Иванов',
+    first_name: 'Иван',
+    second_name: 'Иванов',
     phone: '+7(909)967-30-30',
     password: '11111'
   }],
