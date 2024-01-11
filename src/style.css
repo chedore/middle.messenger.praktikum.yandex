@@ -38,6 +38,10 @@
 @import url(./components/profile/__sidebar/profile__sidebar.css);
 @import url(./components/profile/__avatar/profile__avatar.css);
 @import url(./components/profile/__button/profile__button.css);
+@import url(./components/profile/__info/profile__info.css);
+@import url(./components/profile/__info-label/profile__info-label.css);
+@import url(./components/profile/__info-input/profile__info-input.css);
+@import url(./components/profile/__link/profile__link.css);
 
 @import url(./pages/login/login.css);
 @import url(./pages/register/register.css);
@@ -51,6 +55,7 @@
   --gray-color: #eaeaea;
   --text-color: #1e1e1e;
   --text-lable-color: #999;
+  --hover-color: #e4edfd;
   --button-color: #3369f3;
   --ok-color: green;
   --error-color: #ff2f2f;

@@ -13,7 +13,7 @@
 
 .profile__img {
   border-radius: inherit;
-  background-color: #efefef;
+  background-color: var(--gray-color);
   height: 100%;
   margin: 0;
   object-fit: none;

@@ -55,7 +55,7 @@
 }
 
 .card-info__intro {
-  color: #999;
+  color: var(--text-lable-color);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -72,7 +72,7 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  color: #999;
+  color: var(--text-lable-color);
   text-align: right;
   font-size: 9px;
   font-style: normal;
@@ -90,7 +90,7 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: #fff;
+  color: var(--background-color);
   font-size: 11px;
   font-style: normal;
   font-weight: 500;

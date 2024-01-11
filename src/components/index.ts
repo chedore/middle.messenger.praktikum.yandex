@@ -25,3 +25,7 @@ export { ErrorLink } from "./error/__link";
 export { ProfileButtonChat } from "./profile/__sidebar";
 export { ProfileAvatar } from "./profile/__avatar";
 export { ProfileButtonSave } from "./profile/__button";
+export { ProfileInfo } from "./profile/__info";
+export { ProfileInfoInput } from "./profile/__info-input";
+export { ProfileInfoLabel } from "./profile/__info-label";
+export { ProfileLink } from "./profile/__link";

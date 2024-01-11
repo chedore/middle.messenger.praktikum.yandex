@@ -4,6 +4,11 @@
   </aside>
   <section class="containerprofile__main">
     {{> ProfileAvatar }}
-    {{> ProfileButtonSave label="Сохранить"}}
+    <form>
+      {{#each profileValues}}
+        {{> ProfileInfo }}
+      {{/each}}
+      {{> ProfileButtonSave label="Сохранить"}}
+    </form>
   </section>
 </main>

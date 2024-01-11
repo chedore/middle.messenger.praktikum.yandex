@@ -17,11 +17,11 @@
   width: 100%;
   flex-shrink: 0;
   border-radius: 30px;
-  background: #efefef;
-  border: 1px solid #fff;
+  background: var(--gray-color);
+  border: 1px solid var(--background-color);
   box-sizing: content-box;
   padding: 10px 0 10px 20px;
-  color: #999;
+  color: var(--text-lable-color);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

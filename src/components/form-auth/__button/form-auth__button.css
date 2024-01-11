@@ -2,7 +2,7 @@
   border: none;
   border-radius: 8px;
   background: var(--button-color);
-  color: #fff;
+  color: var(--background-color);
   text-align: center;
   font-size: 13px;
   font-style: normal;

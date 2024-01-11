@@ -2,33 +2,21 @@
   {{#> FormAuth}}
     {{> FormAuthTitle label="Регистрация" }}
     <div class="container__register">
-      {{> FormAuthLabel label="Почта"}}
-      {{> FormAuthInput type="email" name="email" description=email}}
-      {{> FormAuthSpan }}
 
-      {{> FormAuthLabel label="Логин"}}
-      {{> FormAuthInput type="text" name="login" description=login}}
-      {{> FormAuthSpan }}
-
-      {{> FormAuthLabel label="Имя"}}
-      {{> FormAuthInput type="text" name="first_name" description=first_name}}
-      {{> FormAuthSpan }}
-
-      {{> FormAuthLabel label="Фамилия"}}
-      {{> FormAuthInput type="text" name="second_name" description=second_name}}
-      {{> FormAuthSpan }}
-
-      {{> FormAuthLabel label="Телефон"}}
-      {{> FormAuthInput type="tel" name="phone" description=phone}}
-      {{> FormAuthSpan }}
+      {{#each profileValues}}
+        {{> FormAuthLabel }}
+        {{> FormAuthInput }}
+        {{> FormAuthSpan }}
+      {{/each}}
 
       {{> FormAuthLabel label="Пароль"}}
-      {{> FormAuthInput type="password" name="password" description=password error='Пароли не совпадают'}}
+      {{> FormAuthInput type="password" name="password" value=password error='Пароли не совпадают'}}
       {{> FormAuthSpan }}
 
       {{> FormAuthLabel label="Пароль (ещё раз)"}}
-      {{> FormAuthInput type="password" name="password" description=password error='Пароли не совпадают'}}
+      {{> FormAuthInput type="password" name="password" value=password error='Пароли не совпадают'}}
       {{> FormAuthSpan error='Пароли не совпадают'}}
+      
     </div>
     {{> FormAuthButton label="Зарегистрироваться" type="button" page="chat"}}
     {{> FormAuthButton label="Войти" type="link" page="login"}}

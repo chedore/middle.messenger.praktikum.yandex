@@ -2,13 +2,13 @@
   {{#> FormAuth}}
     {{> FormAuthTitle label="Вход" }}
     <div class="container__login">
-      {{> FormAuthLabel label="Логин"}}
-      {{> FormAuthInput type="text" name="login" description=login}}
-      {{> FormAuthSpan }}
 
-      {{> FormAuthLabel label="Пароль"}}
-      {{> FormAuthInput type="password" name="password" description=password}}
-      {{> FormAuthSpan }}
+      {{#each loginValue}}
+        {{> FormAuthLabel }}
+        {{> FormAuthInput }}
+        {{> FormAuthSpan }}
+      {{/each}}
+
     </div>
     {{> FormAuthButton label="Авторизоваться" type="button" page="chat"}}
     {{> FormAuthButton label="Нет аккаунта?" type="link" page="register"}}
