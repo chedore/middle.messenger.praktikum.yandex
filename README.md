@@ -14,7 +14,7 @@
 
 Работающую версию можно просмотреть здесь:
 
-https://659c346b72113f007f766d12--melodic-travesseiro-931c4f.netlify.app/
+https://deploy--melodic-travesseiro-931c4f.netlify.app/
 
 ## Макет
 
