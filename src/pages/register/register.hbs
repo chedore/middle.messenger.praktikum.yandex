@@ -1,0 +1,24 @@
+<main class="container">
+  {{#> FormAuth}}
+    {{> FormAuthTitle label="Регистрация" }}
+    <div class="container__register">
+
+      {{#each profileValues}}
+        {{> FormAuthLabel }}
+        {{> FormAuthInput }}
+        {{> FormAuthSpan }}
+      {{/each}}
+
+      {{> FormAuthLabel label="Пароль"}}
+      {{> FormAuthInput type="password" name="password" value=password error='Пароли не совпадают'}}
+      {{> FormAuthSpan }}
+
+      {{> FormAuthLabel label="Пароль (ещё раз)"}}
+      {{> FormAuthInput type="password" name="password" value=password error='Пароли не совпадают'}}
+      {{> FormAuthSpan error='Пароли не совпадают'}}
+      
+    </div>
+    {{> FormAuthButton label="Зарегистрироваться" type="button" page="chat"}}
+    {{> FormAuthButton label="Войти" type="link" page="login"}}
+  {{/FormAuth}}
+</main>

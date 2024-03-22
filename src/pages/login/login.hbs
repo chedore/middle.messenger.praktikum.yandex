@@ -1,0 +1,17 @@
+<main class="container">
+  {{#> FormAuth}}
+    {{> FormAuthTitle label="Вход" }}
+    <div class="container__login">
+
+      {{#each loginValue}}
+        {{> FormAuthLabel }}
+        {{> FormAuthInput }}
+        {{> FormAuthSpan }}
+      {{/each}}
+
+    </div>
+    {{> FormAuthButton label="Авторизоваться" type="button" page="chat"}}
+    {{> FormAuthButton label="Нет аккаунта?" type="link" page="register"}}
+  {{/FormAuth}}
+</main>
+  

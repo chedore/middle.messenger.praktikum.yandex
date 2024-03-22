@@ -1,0 +1,13 @@
+.form-auth {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 340px;
+  min-height: 450px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 0 30px;
+  margin: 0;
+  box-shadow: 0 0 6px 0 #00000024;
+}

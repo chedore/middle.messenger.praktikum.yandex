@@ -1,0 +1,21 @@
+.input {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  cursor: inherit;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:hover {
+  opacity: 0.6;
+}
+
+.input:invalid {
+  border-right: thick solid var(--error-color);
+}
+
+.input:valid {
+  border-right: thick solid var(--ok-color);
+}

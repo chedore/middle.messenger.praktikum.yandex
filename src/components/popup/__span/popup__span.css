@@ -1,0 +1,17 @@
+.popup__span {
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 8px;
+  opacity: 0;
+  height: 0;
+  padding: 7px 0;
+  visibility: hidden;
+}
+
+.popup__span-error {
+  opacity: 1;
+  visibility: visible;
+  color: var(--error-color);
+  margin-bottom: 7px;
+}
