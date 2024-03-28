@@ -39,9 +39,17 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+  _removeEvents(): void {
+    const { events = {} } = this.props;
+    Object.keys(events).forEach((eventName) => {
+      if (this._element) {
+        this._element.removeEventListener(eventName, events[eventName]);
+      }
+    });
+  }
+
   _addEvents() {
     const {events = {}} = this.props;
-
     Object.keys(events).forEach(eventName => {
       this._element!.addEventListener(eventName, events[eventName]);
     });
@@ -123,6 +131,8 @@ class Block<Props extends object, Refs extends RefType = RefType> {
 
   private _render() {
     const fragment = this.compile(this.render(), this.props);
+    
+    this._removeEvents();
 
     const newElement = fragment.firstElementChild as HTMLElement;
 

@@ -1,6 +1,6 @@
 import Block from '../../../core/Block';
 import { navigate } from '../../../core/navigate';
-import * as validators from '../../../utils/validators';
+import {validators} from '../../../utils/validators';
 import { profile_props } from '../../../utils/const';
 import { ENDPOINT_PAGES as pages } from '../../../utils/const';
 
@@ -10,7 +10,7 @@ export class RegisterPage extends Block {
     super({
       profileValues: profile_props,
       validate: {
-        login: validators.login,
+        f: validators,
       },
       onLogin: () => {
         navigate(pages.login);
@@ -27,7 +27,7 @@ export class RegisterPage extends Block {
           {{{ FormAuthTitle label="Регистрация" }}}
           <div class="container__register">
             {{#each profileValues}}
-              {{{ FormAuthElement label=this.label ref=this.name }}}
+              {{{ FormAuthElement label=this.label ref=this.name id="this.name" validate=validate.f}}}
             {{/each}}
           </div>
           {{{ FormAuthButton label="Зарегистрироваться" onClick=onRegister }}}

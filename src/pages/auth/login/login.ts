@@ -1,14 +1,15 @@
 import Block from '../../../core/Block';
 import { navigate } from '../../../core/navigate';
-import * as validators from '../../../utils/validators';
+import {validators} from '../../../utils/validators';
 import { ENDPOINT_PAGES as pages } from '../../../utils/const';
+import { ComponentsName } from '../../../utils/validationRules';
 
 export class LoginPage extends Block {
   static name = 'LoginPage';
   constructor() {
     super({
       validate: {
-        login: validators.login,
+        f: validators,
       },
       onLogin: (event) => {
         event.preventDefault();
@@ -36,8 +37,8 @@ export class LoginPage extends Block {
         {{#> FormAuth}}
           {{{ FormAuthTitle label="Вход" }}}
           <div class="container__login">
-            {{{ FormAuthElement label="Логин" ref="login" validate=validate.login }}}
-            {{{ FormAuthElement label="Пароль" ref="password" }}}
+            {{{ FormAuthElement label="Логин" ref="login" id="login" validate=validate.f }}}
+            {{{ FormAuthElement label="Пароль" ref="password" id="password" validate=validate.f}}}
           </div>
           {{{ FormAuthButton label="Авторизоваться" onClick=onLogin }}}
           {{{ FormAuthLink label="Нет аккаунта?" onClick=onRegister }}}

@@ -12,10 +12,10 @@
   opacity: 0.6;
 }
 
-.input:invalid {
+/* .input:invalid {
   border-right: thick solid var(--error-color);
 }
 
 .input:valid {
   border-right: thick solid var(--ok-color);
-}
+} */
