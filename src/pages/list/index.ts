@@ -1,1 +1,1 @@
-export { default as ListPage } from "./list.hbs?raw";
+export { ListPage } from "./list";

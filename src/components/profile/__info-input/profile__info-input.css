@@ -8,3 +8,7 @@
   text-align: right;
   color: var(--text-lable-color);
 }
+
+.profile__info-input:focus {
+  outline: dashed var(--text-lable-color);
+}

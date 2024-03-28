@@ -1,1 +1,1 @@
-export { default as ChatHeader } from "./chat__header.hbs?raw";
+export { ChatHeader } from "./chat__header";

@@ -1,1 +1,1 @@
-export { default as ProfileButtonSave } from "./profile__button.hbs?raw";
+export { ProfileButtonSave } from "./profile__button";

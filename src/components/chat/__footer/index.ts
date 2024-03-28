@@ -1,1 +1,1 @@
-export { default as ChatFooter } from "./chat__footer.hbs?raw";
+export { ChatFooter } from "./chat__footer";

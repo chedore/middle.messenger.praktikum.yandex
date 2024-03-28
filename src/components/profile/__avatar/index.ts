@@ -1,1 +1,1 @@
-export { default as ProfileAvatar } from "./profile__avatar.hbs?raw";
+export { ProfileAvatar } from "./profile__avatar";

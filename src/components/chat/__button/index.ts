@@ -1,1 +1,1 @@
-export { default as ChatButton } from "./chat__button.hbs?raw";
+export { ChatButton } from "./chat__button";

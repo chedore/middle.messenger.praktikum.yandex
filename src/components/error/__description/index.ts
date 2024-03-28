@@ -1,1 +1,1 @@
-export { default as ErrorDescription } from "./error__description.hbs?raw";
+export { ErrorDescription } from "./error__description";

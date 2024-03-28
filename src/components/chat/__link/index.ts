@@ -1,1 +1,1 @@
-export { default as ChatLink } from "./chat__link.hbs?raw";
+export { ChatLink } from "./chat__link";

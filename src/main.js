@@ -1,40 +1,39 @@
 import Handlebars from "handlebars";
 import * as Components from "./components";
-import * as Pages from "./pages";
+import { registerComponent } from './core/resgiterComponent';
+import { navigate } from './core/navigate';
 
-import { profile_props, login_props, cards_props } from "./const.ts";
 
-const pages = {
-  list: [Pages.ListPage],
-  login: [Pages.LoginPage, { loginValue: login_props }],
-  register: [
-    Pages.RegisterPage,
-    { profileValues: profile_props, password: "11111" },
-  ],
-  chat: [Pages.ChatPage, { login: "ivanivanov", cardsValues: cards_props }],
-  404: [Pages.Page404],
-  500: [Pages.Page500],
-  profile: [Pages.ProfilePage, { profileValues: profile_props }],
-};
+Handlebars.registerPartial('FormAuth', Components.FormAuth);
+registerComponent('FormAuthTitle', Components.FormAuthTitle);
+registerComponent('FormAuthElement', Components.FormAuthElement);
+registerComponent('FormAuthButton', Components.FormAuthButton);
+registerComponent('FormAuthLink', Components.FormAuthLink);
 
-Object.entries(Components).forEach(([name, component]) => {
-  Handlebars.registerPartial(name, component);
-});
+registerComponent('Input', Components.Input);
+registerComponent('ErrorLine', Components.ErrorLine);
+registerComponent('Button', Components.Button);
 
-function navigate(page) {
-  const [source, context] = pages[page];
-  const container = document.getElementById("app");
-  container.innerHTML = Handlebars.compile(source)(context);
-}
+registerComponent('ErrorTitle', Components.ErrorTitle);
+registerComponent('ErrorDescription', Components.ErrorDescription);
+registerComponent('ErrorLink', Components.ErrorLink);
 
-document.addEventListener("DOMContentLoaded", () => navigate("list"));
+registerComponent('ProfileButtonChat', Components.ProfileButtonChat);
+registerComponent('ProfileAvatar', Components.ProfileAvatar);
+registerComponent('ProfileButtonSave', Components.ProfileButtonSave);
+registerComponent('ProfileInfoInput', Components.ProfileInfoInput);
+registerComponent('ProfileInfoLabel', Components.ProfileInfoLabel);
+registerComponent('ProfileInfo', Components.ProfileInfo);
 
-document.addEventListener("click", (e) => {
-  const page = e.target.getAttribute("page");
-  if (page) {
-    navigate(page);
+registerComponent('ChatHeader', Components.ChatHeader);
+registerComponent('ChatLink', Components.ChatLink);
+registerComponent('ChatButton', Components.ChatButton);
+registerComponent('ChatCard', Components.ChatCard);
+registerComponent('ListChatCards', Components.ListChatCards);
+registerComponent('ChatFooter', Components.ChatFooter);
 
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  }
-});
+registerComponent('ReferenceButton', Components.ReferenceButton);
+registerComponent('ReferenceLink', Components.ReferenceLink);
+registerComponent('ReferenceLinks', Components.ReferenceLinks);
+
+document.addEventListener('DOMContentLoaded', () => navigate('list'));

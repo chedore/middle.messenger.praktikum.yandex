@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "npx eslint .",
     "start": "npm run build && node app.cjs"
@@ -24,6 +24,7 @@
     "vite-plugin-handlebars": "^1.6.0"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "nanoid": "^4.0.2"
   }
 }
