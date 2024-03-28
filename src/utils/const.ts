@@ -63,12 +63,22 @@ export const cards_props = [
   },
   { name: 'Вадим', message: 'Круто!', owner: true, time: 'Пт' },
 ];
+export const ENDPOINT_PAGES = {
+  login: 'login',
+  register: 'register',
+  chat: 'chat',
+  404: '404',
+  500: '500',
+  profile: 'profile'
+}
 
 export const pages_props = [
-  { page: 'login' },
-  { page: 'register' },
-  { page: 'chat' },
-  { page: '404' },
-  { page: '500' },
-  { page: 'profile' },
+  { page: ENDPOINT_PAGES[404] },
+  { page: ENDPOINT_PAGES[500] },
+  { page: ENDPOINT_PAGES.chat },
+  { page: ENDPOINT_PAGES.login },
+  { page: ENDPOINT_PAGES.profile },
+  { page: ENDPOINT_PAGES.register },
 ];
+
+

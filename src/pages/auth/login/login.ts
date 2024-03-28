@@ -1,6 +1,7 @@
 import Block from '../../../core/Block';
 import { navigate } from '../../../core/navigate';
 import * as validators from '../../../utils/validators';
+import { ENDPOINT_PAGES as pages } from '../../../utils/const';
 
 export class LoginPage extends Block {
   static name = 'LoginPage';
@@ -10,8 +11,6 @@ export class LoginPage extends Block {
         login: validators.login,
       },
       onLogin: (event) => {
-        console.log(1);
-        navigate('list');
         event.preventDefault();
         const login = this.refs.login.value();
         const password = this.refs.password.value();
@@ -24,7 +23,10 @@ export class LoginPage extends Block {
           login,
           password,
         });
-        navigate('list');
+        navigate(pages.chat);
+      },
+      onRegister: () => {
+        navigate(pages.register);
       },
     });
   }
@@ -37,8 +39,8 @@ export class LoginPage extends Block {
             {{{ FormAuthElement label="Логин" ref="login" validate=validate.login }}}
             {{{ FormAuthElement label="Пароль" ref="password" }}}
           </div>
-          {{{ FormAuthButton label="Авторизоваться" page="list" onClick=onLogin }}}
-          {{{ FormAuthLink label="Нет аккаунта?" }}}
+          {{{ FormAuthButton label="Авторизоваться" onClick=onLogin }}}
+          {{{ FormAuthLink label="Нет аккаунта?" onClick=onRegister }}}
         {{/FormAuth}}
       </main>
     `;
