@@ -3,10 +3,7 @@
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: 64px repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  grid-template:  repeat(1, 1fr)/64px repeat(1, 1fr);
   box-sizing: border-box;
   grid-template-areas: 'sidebar main';
 }

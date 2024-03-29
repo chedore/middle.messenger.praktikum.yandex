@@ -1,5 +1,5 @@
 {
   "extends": "stylelint-config-standard",
   "rules": { "selector-class-pattern": null },
-  "ignoreFiles": ["dist/**/*", "build/*", "src/style.css"]
+  "ignoreFiles": ["dist/**/*", "build/*", "src/style.css", "src/vendor/fonts.css", "src/vendor/normalize.css"]
 }
