@@ -1,7 +1,5 @@
-{
-  "extends": "stylelint-config-standard",
-  "rules": {},
-  "ignoreFiles": ["dist/**/*", "build/*", "src/style.css"]
-}
-
-
+// {
+//   "extends": "stylelint-config-standard",
+//   "rules": {},
+//   "ignoreFiles": ["dist/**/*", "build/*", "src/style.css"]
+// }
