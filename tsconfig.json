@@ -15,8 +15,6 @@
   },
   "include": [
     "src/**/*",
-    "src/combined.d.ts",
-    "global.d.ts"
   ],
   "exclude": [
     "dist"
