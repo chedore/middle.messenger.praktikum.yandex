@@ -7,12 +7,12 @@ interface PageStructure {
 
 const pages: PageStructure = {
   login: [Pages.LoginPage],
-  // register: [Pages.RegisterPage],
-  // list: [Pages.ListPage],
-  // '404': [Pages.Error404Page],
-  // '500': [Pages.Error500Page],
-  // profile: [Pages.ProfilePage],
-  // chart: [Pages.ChatPage],
+  register: [Pages.RegisterPage],
+  list: [Pages.ListPage],
+  404: [Pages.Error404Page],
+  500: [Pages.Error500Page],
+  profile: [Pages.ProfilePage],
+  chart: [Pages.ChatPage],
 };
 
 function navigate(page: string): void {
@@ -24,7 +24,7 @@ function navigate(page: string): void {
 
 window.navigate = navigate;
 
-const block = new Pages.LoginPage({});
+const block = new Pages.ListPage({});
 const container = document.getElementById('app')!;
 
 container.append(block.getContent()!);
