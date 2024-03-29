@@ -1,1 +1,1 @@
-export { ProfileInfoInput } from "./profile__info-input";
+export { ProfileInfoInput } from './profile__info-input';

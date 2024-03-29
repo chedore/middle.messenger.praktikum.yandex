@@ -1,1 +1,1 @@
-export { ProfileInfoLabel } from "./profile__info-label";
+export { ProfileInfoLabel } from './profile__info-label';

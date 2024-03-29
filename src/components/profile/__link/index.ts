@@ -1,1 +1,1 @@
-export { default as ProfileLink } from "./profile__link.hbs?raw";
+export { default as ProfileLink } from './profile__link.hbs?raw';

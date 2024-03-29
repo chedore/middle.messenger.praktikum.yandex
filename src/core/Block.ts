@@ -1,31 +1,32 @@
-import EventBus from "./EventBus";
-import {nanoid} from 'nanoid';
-import Handlebars from "handlebars";
+import EventBus from './EventBus';
+import { nanoid } from 'nanoid';
+import Handlebars from 'handlebars';
 
 export type RefType = {
-  [key: string]: Element | Block<object>
-}
+  [key: string]: Element | Block<object>;
+};
 
 export interface Props {
   [key: string]: unknown;
   [key: symbol]: unknown;
-  events: Record<string, EventListenerOrEventListenerObject> ;
-  attr: Record<string, string>
+  events: Record<string, EventListenerOrEventListenerObject>;
+  attr: Record<string, string>;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export interface BlockClass<P extends object, R extends RefType> extends Function {
+export interface BlockClass<P extends object, R extends RefType>
+  extends Function {
   new (props: P): Block<P, R>;
   componentName?: string;
 }
 
 class Block<Props extends object, Refs extends RefType = RefType> {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
     FLOW_CWU: 'flow:component-will-unmount',
-    FLOW_RENDER: "flow:render"
+    FLOW_RENDER: 'flow:render',
   };
 
   public id = nanoid(6);
@@ -57,8 +58,8 @@ class Block<Props extends object, Refs extends RefType = RefType> {
   }
 
   _addEvents() {
-    const {events = {}} = this.props;
-    Object.keys(events).forEach(eventName => {
+    const { events = {} } = this.props;
+    Object.keys(events).forEach((eventName) => {
       this._element!.addEventListener(eventName, events[eventName]);
     });
   }
@@ -77,8 +78,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {
-  }
+  protected init() {}
 
   _componentDidMount() {
     this._checkInDom();
@@ -90,7 +90,9 @@ class Block<Props extends object, Refs extends RefType = RefType> {
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
+    Object.values(this.children).forEach((child) =>
+      child.dispatchComponentDidMount()
+    );
   }
 
   private _componentDidUpdate(oldProps: Props, newProps: Props) {
@@ -104,20 +106,20 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     return true;
   }
 
-    /**
+  /**
    * Хелпер, который проверяет, находится ли элемент в DOM дереве
    * И есть нет, триггерит событие COMPONENT_WILL_UNMOUNT
    */
-    _checkInDom() {
-      const elementInDOM = document.body.contains(this._element);
+  _checkInDom() {
+    const elementInDOM = document.body.contains(this._element);
 
-      if (elementInDOM) {
-        setTimeout(() => this._checkInDom(), 1000);
-        return;
-      }
-
-      this.eventBus().emit(Block.EVENTS.FLOW_CWU, this.props);
+    if (elementInDOM) {
+      setTimeout(() => this._checkInDom(), 1000);
+      return;
     }
+
+    this.eventBus().emit(Block.EVENTS.FLOW_CWU, this.props);
+  }
 
   _componentWillUnmount() {
     this.componentWillUnmount();
@@ -137,7 +139,6 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     return this._element;
   }
 
-
   private _render() {
     const fragment = this.compile(this.render(), this.props);
 
@@ -155,25 +156,25 @@ class Block<Props extends object, Refs extends RefType = RefType> {
   }
 
   private compile(template: string, context: unknown) {
-    const contextAndStubs = {...context, __refs: this.refs};
+    const contextAndStubs = { ...context, __refs: this.refs };
 
     Object.entries(this.children).forEach(([key, child]) => {
       contextAndStubs[key] = `<div data-id="${child.id}"></div>`;
-    })
+    });
 
     const html = Handlebars.compile(template)(contextAndStubs);
 
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
-    contextAndStubs.__children?.forEach(({embed}: unknown) => {
+    contextAndStubs.__children?.forEach(({ embed }: unknown) => {
       embed(temp.content);
     });
 
     Object.values(this.children).forEach((child) => {
       const stub = temp.content.querySelector(`[data-id="${child.id}"]`);
       stub?.replaceWith(child.getContent()!);
-    })
+    });
 
     return temp.content;
   }
@@ -205,10 +206,10 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     return new Proxy(props, {
       get(target, prop) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop, value) {
-        const oldTarget = {...target}
+        const oldTarget = { ...target };
 
         target[prop] = value;
 
@@ -218,17 +219,17 @@ class Block<Props extends object, Refs extends RefType = RefType> {
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
-      }
+        throw new Error('Нет доступа');
+      },
     });
   }
 
   show() {
-    this.getContent()!.style.display = "block";
+    this.getContent()!.style.display = 'block';
   }
 
   hide() {
-    this.getContent()!.style.display = "none";
+    this.getContent()!.style.display = 'none';
   }
 }
 

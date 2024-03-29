@@ -9,9 +9,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   grid-template-areas:
-    "sidebar header header"
-    "sidebar main main"
-    "sidebar footer footer";
+    'sidebar header header'
+    'sidebar main main'
+    'sidebar footer footer';
 }
 
 .containerchat__sidebar {

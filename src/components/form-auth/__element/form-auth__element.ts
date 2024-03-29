@@ -1,5 +1,5 @@
 import Block from '../../../core/Block';
-import {validators} from '../../../utils/validators';
+import { validators } from '../../../utils/validators';
 
 export class FormAuthElement extends Block {
   constructor(props) {

@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 
 interface IProps {
-  type: "submit" | "button";
+  type: 'submit' | 'button';
   label: string;
   page?: string;
   style?: string;

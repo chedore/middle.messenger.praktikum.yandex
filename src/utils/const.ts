@@ -71,7 +71,7 @@ export const ENDPOINT_PAGES = {
   500: '500',
   profile: 'profile',
   list: 'list',
-}
+};
 
 export const pages_props = [
   { page: ENDPOINT_PAGES[404] },
@@ -81,7 +81,4 @@ export const pages_props = [
   { page: ENDPOINT_PAGES.profile },
   { page: ENDPOINT_PAGES.register },
   { page: ENDPOINT_PAGES.list },
-
 ];
-
-

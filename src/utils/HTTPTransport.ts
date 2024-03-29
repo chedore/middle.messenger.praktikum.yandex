@@ -8,15 +8,15 @@ const METHODS: Record<Method, Method> = {
 };
 
 interface Options {
-    headers?: Record<string, string>;
-    method?: Method;
-    data?: Record<string, unknown>;
-    timeout?: number;
+  headers?: Record<string, string>;
+  method?: Method;
+  data?: Record<string, unknown>;
+  timeout?: number;
 }
 
 type QueryString = string;
 
-type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>
+type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>;
 
 function queryStringify(data: Record<string, unknown>): QueryString {
   if (typeof data !== 'object') {
@@ -24,20 +24,32 @@ function queryStringify(data: Record<string, unknown>): QueryString {
   }
 
   const keys = Object.keys(data);
-  return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
+  return keys.reduce(
+    (result, key, index) =>
+      `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`,
+    '?'
+  );
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class HTTPTransport {
-  get: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
+  get: HTTPMethod = (url, options) =>
+    this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
 
-  post: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
+  post: HTTPMethod = (url, options) =>
+    this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-  put: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
+  put: HTTPMethod = (url, options) =>
+    this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-  delete: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
+  delete: HTTPMethod = (url, options) =>
+    this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
-  request(url: string, options: Options = {}, timeout: number = 5000): Promise<XMLHttpRequest> {
+  request(
+    url: string,
+    options: Options = {},
+    timeout: number = 5000
+  ): Promise<XMLHttpRequest> {
     const { headers = {}, method, data } = options;
 
     return new Promise((resolve, reject) => {
@@ -51,7 +63,9 @@ class HTTPTransport {
 
       xhr.open(
         method,
-        isGet && data ? `${url}${queryStringify(data as Record<string, unknown>)}` : url, // Предполагается, что data - это объект
+        isGet && data
+          ? `${url}${queryStringify(data as Record<string, unknown>)}`
+          : url // Предполагается, что data - это объект
       );
 
       Object.keys(headers).forEach((key) => {

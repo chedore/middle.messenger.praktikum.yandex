@@ -1,10 +1,10 @@
 import Block from '../../core/Block';
-import { cards_props } from "../../utils/const";
+import { cards_props } from '../../utils/const';
 
 export class ChatPage extends Block {
   constructor() {
     super({
-      cards: cards_props
+      cards: cards_props,
     });
   }
   protected render(): string {
@@ -23,7 +23,7 @@ export class ChatPage extends Block {
         <section class="containerchat__main"></section>
 
         <footer class="containerchat__footer">{{{ ChatFooter }}}</footer>
-        
+
       </main>
     `;
   }

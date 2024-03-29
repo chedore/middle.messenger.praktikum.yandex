@@ -8,7 +8,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  grid-template-areas: "sidebar main";
+  grid-template-areas: 'sidebar main';
 }
 
 .containerprofile__sidebar {

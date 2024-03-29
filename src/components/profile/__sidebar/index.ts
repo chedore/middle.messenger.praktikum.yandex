@@ -1,1 +1,1 @@
-export { ProfileButtonChat } from "./profile__sidebar";
+export { ProfileButtonChat } from './profile__sidebar';

@@ -40,7 +40,6 @@
 @import url(./pages/chat/chat.css);
 @import url(./pages/list/list.css);
 
-
 :root {
   --background-color: #fff;
   --sidebar-color: #fbfbfb;
@@ -56,7 +55,7 @@
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0;

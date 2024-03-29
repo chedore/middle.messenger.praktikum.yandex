@@ -1,8 +1,7 @@
-import Handlebars from "handlebars";
-import * as Components from "./components";
+import Handlebars from 'handlebars';
+import * as Components from './components';
 import { registerComponent } from './core/resgiterComponent';
 import { navigate } from './core/navigate';
-
 
 Handlebars.registerPartial('FormAuth', Components.FormAuth);
 registerComponent('FormAuthTitle', Components.FormAuthTitle);
