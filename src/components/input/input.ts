@@ -3,7 +3,7 @@ import Block from '../../core/Block';
 interface IProps {
   classes: string;
   placeholder: string;
-  id: string;
+  name: string;
 }
 
 export class Input extends Block {
@@ -17,12 +17,12 @@ export class Input extends Block {
   }
 
   protected render(): string {
-    const { classes, placeholder, id } = this.props;
+    const { classes, placeholder, name } = this.props;
     return `
       <input
         class="${classes}"
         placeholder="${placeholder || ''}"
-        id="${id}"
+        name="${name}"
         ref="input"
         required
       />

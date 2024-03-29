@@ -1,6 +1,4 @@
 import Block from '../../core/Block';
-import { pages_props } from '../../utils/const';
-import { navigate } from '../../core/navigate';
 
 export class ListPage extends Block {
   protected render(): string {

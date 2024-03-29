@@ -1,22 +1,22 @@
 import Block from '../../../core/Block';
 import { navigate } from '../../../core/navigate';
-import {validators} from '../../../utils/validators';
 import { profile_props } from '../../../utils/const';
 import { ENDPOINT_PAGES as pages } from '../../../utils/const';
+import { submit } from '../../../utils/formValidator';
 
 export class RegisterPage extends Block {
   static name = 'RegisterPage';
   constructor() {
     super({
       profileValues: profile_props,
-      validate: {
-        f: validators,
-      },
       onLogin: () => {
         navigate(pages.login);
       },
-      onRegister: () => {
-        navigate(pages.chat);
+      onRegister: (e: SubmitEvent) => {
+        const isValid: boolean = submit(e);
+        if (isValid) {
+          navigate(pages.chat);
+        }
       },
     });
   }
@@ -27,7 +27,7 @@ export class RegisterPage extends Block {
           {{{ FormAuthTitle label="Регистрация" }}}
           <div class="container__register">
             {{#each profileValues}}
-              {{{ FormAuthElement label=this.label ref=this.name id="this.name" validate=validate.f}}}
+              {{{ FormAuthElement label=this.label ref=this.name name=this.name}}}
             {{/each}}
           </div>
           {{{ FormAuthButton label="Зарегистрироваться" onClick=onRegister }}}

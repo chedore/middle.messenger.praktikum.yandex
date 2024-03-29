@@ -1,4 +1,5 @@
 import Block from '../../../core/Block';
+import {validators} from '../../../utils/validators';
 
 export class FormAuthElement extends Block {
   constructor(props) {
@@ -9,16 +10,19 @@ export class FormAuthElement extends Block {
   }
 
   private validate() {
-  const name = this.refs.input.element.id;
-  const value = this.refs.input.element.value;
-  const error = this.props.validate?.(name, value);
-  if (!error) {
-    this.refs.errorLine.setProps({ error:'Ошибка, ввод не удовлетворяет условию'});
+    const name = this.refs.input.element.name;
+    const value = this.refs.input.element.value;
+    const error = validators(name, value);
+
+    if (!error) {
+      this.refs.errorLine.setProps({
+        error: 'Ошибка, ввод не удовлетворяет условию',
+      });
+      return error;
+    }
+    this.refs.errorLine.setProps({ error: undefined });
     return error;
   }
-  this.refs.errorLine.setProps({ error: undefined });
-  return error;
-}
 
   protected render(): string {
     return `
@@ -28,7 +32,7 @@ export class FormAuthElement extends Block {
                   classes="input input__element"
                   ref="input"
                   onBlur=onBlur
-                  id=id
+                  name=name
               }}}
               <div class="input__label">{{label}}</div>
           </label>

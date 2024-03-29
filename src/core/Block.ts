@@ -6,6 +6,14 @@ export type RefType = {
   [key: string]: Element | Block<object>
 }
 
+export interface Props {
+  [key: string]: unknown;
+  [key: symbol]: unknown;
+  events: Record<string, EventListenerOrEventListenerObject> ;
+  attr: Record<string, string>
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface BlockClass<P extends object, R extends RefType> extends Function {
   new (props: P): Block<P, R>;
   componentName?: string;
@@ -85,13 +93,14 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
   }
 
-  private _componentDidUpdate(oldProps: any, newProps: any) {
+  private _componentDidUpdate(oldProps: Props, newProps: Props) {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  componentDidUpdate(_oldProps: Props, _newProps: Props): boolean {
     return true;
   }
 
@@ -116,7 +125,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
 
   componentWillUnmount() {}
 
-  setProps = (nextProps: any) => {
+  setProps = (nextProps: Props) => {
     if (!nextProps) {
       return;
     }
@@ -131,7 +140,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
 
   private _render() {
     const fragment = this.compile(this.render(), this.props);
-    
+
     this._removeEvents();
 
     const newElement = fragment.firstElementChild as HTMLElement;
@@ -145,7 +154,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     this._addEvents();
   }
 
-  private compile(template: string, context: any) {
+  private compile(template: string, context: unknown) {
     const contextAndStubs = {...context, __refs: this.refs};
 
     Object.entries(this.children).forEach(([key, child]) => {
@@ -157,7 +166,7 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
-    contextAndStubs.__children?.forEach(({embed}: any) => {
+    contextAndStubs.__children?.forEach(({embed}: unknown) => {
       embed(temp.content);
     });
 
@@ -188,8 +197,9 @@ class Block<Props extends object, Refs extends RefType = RefType> {
     return this._element;
   }
 
-  _makePropsProxy(props: any) {
+  _makePropsProxy(props: Props) {
     // Ещё один способ передачи this, но он больше не применяется с приходом ES6+
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
 
     return new Proxy(props, {
