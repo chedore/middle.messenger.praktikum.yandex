@@ -8,11 +8,10 @@
     "module": "commonjs",
     "strictNullChecks": true,
     "sourceMap": true,
-    "useDefineForClassFields": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src", "typings/app.d.ts"],
-  "exclude": ["node_modules", "build", "dist"]
+  "include": ["src/**/*", "src/combined.d.ts", "global.d.ts"],
+  "exclude": ["dist"]
 }

@@ -1,7 +1,18 @@
 import Block from '../../../core/Block';
+import './error__title.css';
+
+import ErrorTitleRaw from './error__title.hbs?raw';
+
+interface Props {
+  [key: string]: string;
+}
 
 export class ErrorTitle extends Block {
-  protected render(): string {
-    return `<h1 class="error__title">{{label}}</h1>`;
+  constructor(props: Props) {
+    super({ ...props });
+  }
+
+  override render() {
+    return ErrorTitleRaw;
   }
 }

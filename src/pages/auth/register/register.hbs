@@ -1,17 +1,5 @@
-<main class="container">
-  {{#> FormAuth}}
-    {{> FormAuthTitle label="Регистрация" }}
-    <div class="container__register">
-      {{{ FormAuthElement label="Почта" }}}
-      {{{ FormAuthElement label="Логин" }}}
-      {{{ FormAuthElement label="Имя" }}}
-      {{{ FormAuthElement label="Фамилия" }}}
-      {{{ FormAuthElement label="Имя в чате" }}}
-      {{{ FormAuthElement label="Телефон" }}}
-      {{{ FormAuthElement label="Пароль" }}}
-      {{{ FormAuthElement label="Пароль (ещё раз)" }}}
-    </div>
-    {{> FormAuthButton label="Зарегистрироваться" type="button" page="chat"}}
-    {{> FormAuthButton label="Войти" type="link" page="register"}}
-  {{/FormAuth}}
+<main class='container'>
+  <form class='form-auth'>
+    <div class='container__login'></div>
+  </form>
 </main>
