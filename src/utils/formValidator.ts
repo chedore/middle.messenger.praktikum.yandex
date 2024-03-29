@@ -16,9 +16,9 @@ export function submit(e: SubmitEvent): boolean {
 
   Array.from(form.elements).forEach((element) => {
     if (
-      element instanceof HTMLInputElement ||
-      element instanceof HTMLSelectElement ||
-      element instanceof HTMLTextAreaElement
+      element instanceof HTMLInputElement
+      || element instanceof HTMLSelectElement
+      || element instanceof HTMLTextAreaElement
     ) {
       const { name, value } = element;
       if (name) {

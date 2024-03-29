@@ -25,30 +25,25 @@ function queryStringify(data: Record<string, unknown>): QueryString {
 
   const keys = Object.keys(data);
   return keys.reduce(
-    (result, key, index) =>
-      `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`,
-    '?'
+    (result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`,
+    '?',
   );
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class HTTPTransport {
-  get: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
+  get: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
 
-  post: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
+  post: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-  put: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
+  put: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-  delete: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
+  delete: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
   request(
     url: string,
     options: Options = {},
-    timeout: number = 5000
+    timeout: number = 5000,
   ): Promise<XMLHttpRequest> {
     const { headers = {}, method, data } = options;
 
@@ -65,7 +60,7 @@ class HTTPTransport {
         method,
         isGet && data
           ? `${url}${queryStringify(data as Record<string, unknown>)}`
-          : url // Предполагается, что data - это объект
+          : url, // Предполагается, что data - это объект
       );
 
       Object.keys(headers).forEach((key) => {

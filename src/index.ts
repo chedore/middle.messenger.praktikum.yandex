@@ -32,7 +32,7 @@ container.append(block.getContent()!);
 document.addEventListener('DOMContentLoaded', () => {
   const changePasswordBtn = document.getElementById('changePasswordBtn');
   const settingsPasswordDiv = document.querySelector(
-    '.settings-password'
+    '.settings-password',
   ) as HTMLElement;
 
   changePasswordBtn?.addEventListener('click', (e) => {
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopImmediatePropagation();
 
     if (
-      settingsPasswordDiv &&
-      (settingsPasswordDiv.style.display === 'none' ||
-        settingsPasswordDiv.style.display === '')
+      settingsPasswordDiv
+      && (settingsPasswordDiv.style.display === 'none'
+        || settingsPasswordDiv.style.display === '')
     ) {
       settingsPasswordDiv.style.display = 'flex';
     } else if (settingsPasswordDiv) {

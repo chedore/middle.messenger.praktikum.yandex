@@ -31,11 +31,10 @@ export default class Block {
   constructor(
     propsWithChildren:
       | Record<string, Block | Record<string, unknown>>
-      | Record<string, unknown>
+      | Record<string, unknown>,
   ) {
     const eventBus = new EventBus();
-    const { props, children, lists } =
-      this._getChildrenPropsAndProps(propsWithChildren);
+    const { props, children, lists } = this._getChildrenPropsAndProps(propsWithChildren);
 
     this.props = this._makePropsProxy({ ...props });
     this.children = children;
@@ -102,7 +101,7 @@ export default class Block {
   _getChildrenPropsAndProps(
     propsAndChildren:
       | Record<string, Block | Record<string, unknown>>
-      | Record<string, unknown>
+      | Record<string, unknown>,
   ) {
     const children: Record<string, this> = {};
     const props = {} as Props;
@@ -166,7 +165,7 @@ export default class Block {
 
     Object.entries(this.lists).forEach(([_key, child]) => {
       const listCont = this._createDocumentElement(
-        'template'
+        'template',
       ) as HTMLTemplateElement;
       child.forEach((item) => {
         if (item instanceof Block) {
