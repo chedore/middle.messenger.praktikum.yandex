@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
@@ -13,7 +14,7 @@ export interface Props {
   attr: Record<string, string>;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+
 export interface BlockClass<P extends object, R extends RefType>
   extends Function {
   new (props: P): Block<P, R>;
