@@ -33,4 +33,9 @@
   height: 28px;
   flex-shrink: 0;
   margin-left: auto;
+  border: none;
+  background-color: transparent;
+  background-image: url('../../../images/retrieval-right.svg');
+  background-repeat: no-repeat;
+  background-position: 0;
 }

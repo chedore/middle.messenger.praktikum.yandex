@@ -7,8 +7,8 @@ export enum ComponentsName {
   EMAIL = 'email',
   PASSWORD = 'password',
   PHONE = 'phone',
-  DISPLAY_NAME = 'display_name'
-  // MESSAGE = 'message',
+  DISPLAY_NAME = 'display_name',
+  MESSAGE = 'message',
 }
 
 export const validationRules = {
@@ -19,5 +19,5 @@ export const validationRules = {
 [ComponentsName.EMAIL]: /^[a-zA-Z0-9-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 [ComponentsName.PASSWORD]: /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,40}$/,
 [ComponentsName.PHONE]: /^\+?\d{10,15}$/,
-// [ComponentsName.MESSAGE]: /\S+/,
+[ComponentsName.MESSAGE]: /\S+/,
 };
