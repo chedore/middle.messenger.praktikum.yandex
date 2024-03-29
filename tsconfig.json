@@ -19,5 +19,12 @@
     "noImplicitAny": true,
     "sourceMap": true,
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*",
+    "src/combined.d.ts",
+    "global.d.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
