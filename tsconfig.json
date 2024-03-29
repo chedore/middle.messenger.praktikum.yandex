@@ -13,12 +13,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": [
-    "src/**/*",
-    "src/combined.d.ts",
-    "global.d.ts"
-  ],
-  "exclude": [
-    "dist"
-  ]
+  "include": ["src", "typings/app.d.ts"],
+  "exclude": ["node_modules", "build", "dist"]
 }
