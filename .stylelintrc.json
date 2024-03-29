@@ -1,10 +1,5 @@
 {
   "extends": "stylelint-config-standard",
-  "rules": {
-
-  },
-  "ignoreFiles": [
-    "dist/**/*",
-    "build/*"
-  ]
+  "rules": {},
+  "ignoreFiles": ["dist/**/*", "build/*"]
 }
