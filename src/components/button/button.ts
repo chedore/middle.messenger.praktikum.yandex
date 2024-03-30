@@ -17,6 +17,9 @@ export class Button extends Block {
           if (props.submit) {
             const submit = props.submit as (event: SubmitEvent) => void;
             submit(e);
+          } else if (props.onChange) {
+            const onChange = props.onChange as (event: SubmitEvent) => void;
+            onChange(e);
           }
         },
       },

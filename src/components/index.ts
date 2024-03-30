@@ -1,5 +1,6 @@
 export { Button } from './button';
 export { FormAuth } from './form-auth';
+export { FormAuthElement } from './form-auth/__element';
 
 export { ErrorTitle } from './error/__title';
 export { ErrorDescription } from './error/__description';

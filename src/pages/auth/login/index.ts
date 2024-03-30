@@ -1,5 +1,5 @@
 import Block from '../../../core/Block';
-import { Button } from '../../../components';
+import { Button, FormAuthElement } from '../../../components';
 import { submit } from '../../../utils/formValidator';
 import './login.css';
 
@@ -13,13 +13,31 @@ export class LoginPage extends Block {
   constructor(props: Props) {
     super({
       ...props,
-      button_primary: new Button({
-        text: 'Login',
+      login: new FormAuthElement({
+        label: 'Login',
+        type: 'text',
+        name: 'login',
+      }),
+      password: new FormAuthElement({
+        label: 'Пароль',
+        type: 'text',
+        name: 'password',
+      }),
+      button_login: new Button({
+        text: 'Авторизоваться',
         page: 'login',
         className: 'button__form-auth',
         type: 'submit',
         submit,
         id: 'login-button',
+      }),
+      button_register: new Button({
+        text: 'Нет аккаунта?',
+        page: 'register',
+        className: 'form-auth__link',
+        type: 'submit',
+        onChange: () => window.navigate('register'),
+        id: 'register-button',
       }),
     });
   }
