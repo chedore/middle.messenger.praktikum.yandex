@@ -1,43 +1,35 @@
 import Block from '../../../core/Block';
-import {validators} from '../../../utils/validators';
+import './form-auth__element.css';
+import { Input } from '../../input';
+
+import FormAuthElementRaw from './form-auth__element.hbs?raw';
+
+interface Props {
+  [key: string]: string;
+}
 
 export class FormAuthElement extends Block {
-  constructor(props) {
+  constructor(props: Props) {
     super({
       ...props,
-      onBlur: () => this.validate(),
+      input: new Input({
+        className: 'input input__element',
+        placeholder: '',
+        type: props.type,
+        id: props.name,
+        name: props.name,
+        onChange: (value: boolean) => {
+          if (!value) {
+            this.setProps({ error: 'Ошибка, ввод не удовлетворяет условию' });
+          } else {
+            this.setProps({ error: undefined });
+          }
+        },
+      }),
     });
   }
 
-  private validate() {
-    const name = this.refs.input.element.name;
-    const value = this.refs.input.element.value;
-    const error = validators(name, value);
-
-    if (!error) {
-      this.refs.errorLine.setProps({
-        error: 'Ошибка, ввод не удовлетворяет условию',
-      });
-      return error;
-    }
-    this.refs.errorLine.setProps({ error: undefined });
-    return error;
-  }
-
-  protected render(): string {
-    return `
-      <div class="input__item" >
-          <label class="input__container">
-              {{{ Input
-                  classes="input input__element"
-                  ref="input"
-                  onBlur=onBlur
-                  name=name
-              }}}
-              <div class="input__label">{{label}}</div>
-          </label>
-          {{{ ErrorLine error=error ref="errorLine"}}}
-      </div>
-    `;
+  override render() {
+    return FormAuthElementRaw;
   }
 }

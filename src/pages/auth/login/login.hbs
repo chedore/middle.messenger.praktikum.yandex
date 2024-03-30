@@ -1,11 +1,11 @@
-<main class="container">
-  {{#> FormAuth}}
-    {{> FormAuthTitle label="Вход" }}
-    <div class="container__login">
-      {{> FormAuthElement label="Login" }}
-      {{> FormAuthElement label="Password" }}
+<main class='container'>
+  <form class='form-auth'>
+    <h1 class='form-auth__title'>Вход</h1>
+    <div class='container__login'>
+      {{{login}}}
+      {{{password}}}
     </div>
-    {{> FormAuthButton label="Авторизоваться" type="button" page="chat"}}
-    {{> FormAuthButton label="Нет аккаунта?" type="link" page="register"}}
-  {{/FormAuth}}
+    {{{button_login}}}
+    {{{button_register}}}
+  </form>
 </main>

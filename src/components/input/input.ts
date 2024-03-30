@@ -1,31 +1,30 @@
 import Block from '../../core/Block';
+import InputRaw from './input.hbs?raw';
+import { validators } from '../../utils/validators';
+import { ComponentsName } from '../../utils/validationRules';
 
-interface IProps {
-  classes: string;
-  placeholder: string;
-  name: string;
+interface Props {
+  [key: string]: unknown;
 }
 
 export class Input extends Block {
-  constructor(props: IProps) {
+  constructor(props: Props) {
     super({
       ...props,
       events: {
-        blur: props.onBlur,
+        blur: (e: FocusEvent) => {
+          const target = e.target as HTMLInputElement;
+          const name = props.name as ComponentsName;
+          const onChange = props.onChange as (arg: boolean) => void;
+
+          const isValid = validators(name, target.value);
+          onChange(isValid);
+        },
       },
     });
   }
 
-  protected render(): string {
-    const { classes, placeholder, name } = this.props;
-    return `
-      <input
-        class="${classes}"
-        placeholder="${placeholder || ''}"
-        name="${name}"
-        ref="input"
-        required
-      />
-    `;
+  render() {
+    return InputRaw;
   }
 }

@@ -1,14 +1,29 @@
 import Block from '../../../core/Block';
+import './profile__info-input.css';
+import { Input } from '../../input';
 
-export class ProfileInfoInput extends Block {
-  protected render(): string {
-    return `
-      <input
-        class="profile__info-input"
-        type={{type}}
-        name={{name}}
-        value={{value}}
-      />
-    `;
+import ProfileInputRaw from './profile__info-input.hbs?raw';
+
+interface Props {
+  [key: string]: string;
+}
+
+export class ProfileInput extends Block {
+  constructor(props: Props) {
+    super({
+      ...props,
+      input: new Input({
+        className: props.className,
+        placeholder: props.placeholder,
+        type: props.type,
+        id: props.id,
+        name: props.name,
+        onChange: (value: boolean) => console.log(`проверка валидаци:${value}`),
+      }),
+    });
+  }
+
+  override render() {
+    return ProfileInputRaw;
   }
 }

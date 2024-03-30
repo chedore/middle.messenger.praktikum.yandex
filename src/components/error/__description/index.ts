@@ -1,1 +1,1 @@
-export { ErrorDescription } from "./error__description";
+export { ErrorDescription } from './error__description';

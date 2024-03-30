@@ -4,7 +4,7 @@
   min-height: 100vh;
 }
 
-.reference {
+.containerlist__links {
   display: flex;
   flex-direction: column;
   width: 340px;
@@ -14,4 +14,20 @@
   padding: 0 30px;
   margin: 0;
   box-shadow: 0 0 6px #00000024;
+}
+
+.containerlist__link {
+  border: none;
+  border-radius: 8px;
+  background: var(--button-color);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  margin: 0 auto 14px;
+  padding: 12px 0;
+  width: 100%;
+  flex-shrink: 0;
 }

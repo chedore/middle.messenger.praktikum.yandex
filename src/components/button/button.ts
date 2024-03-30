@@ -1,33 +1,32 @@
 import Block from '../../core/Block';
 
-interface IProps {
-  type: "submit" | "button";
-  label: string;
-  page?: string;
-  style?: string;
-  onClick?: () => void;
+import ButtonRaw from './button.hbs?raw';
+
+interface Props {
+  [key: string]: unknown;
 }
 
 export class Button extends Block {
-  constructor(props: IProps) {
-    super(props);
+  constructor(props: Props) {
+    super({
+      ...props,
+      events: {
+        click: (e: SubmitEvent) => {
+          e.preventDefault();
+
+          if (props.submit) {
+            const submit = props.submit as (event: SubmitEvent) => void;
+            submit(e);
+          } else if (props.onChange) {
+            const onChange = props.onChange as (event: SubmitEvent) => void;
+            onChange(e);
+          }
+        },
+      },
+    });
   }
 
-  protected init(): void {
-    this.props.events = {
-      click: this.props.onClick,
-    };
-  }
-
-  protected render(): string {
-    const { type, label, page, style } = this.props;
-    return `
-      <button type="button" class="button ${style ? `${style}` : ''}"
-        type=${type}
-        ${page ? `page="${page}"` : ''}
-      >
-        ${label}
-      </button>
-    `;
+  render() {
+    return ButtonRaw;
   }
 }

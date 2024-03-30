@@ -1,45 +1,11 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
+
 @import url(./blocks/input/input.css);
+@import url(./blocks/input/__profile-info/input__profile-info.css);
+
 @import url(./blocks/button/button.css);
-@import url(./blocks/popup/popup.css);
-@import url(./blocks/popup/__container/popup__container.css);
-@import url(./blocks/popup/__opened/popup__opened.css);
-@import url(./blocks/popup/__close/popup__close.css);
-
-@import url(./components/form-auth/form-auth.css);
-@import url(./components/form-auth/__title/form-auth__title.css);
-@import url(./components/form-auth/__element/form-auth__element.css);
-@import url(./components/form-auth/__button/form-auth__button.css);
-@import url(./components/form-auth/__link/form-auth__link.css);
-
-@import url(./components/error/error.css);
-@import url(./components/error/__title/error__title.css);
-@import url(./components/error/__description/error__description.css);
-@import url(./components/error/__link/error__link.css);
-
-@import url(./components/profile/__button/profile__button.css);
-@import url(./components/profile/__sidebar/profile__sidebar.css);
-@import url(./components/profile/__avatar/profile__avatar.css);
-@import url(./components/profile/__info-input/profile__info-input.css);
-@import url(./components/profile/__info-label/profile__info-label.css);
-@import url(./components/profile/__info/profile__info.css);
-
-@import url(./components/chat/__header/chat__header.css);
-@import url(./components/chat/__link/chat__link.css);
-@import url(./components/chat/__button/chat__button.css);
-@import url(./components/chat/__card/chat__card.css);
-@import url(./components/chat/__card-list/chat__card-list.css);
-@import url(./components/chat/__footer/chat__footer.css);
-
-@import url(./components/reference/__button/reference__button.css);
-
-@import url(./pages/auth/login/login.css);
-@import url(./pages/auth/register/register.css);
-@import url(./pages/profile/profile.css);
-@import url(./pages/chat/chat.css);
-@import url(./pages/list/list.css);
-
+@import url(./blocks/button/__form-auth/button__form-auth.css);
 
 :root {
   --background-color: #fff;
@@ -56,7 +22,7 @@
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0;

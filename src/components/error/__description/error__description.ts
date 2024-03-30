@@ -1,7 +1,18 @@
 import Block from '../../../core/Block';
+import './error__description.css';
+
+import ErrorDescriptionRaw from './error__description.hbs?raw';
+
+interface Props {
+  [key: string]: string;
+}
 
 export class ErrorDescription extends Block {
-  protected render(): string {
-    return `<p class="error__description">{{label}}</p>`;
+  constructor(props: Props) {
+    super({ ...props });
+  }
+
+  override render() {
+    return ErrorDescriptionRaw;
   }
 }

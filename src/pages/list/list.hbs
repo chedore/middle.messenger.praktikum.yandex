@@ -1,5 +1,30 @@
-<main class="containerlist">
-  {{#> ReferenceList}}
-    {{> ReferenceLinks }}
-  {{/ReferenceList}}
+<main class='containerlist'>
+  <nav>
+    <ul class='containerlist__links'>
+      <li class='button containerlist__link' onclick="window.navigate('login')">
+        login-page
+      </li>
+      <li
+        class='button containerlist__link'
+        onclick="window.navigate('register')"
+      >
+        register-page
+      </li>
+      <li class='button containerlist__link' onclick="window.navigate('404')">
+        404-page
+      </li>
+      <li class='button containerlist__link' onclick="window.navigate('500')">
+        500-page
+      </li>
+      <li
+        class='button containerlist__link'
+        onclick="window.navigate('profile')"
+      >
+        profile-page
+      </li>
+      <li class='button containerlist__link' onclick="window.navigate('chart')">
+        chart-page
+      </li>
+    </ul>
+  </nav>
 </main>

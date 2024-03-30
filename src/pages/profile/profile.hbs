@@ -1,14 +1,19 @@
-<main class="containerprofile">
-  <aside class="containerprofile__sidebar">
-    {{> ProfileButtonChat }}
+<main class='containerprofile'>
+  <aside class='containerprofile__sidebar'>
+    {{{button_sidebar}}}
   </aside>
-  <section class="containerprofile__main">
-    {{> ProfileAvatar }}
+  <section class='containerprofile__main'>
+    <div class='profile__avatar'>
+      <p class='profile__img'></p>
+    </div>
     <form>
-      {{#each profileValues}}
-        {{> ProfileInfo }}
-      {{/each}}
-      {{> ProfileButtonSave label="Сохранить"}}
+      {{{profileEmail}}}
+      {{{profileLogin}}}
+      {{{profileFirst_name}}}
+      {{{profileSecond_name}}}
+      {{{profileDisplay_name}}}
+      {{{profilePhone}}}
+      {{{button_save}}}
     </form>
   </section>
 </main>

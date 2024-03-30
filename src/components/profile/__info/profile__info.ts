@@ -1,23 +1,34 @@
 import Block from '../../../core/Block';
+import './profile__info.css';
+import { ProfileLabel } from '../__info-label';
+import { ProfileInput } from '../__info-input';
 
-interface IProps {
-  label: string;
-  type: 'password' | 'test';
-  name: string;
-  value: string;
+import ProfileInfoRaw from './profile__info.hbs?raw';
+
+interface Props {
+  [key: string]: string;
 }
 
 export class ProfileInfo extends Block {
-  constructor(props: IProps) {
-    super(props);
+  constructor(props: Props) {
+    super({
+      ...props,
+
+      input: new ProfileInput({
+        className: 'input__profile-info',
+        placeholder: props.placeholder,
+        type: 'text',
+        id: props.name,
+        name: props.name,
+      }),
+      label: new ProfileLabel({
+        className: 'profile__info-label',
+        label: props.label,
+      }),
+    });
   }
-  protected render(): string {
-    const { label, type, name, value } = this.props;
-    return `
-      <div class="profile__info">
-        {{{ ProfileInfoLabel label="${label}"}}}
-        {{{ ProfileInfoInput type="${type}" name="${name}" value="${value}" }}}
-      </div>
-    `;
+
+  override render() {
+    return ProfileInfoRaw;
   }
 }
