@@ -18,7 +18,13 @@ export class ProfileInput extends Block {
         type: props.type,
         id: props.id,
         name: props.name,
-        onChange: (value: boolean) => console.log(`проверка валидаци:${value}`),
+        onChange: (value: boolean) => {
+          if (!value) {
+            this.setProps({ error: 'Ошибка, ввод не удовлетворяет условию' });
+          } else {
+            this.setProps({ error: undefined });
+          }
+        },
       }),
     });
   }
