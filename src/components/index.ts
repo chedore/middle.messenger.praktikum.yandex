@@ -9,3 +9,7 @@ export { Input } from './input';
 export { ProfileLabel } from './profile/__info-label';
 export { ProfileInput } from './profile/__info-input';
 export { ProfileInfo } from './profile/__info';
+
+export { ChatHeader } from './chart/__header';
+export { ChatCard } from './chart/__card';
+export { ChatFooter } from './chart/__footer';

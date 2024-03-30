@@ -1,3 +1,21 @@
 <main class='containerchat'>
-  1
+  <header class='containerchat__header'>
+    {{{header}}}
+  </header>
+  <aside class='containerchat__sidebar'>
+    <button class='button chat__link' type='submit' page='{{page}}'>
+      <p class='chat__link-search'></p>
+      Профиль
+    </button>
+    <button class='button chat__button' type='submit' page='{{page}}'>
+      <p class='chat__button-searchform'></p>
+      Поиск
+    </button>
+    {{{cards}}}
+  </aside>
+
+  <section class='containerchat__main'></section>
+
+  <footer class='containerchat__footer'>{{{footer}}}</footer>
+
 </main>
