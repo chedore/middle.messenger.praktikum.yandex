@@ -1,14 +1,13 @@
-.profile__info-input {
-  border: none;
-  padding: 5px 0;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 13px;
-  text-align: right;
-  color: var(--text-lable-color);
+.profile__info-group {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+.profile__info-error {
+  color: var(--error-color);
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
-.profile__info-input:focus {
-  outline: dashed var(--text-lable-color);
-}

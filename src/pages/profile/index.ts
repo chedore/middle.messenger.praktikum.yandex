@@ -1,5 +1,6 @@
 import Block from '../../core/Block';
 import { Button, ProfileInfo } from '../../components';
+import { submit } from '../../utils/formValidator';
 import './profile.css';
 
 import ProfilePageRaw from './profile.hbs?raw';
@@ -18,6 +19,7 @@ export class ProfilePage extends Block {
       button_save: new Button({
         className: 'button profile__button',
         text: 'Сохранить',
+        submit,
       }),
 
       profileEmail: new ProfileInfo({
