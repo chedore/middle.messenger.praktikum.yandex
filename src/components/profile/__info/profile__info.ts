@@ -20,7 +20,6 @@ export class ProfileInfo extends Block {
         type: 'text',
         id: props.name,
         name: props.name,
-        onChange: (value: boolean) => console.log(`проверка валидаци:${value}`),
       }),
       label: new ProfileLabel({
         className: 'profile__info-label',

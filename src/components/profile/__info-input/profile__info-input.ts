@@ -18,7 +18,7 @@ export class ProfileInput extends Block {
         type: props.type,
         id: props.id,
         name: props.name,
-        onChange: props.onChange,
+        onChange: (value: boolean) => console.log(`проверка валидаци:${value}`),
       }),
     });
   }
