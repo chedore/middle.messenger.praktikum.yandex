@@ -1,1 +1,1 @@
-export { default as ErrorTitle } from "./error__title.hbs?raw";
+export { ErrorTitle } from './error__title';

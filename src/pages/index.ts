@@ -1,7 +1,7 @@
-export { LoginPage } from "./login";
-export { RegisterPage } from "./register";
-export { ChatPage } from "./chat";
-export { ListPage } from "./list";
-export { Page500 } from "./error/page500";
-export { Page404 } from "./error/page404";
-export { ProfilePage } from "./profile";
+export { LoginPage } from './auth/login';
+export { RegisterPage } from './auth/register';
+export { ListPage } from './list';
+export { Error404Page } from './errors/page404';
+export { Error500Page } from './errors/page500';
+export { ProfilePage } from './profile';
+export { ChatPage } from './chat';

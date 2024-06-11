@@ -1,31 +1,16 @@
-export { FormAuth } from "./form-auth";
-export { FormAuthTitle } from "./form-auth/__title";
-export { FormAuthLabel } from "./form-auth/__label";
-export { FormAuthInput } from "./form-auth/__input";
-export { FormAuthSpan } from "./form-auth/__span";
-export { FormAuthButton } from "./form-auth/__button";
-export { ChatButton } from "./chat/__button";
-export { ChatLink } from "./chat/__link";
-export { ChatCard } from "./chat/__card";
-export { ListChatCards } from "./chat/__card-list";
-export { ChatHeader } from "./chat/__header";
-export { ChatFooter } from "./chat/__footer";
-export { PopupAddLogin } from "./popup/__login";
-export { PopupLabel } from "./popup/__label";
-export { PopupInput } from "./popup/__input";
-export { PopupSpan } from "./popup/__span";
-export { PopupButton } from "./popup/__button";
-export { ReferenceList } from "./reference";
-export { ReferenceLink } from "./reference/__link";
-export { ReferenceLinks } from "./reference/__links";
-export { ReferenceButton } from "./reference/__button";
-export { ErrorTitle } from "./error/__title";
-export { ErrorDescription } from "./error/__description";
-export { ErrorLink } from "./error/__link";
-export { ProfileButtonChat } from "./profile/__sidebar";
-export { ProfileAvatar } from "./profile/__avatar";
-export { ProfileButtonSave } from "./profile/__button";
-export { ProfileInfo } from "./profile/__info";
-export { ProfileInfoInput } from "./profile/__info-input";
-export { ProfileInfoLabel } from "./profile/__info-label";
-export { ProfileLink } from "./profile/__link";
+export { Button } from './button';
+export { FormAuth } from './form-auth';
+export { FormAuthElement } from './form-auth/__element';
+
+export { ErrorTitle } from './error/__title';
+export { ErrorDescription } from './error/__description';
+export { ErrorLink } from './error/__link';
+
+export { Input } from './input';
+export { ProfileLabel } from './profile/__info-label';
+export { ProfileInput } from './profile/__info-input';
+export { ProfileInfo } from './profile/__info';
+
+export { ChatHeader } from './chart/__header';
+export { ChatCard } from './chart/__card';
+export { ChatFooter } from './chart/__footer';

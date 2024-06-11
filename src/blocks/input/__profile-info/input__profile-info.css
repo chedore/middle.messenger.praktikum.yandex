@@ -1,0 +1,14 @@
+.input__profile-info {
+  border: none;
+  padding: 5px 0;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  text-align: right;
+  color: var(--text-lable-color);
+}
+
+.input__profile-info:focus {
+  outline: dashed var(--text-lable-color);
+}

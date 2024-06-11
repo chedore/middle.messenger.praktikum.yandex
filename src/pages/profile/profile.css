@@ -3,12 +3,9 @@
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: 64px repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  grid-template: repeat(1, 1fr) / 64px repeat(1, 1fr);
   box-sizing: border-box;
-  grid-template-areas: "sidebar main";
+  grid-template-areas: 'sidebar main';
 }
 
 .containerprofile__sidebar {
@@ -17,6 +14,80 @@
   background: var(--sidebar-color);
 }
 
+.profile__sidebar-retrieval {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  margin: auto;
+  border: none;
+  background-image: url('../../images/retrieval-left.svg');
+  background-repeat: no-repeat;
+  background-position: 0;
+  background-color: transparent;
+}
+
+.profile__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  background: var(--button-color);
+  color: var(--background-color);
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  margin: 60px auto 14px;
+  padding: 12px 0;
+  flex-shrink: 0;
+  width: 280px;
+}
+
 .containerprofile__main {
   grid-area: main;
+}
+
+.profile__avatar {
+  background-color: #efefef;
+  background-image: url('../../../images/pencil.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 60px;
+  height: 120px;
+  transition: opacity 0.8s ease-in-out;
+  width: 120px;
+  z-index: 0;
+  margin: 60px auto;
+}
+
+.profile__img {
+  border-radius: inherit;
+  background-color: var(--gray-color);
+  background-image: url('../../images/avatar.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  margin: 0;
+  object-fit: none;
+  object-position: center center;
+  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  z-index: 1;
+}
+
+.profile__img:hover {
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.profile__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 510px;
+  width: 510px;
+  border-bottom: 1px solid var(--gray-color);
+  margin: 0 auto;
 }

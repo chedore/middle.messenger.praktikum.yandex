@@ -1,8 +1,6 @@
 .form-auth {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
   width: 340px;
   min-height: 450px;
   border-radius: 12px;
