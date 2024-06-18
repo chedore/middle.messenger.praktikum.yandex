@@ -2,6 +2,7 @@ import Block from '../../../core/Block';
 import { Button, FormAuthElement } from '../../../components';
 import { submit } from '../../../utils/formValidator';
 import './login.css';
+import router from "../../../core/Router";
 
 import LoginPageRaw from './login.hbs?raw';
 
@@ -36,7 +37,9 @@ export class LoginPage extends Block {
         page: 'register',
         className: 'form-auth__link',
         type: 'submit',
-        onChange: () => window.navigate('register'),
+        onChange: () => {
+          router.go("/sign-up");
+        },
         id: 'register-button',
       }),
     });
