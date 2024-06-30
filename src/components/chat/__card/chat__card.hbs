@@ -1,0 +1,14 @@
+
+<div class="card data-id={{id}} {{#if active}}card__active{{/if}}">
+  <img src="{{avatar}}" alt="Avatar" class="card__avatar">
+  <div class="card-info">
+    <h2 class="card-info__title">{{ name }}</h2>
+
+    <div class="card-info__wrap">
+      {{#if owner}}<h3 class="card-info__owner">Вы:</h3>{{/if}}
+      <p class="card-info__intro">{{lastMessage}}</p>
+     </div>
+  </div>
+  {{!-- <p class="card__time">{{timestamp}}</p> --}}
+  <span class="card__count">{{unreadCount}}</span>
+</div>

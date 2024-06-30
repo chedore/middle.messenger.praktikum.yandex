@@ -1,0 +1,21 @@
+{{#if isOpen}}
+<div>
+  <div class="overlay"></div>
+    <div class="wrapper" id="modalBackdrop">
+      <div class="modal" id="modal">
+        {{{ button_close }}}
+        <p>Выберите пользователя для добавления в чат</p>
+        <form>
+          {{{ button_search }}}
+          {{{ input_find_user }}}
+        </form>
+        {{#each usersList}}
+          {{{this}}}
+        {{/each}}
+      </div>
+    </div>
+</div>
+
+{{else}}
+  <div> </div>
+{{/if}}

@@ -1,0 +1,14 @@
+<main class="containerprofile">
+  <aside class="containerprofile__sidebar">
+    {{> ProfileButtonChat }}
+  </aside>
+  <section class="containerprofile__main">
+    {{> ProfileAvatar }}
+    <form>
+      {{#each profileValues}}
+        {{> ProfileInfo }}
+      {{/each}}
+      {{> ProfileButtonSave label="Сохранить"}}
+    </form>
+  </section>
+</main>

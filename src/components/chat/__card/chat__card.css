@@ -1,0 +1,103 @@
+
+.card {
+  position: relative;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 10px;
+  padding: 0;
+  border-top: 1px solid var(--gray-color);
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.card__avatar {
+  background-color: var(--gray-color);
+  border-radius: 60px;
+  width: 47px;
+  height: 47px;
+}
+
+.card-info {
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  justify-content: space-between;
+}
+
+.card-info__title {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px;
+  margin: 0;
+  padding-bottom: 4px;
+  max-width: 193px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-info__wrap {
+  display: flex;
+  flex-direction: row;
+  max-height: 30px;
+  max-width: 193px;
+  gap: 4px;
+}
+
+.card-info__owner {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.card-info__intro {
+  color: var(--text-lable-color);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
+
+.card__time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--text-lable-color);
+  text-align: right;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.card__count {
+  display: flex;
+  background-color: var(--button-color);
+  position: absolute;
+  border-radius: 50%;
+  bottom: 12px;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  color: var(--background-color);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

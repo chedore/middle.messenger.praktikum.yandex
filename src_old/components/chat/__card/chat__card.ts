@@ -1,0 +1,20 @@
+import Block from '../../../core/Block';
+
+export class ChatCard extends Block {
+  protected render(): string {
+    return `
+      <div class="card {{#if active}}card__active{{/if}}">
+        <div class="card__avatar"></div>
+        <div class="card-info">
+          <h2 class="card-info__title">{{ name }}</h2>
+          <div class="card-info__wrap">
+            {{#if owner}}<h3 class="card-info__owner">Вы:</h3>{{/if}}
+            <p class="card-info__intro">{{message}}</p>
+          </div>
+        </div>
+        <p class="card__time">{{time}}</p>
+        {{#if count}}<div class="card__count">{{count}}</div>{{/if}}
+      </div>
+    `;
+  }
+}

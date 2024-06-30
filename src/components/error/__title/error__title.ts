@@ -1,7 +1,7 @@
 import Block from '../../../core/Block';
 import './error__title.css';
 
-import ErrorTitleRaw from './error__title.hbs?raw';
+import ErrorTitleRaw from './error__title.hbs';
 
 interface Props {
   [key: string]: string;
@@ -13,6 +13,6 @@ export class ErrorTitle extends Block {
   }
 
   override render() {
-    return ErrorTitleRaw;
+    return this.compile(ErrorTitleRaw, this.props);
   }
 }

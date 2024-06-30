@@ -19,77 +19,18 @@
 .containerchat__header {
   grid-area: header;
   border-bottom: 1px solid var(--gray-color);
-  margin: 0 20px;
-  padding: 0;
+  margin: auto 20px;
+  padding: 10px;
 }
 
 .containerchat__main {
   grid-area: main;
+  height: 60vh;
 }
 
-.containerchat__footer {
+/* .containerchat__footer {
   grid-area: footer;
   border-top: 1px solid var(--gray-color);
-  margin: 0 20px;
   padding: 0;
-}
-
-.chat__link {
-  display: flex;
-  flex-direction: row-reverse;
-  color: var(--text-lable-color);
-  background: transparent;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 12px;
-  width: 100%;
-  padding: 0 10px;
-  text-decoration: none;
-  border: none;
-  margin: 21px auto 0;
-  gap: 8px;
-  align-items: baseline;
-}
-
-.chat__link-search {
-  background-image: url('../../images/search.svg');
-  background-repeat: no-repeat;
-  background-position: 0;
-  background-color: white;
-  height: 8px;
-  width: 8px;
-  padding: 0;
-  margin: 0;
-}
-
-.chat__button {
-  display: flex;
-  border: none;
-  border-radius: 5px;
-  background: var(--gray-color);
-  color: var(--text-lable-color);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 12px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin: 23px auto 14px;
-  padding: 10px 0;
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.chat__button-searchform {
-  width: 20px;
-  height: 20px;
-  background-image: url('../../images/loupe.svg');
-  background-repeat: no-repeat;
-  background-position: 0;
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-}
+  height: 100%;
+} */
