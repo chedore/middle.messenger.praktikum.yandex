@@ -1,44 +1,52 @@
-import Block from './Block';
+import Block from "./Block";
 
-function isEqual(lhs: string, rhs:string) {
-  return lhs === rhs;
+interface ComponentConstructable<P extends Record<string, any> = any> {
+  new (props: P): Block<P>;
 }
 
+const isEqual = (lhs: string, rhs: string): boolean => {
+  return lhs === rhs;
+};
+
+const render = (query: string, block: Block) => {
+  const root = document.querySelector(query);
+
+  if (root === null) {
+    throw new Error(`Root not found by selector "${query}"`);
+  }
+
+  root.innerHTML = "";
+
+  root.append(block.getContent()!);
+
+  return root;
+};
+
 class Route {
-  private _block: Block | null = null
+  private view: Block | null = null;
 
   constructor(
-    private _pathname: string,
-    private _blockClass: any,
-    private _props: string
+    private pathname: string,
+    private readonly componentClass: ComponentConstructable,
+    private readonly query: string
   ) {}
 
   leave() {
-    if (this._block) {
-        this._block.hide();
-    }
+    this.view = null;
   }
 
-  match(pathname:string) {
-    return isEqual(pathname, this._pathname);
-  }
-
-  _renderDom(query: string, block: Block | null) {
-      const root = document.querySelector(query);
-      if (root === null) {
-        throw new Error(`Root not found by selector "${query}"`);
-      }
-      root.append(block.getContent()!);
+  match(pathname: string) {
+    return isEqual(pathname, this.pathname);
   }
 
   render() {
-      if (!this._block) {
-          this._block = new this._blockClass({});
-          this._renderDom(this._props.rootQuery, this._block);
-          return;
-      }
+    if (!this.view) {
+      this.view = new this.componentClass({});
 
-      this._block.show();
+      render(this.query, this.view);
+      return;
+    }
   }
 }
+
 export default Route;

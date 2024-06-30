@@ -1,11 +1,19 @@
-import Block from '../../../core/Block';
-import './form-auth__element.css';
-import { Input } from '../../input';
+import Block from "../../../core/Block";
+import "./form-auth__element.css";
 
-import FormAuthElementRaw from './form-auth__element.hbs?raw';
+import FormAuthElementRaw from "./form-auth__element.hbs";
+import { Input } from "../../input";
+import { ComponentsName } from "../../../utils/validationRules";
+import isBlock from "../../../core/BlockGuard";
 
 interface Props {
-  [key: string]: string;
+  type: string;
+  name: ComponentsName;
+  id: number | string;
+  onChange: (value?: boolean) => void;
+  title?: string;
+  className?: string;
+  value?: string;
 }
 
 export class FormAuthElement extends Block {
@@ -13,23 +21,27 @@ export class FormAuthElement extends Block {
     super({
       ...props,
       input: new Input({
-        className: 'input input__element',
-        placeholder: '',
         type: props.type,
-        id: props.name,
+        id: props.id,
         name: props.name,
-        onChange: (value: boolean) => {
-          if (!value) {
-            this.setProps({ error: 'Ошибка, ввод не удовлетворяет условию' });
-          } else {
-            this.setProps({ error: undefined });
-          }
-        },
+        onChange: props.onChange,
+        value: props.value,
       }),
     });
   }
 
   override render() {
-    return FormAuthElementRaw;
+    return this.compile(FormAuthElementRaw, this.props);
+  }
+
+  override componentDidUpdate(
+    _oldProps: unknown,
+    newProps: { value: string }
+  ): boolean {
+    if (newProps.value && isBlock(this.children.input)) {
+      this.children.input.setProps({ value: newProps.value });
+    }
+
+    return true;
   }
 }
