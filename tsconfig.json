@@ -12,6 +12,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src/**/*", "src/combined.d.ts", "global.d.ts"],
-  "exclude": ["dist"]
+  "include": [
+    "src/**/*",
+    "src/combined.d.ts",
+    "global.d.ts"
+, "rip/login-page", "rip/registration-page", "rip/login-page", "rip/registration-page", "rip/input-field", "rip/dialog", "rip/avatar", "rip/fragment"  ],
+  "exclude": [
+    "dist"
+  ]
 }

@@ -1,7 +1,7 @@
 import Block from '../../../core/Block';
 import './error__description.css';
 
-import ErrorDescriptionRaw from './error__description.hbs?raw';
+import ErrorDescriptionRaw from './error__description.hbs';
 
 interface Props {
   [key: string]: string;
@@ -13,6 +13,6 @@ export class ErrorDescription extends Block {
   }
 
   override render() {
-    return ErrorDescriptionRaw;
+    return this.compile(ErrorDescriptionRaw, this.props);
   }
 }

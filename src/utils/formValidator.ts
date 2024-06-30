@@ -1,5 +1,6 @@
-import { ComponentsName } from './validationRules';
-import { validators } from './validators';
+import { ComponentsName } from "./validationRules";
+
+import { validate } from "./validate";
 
 // Функция для сбора данных формы и валидации
 export function submit(e: SubmitEvent): boolean {
@@ -24,7 +25,7 @@ export function submit(e: SubmitEvent): boolean {
       if (name) {
         formData[name] = value;
 
-        if (!validators(name as ComponentsName, value)) {
+        if (!validate(name as ComponentsName, value)) {
           console.error(`Ошибка: значение поля ${name} невалидно.`);
           isValid = false;
         }
@@ -32,10 +33,10 @@ export function submit(e: SubmitEvent): boolean {
     }
   });
 
-  if (isValid) {
-    console.log('Форма валидна, данные формы:', formData); // Выводим данные, если форма валидна
-  } else {
-    console.log('Форма содержит невалидные данные, отправка отменена.');
-  }
+  // if (isValid) {
+  //   console.log('Форма валидна, данные формы:', formData); // Выводим данные, если форма валидна
+  // } else {
+  //   console.log('Форма содержит невалидные данные, отправка отменена.');
+  // }
   return isValid;
 }

@@ -1,7 +1,7 @@
 import Block from '../../../core/Block';
 import './profile__info-label.css';
 
-import ProfileLabelRaw from './profile__info-label.hbs?raw';
+import ProfileLabelRaw from './profile__info-label.hbs';
 
 interface Props {
   [key: string]: string;
@@ -13,6 +13,6 @@ export class ProfileLabel extends Block {
   }
 
   override render() {
-    return ProfileLabelRaw;
+    return this.compile(ProfileLabelRaw, this.props);
   }
 }

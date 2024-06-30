@@ -1,7 +1,5 @@
-<div class='input__item'>
-  <label class='input__container'>
-    {{{input}}}
-    <div class='input__label'>{{label}}</div>
-  </label>
-  <span class='input__text-error'>{{error}}</span>
+<div class="input-container">
+  {{{ input }}}
+  <label for="{{id}}">{{title}}</label>
+  <span class="incorrect {{#if isError}}show-error{{/if}}">Ошибка, ввод не удовлетворяет условию</span>
 </div>
