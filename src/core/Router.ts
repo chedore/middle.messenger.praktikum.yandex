@@ -3,6 +3,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-constructor-return */
 /* eslint-disable no-extra-bind */
+/* eslint-disable semi */
+/* eslint-disable no-else-return */
 import Route from './Route';
 import Block from './Block';
 

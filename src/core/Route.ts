@@ -1,7 +1,7 @@
 import Block from './Block';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable arrow-body-style */
-/* eslint-disable no-useless-constructor*/
+/* eslint-disable no-useless-constructor */
 /* eslint-disable no-empty-function */
 /* eslint-disable new-cap */
 

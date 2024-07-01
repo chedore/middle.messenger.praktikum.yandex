@@ -1,5 +1,6 @@
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable space-in-parens*/
 
 const METHODS: Record<Method, Method> = {
   GET: 'GET',

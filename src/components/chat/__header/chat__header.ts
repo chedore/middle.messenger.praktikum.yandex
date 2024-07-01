@@ -23,7 +23,7 @@ export class ChatHeader extends Block {
         type: 'submit',
         onClick: () => {
           try { AuthService.signoutUser(); }
-          catch (error){ console.log(`Ошибка запроса: ${error}`); }
+          catch (error) { console.log(`Ошибка запроса: ${error}`); }
           router.go('/');
         },
       }),

@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable brace-style */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable semi */
 import Block from '../../../core/Block';
 import { ChatCard } from '../__card';
 import './chat__sidebar.css';

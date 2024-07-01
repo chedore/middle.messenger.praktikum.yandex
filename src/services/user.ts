@@ -1,4 +1,3 @@
-
 /* eslint-disable arrow-body-style */
 import store from '../core/Store';
 import UserAPI from '../api/user';

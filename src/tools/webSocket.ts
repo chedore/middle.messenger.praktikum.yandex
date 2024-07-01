@@ -33,7 +33,7 @@ export default class MyWebSocket extends EventBus {
         const data = JSON.parse(event.data);
         this.emit('messages', data);
       } catch (error) {
-        alert(`Ошибка запроса: ${error}`);
+        console.log(`Ошибка запроса: ${error}`);
       }
     });
   }

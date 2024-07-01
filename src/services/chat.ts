@@ -18,7 +18,7 @@ export default class ChatController {
 
   public static chatTokenId(id: number) {
     return ChatAPI.getChatToken(id).then((token: XMLHttpRequest) => {
-      return store.dispatch( 'currentChatToken', JSON.parse(token.response).token);
+      return store.dispatch('currentChatToken', JSON.parse(token.response).token);
     });
   }
 

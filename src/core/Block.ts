@@ -3,6 +3,7 @@ import EventBus from './EventBus';
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
