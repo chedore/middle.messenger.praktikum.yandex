@@ -1,5 +1,5 @@
-import Route from "./Route";
-import Block from "./Block";
+import Route from './Route';
+import Block from './Block';
 
 interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
@@ -58,7 +58,7 @@ class Router {
   };
 
   public go = (pathname: string) => {
-    this.history.pushState({}, "", pathname);
+    this.history.pushState({}, '', pathname);
 
     this._onRoute(pathname);
   };
@@ -75,9 +75,9 @@ class Router {
     const route = this.routes.find(route => route.match(pathname));
     if (route) return route;
     else {
-      window.location.pathname = "404";
-      return this.routes.find(el => el.match("404"));
+      window.location.pathname = '404';
+      return this.routes.find(el => el.match('404'));
     }
   };
 }
-export default new Router("#app");
+export default new Router('#app');

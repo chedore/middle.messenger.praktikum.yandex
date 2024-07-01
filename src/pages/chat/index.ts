@@ -1,14 +1,14 @@
-import { ProfileSettings, ChatSidebar, ChatHeader } from "../../components";
-import Block from "../../core/Block";
+import { ProfileSettings, ChatSidebar, ChatHeader } from '../../components';
+import Block from '../../core/Block';
 
-import "./chat.css";
-import ChatPageRaw from "./chat.hbs";
-import UserService from "../../services/user";
-import store, { StoreEvents, User } from "../../core/Store";
-import router from "../../core/Router";
-import { MessageBlock } from "../../components/messageBlock";
-import isBlock from "../../core/BlockGuard";
-import { BASE_URL } from "../../api/config";
+import './chat.css';
+import ChatPageRaw from './chat.hbs';
+import UserService from '../../services/user';
+import store, { StoreEvents, User } from '../../core/Store';
+import router from '../../core/Router';
+import { MessageBlock } from '../../components/messageBlock';
+import isBlock from '../../core/BlockGuard';
+import { BASE_URL } from '../../api/config';
 
 interface Props {
   [key: string]: unknown;
@@ -20,9 +20,9 @@ export class ChatPage extends Block {
       children: {},
       header: new ChatHeader({}),
       profile: new ProfileSettings({
-        className: "profile-settings",
+        className: 'profile-settings',
         navigate: () => {
-          router.go("/settings");
+          router.go('/settings');
         },
         baseUrl: BASE_URL,
       }),

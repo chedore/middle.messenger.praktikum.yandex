@@ -1,5 +1,5 @@
-import AuthAPI from "../api/auth";
-import { SignInRequest, SignUpRequest } from "../api/types";
+import AuthAPI from '../api/auth';
+import { SignInRequest, SignUpRequest } from '../api/types';
 
 export default class AuthService {
   public static createUser(data: SignUpRequest) {

@@ -1,15 +1,16 @@
-import HTTP from "../core/HTTPTransport";
-import { BASE_URL } from "./config";
+import HTTP from '../core/HTTPTransport';
+import { BASE_URL } from './config';
 import {
   ChangePasswordRequest,
   UpdateProfileRequest,
   UserSearchRequest,
-} from "./types";
+} from './types';
 
 const userApi = new HTTP();
 
 export default class UserAPI {
   static baseURL: string = BASE_URL;
+  
   static updateProfile(data: UpdateProfileRequest) {
     return userApi.put(`${this.baseURL}/user/profile`, { data });
   }

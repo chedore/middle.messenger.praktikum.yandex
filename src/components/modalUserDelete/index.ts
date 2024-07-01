@@ -1,10 +1,10 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
-import ModalUserDeletetRaw from "./modalUserDelete.hbs";
-import "./modalUserDelete.css";
-import store, { StoreEvents, User } from "../../core/Store";
-import { UserItem } from "../searchUserItem";
-import ChatController from "../../services/chat";
+import Block from '../../core/Block';
+import { Button } from '../button';
+import ModalUserDeletetRaw from './modalUserDelete.hbs';
+import './modalUserDelete.css';
+import store, { StoreEvents, User } from '../../core/Store';
+import { UserItem } from '../searchUserItem';
+import ChatController from '../../services/chat';
 
 interface Props {
   closeModal: () => void;
@@ -16,7 +16,7 @@ export class ModalUserDelete extends Block {
       ...props,
       button_close: new Button({
         onClick: props.closeModal,
-        text: "close",
+        text: 'close',
       }),
       users_list: new UserItem({}),
     });
@@ -53,7 +53,7 @@ export class ModalUserDelete extends Block {
         return new UserItem({
           login: user.login,
           handler: handler,
-          text: "Delete user",
+          text: 'Delete user',
         });
       });
     }

@@ -1,12 +1,12 @@
-import { v4 as makeUUID } from "uuid";
-import EventBus from "./EventBus";
+import { v4 as makeUUID } from 'uuid';
+import EventBus from './EventBus';
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render",
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   } as const;
 
   public id;
@@ -146,24 +146,24 @@ class Block<P extends Record<string, any> = any> {
       try {
         if (Array.isArray(component)) {
           contextAndStubs[name] = component.map(
-            child => `<div data-id="${child.id}"></div>`
+            child => `<div data-id='${child.id}'></div>`
           );
         } else {
-          contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+          contextAndStubs[name] = `<div data-id='${component.id}'></div>`;
         }
       } catch (error) {
-        console.log("oshika", name, component);
+        console.log('oshika', name, component);
       }
     });
 
     const html = template(contextAndStubs);
 
-    const temp = document.createElement("template");
+    const temp = document.createElement('template');
 
     temp.innerHTML = html;
 
     const replaceStub = (component: Block) => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+      const stub = temp.content.querySelector(`[data-id='${component.id}']`);
 
       if (!stub) {
         return;
@@ -199,7 +199,7 @@ class Block<P extends Record<string, any> = any> {
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
         const oldTarget = { ...target };
@@ -210,7 +210,7 @@ class Block<P extends Record<string, any> = any> {
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error('Нет доступа');
       },
     });
   }

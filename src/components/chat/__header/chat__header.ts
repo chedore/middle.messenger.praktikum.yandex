@@ -1,11 +1,10 @@
 import Block from '../../../core/Block';
 import './chat__header.css';
-import { Button } from '../../../components';
-import router from "../../../core/Router";
+import { Button } from '../../button';
+import router from '../../../core/Router';
 
 import ChatHeaderRaw from './chat__header.hbs';
-import AuthService from "../../../services/auth";
-
+import AuthService from '../../../services/auth';
 
 interface Props {
   [key: string]: unknown;
@@ -23,11 +22,12 @@ export class ChatHeader extends Block {
         onClick: () => {
           try {
             AuthService.signoutUser();
-          } catch (error) {
+          }
+          catch (error) {
             alert(`Ошибка запроса: ${error}`);
           }
-          router.go("/");
-        }})
+          router.go('/');
+      }}),
     });
   }
 

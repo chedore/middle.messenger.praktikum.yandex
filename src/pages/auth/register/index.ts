@@ -1,14 +1,14 @@
-import { Button, FormAuthElement } from "../../../components";
-import Block from "../../../core/Block";
-import "./register.css";
+import { Button, FormAuthElement } from '../../../components';
+import Block from '../../../core/Block';
+import './register.css';
 
-import RegistrPageRaw from "./register.hbs";
-import { ComponentsName } from "../../../utils/validationRules";
-import UserService from "../../../services/user";
-import router from "../../../core/Router";
-import AuthService from "../../../services/auth";
-import { SignUpRequest } from "../../../api/types";
-import isBlock from "../../../core/BlockGuard";
+import RegistrPageRaw from './register.hbs';
+import { ComponentsName } from '../../../utils/validationRules';
+import UserService from '../../../services/user';
+import router from '../../../core/Router';
+import AuthService from '../../../services/auth';
+import { SignUpRequest } from '../../../api/types';
+import isBlock from '../../../core/BlockGuard';
 import { submit } from '../../../utils/formValidator';
 
 interface Props {
@@ -21,64 +21,64 @@ export class RegistrationPage extends Block {
       ...props,
 
       input_email: new FormAuthElement({
-        title: "Почта",
+        title: 'Почта',
         name: ComponentsName.EMAIL,
-        id: "email",
-        type: "text",
+        id: 'email',
+        type: 'text',
         onChange: (value: boolean) => {
           this.setProps({ isEmailError: value });
         },
       }),
       input_login: new FormAuthElement({
-        title: "Логин",
+        title: 'Логин',
         name: ComponentsName.LOGIN,
-        id: "login",
-        type: "text",
+        id: 'login',
+        type: 'text',
         onChange: (value: boolean) => {
           this.setProps({ isLoginError: value });
         },
       }),
       input_first_name: new FormAuthElement({
-        title: "Имя",
+        title: 'Имя',
         name: ComponentsName.FIRST_NAME,
-        id: "first_name",
-        type: "text",
+        id: 'first_name',
+        type: 'text',
         onChange: (value: boolean) => {
           this.setProps({ isFirstNameError: value });
         },
       }),
       input_second_name: new FormAuthElement({
-        title: "Фамилия",
+        title: 'Фамилия',
         name: ComponentsName.SECOND_NAME,
-        type: "text",
-        id: "second_name",
+        type: 'text',
+        id: 'second_name',
         onChange: (value: boolean) => {
           this.setProps({ isSecondNameError: value });
         },
       }),
       input_password: new FormAuthElement({
-        title: "Пароль",
+        title: 'Пароль',
         name: ComponentsName.PASSWORD,
-        id: "password",
-        type: "password",
+        id: 'password',
+        type: 'password',
         onChange: (value: boolean) => {
           this.setProps({ isPasswordError: value });
         },
       }),
       input_phone: new FormAuthElement({
-        title: "Телефон",
+        title: 'Телефон',
         name: ComponentsName.PHONE,
-        id: "phone",
-        type: "text",
+        id: 'phone',
+        type: 'text',
         onChange: (value: boolean) => {
           this.setProps({ isPhoneError: value });
         },
       }),
       button_register: new Button({
-        text: "Зарегистрироваться",
-        page: "chat",
-        className: "button__form-auth",
-        type: "submit",
+        text: 'Зарегистрироваться',
+        page: 'chat',
+        className: 'button__form-auth',
+        type: 'submit',
         onClick: (e: SubmitEvent) => {
           const valid = submit(e);
           if (valid) {
@@ -96,10 +96,10 @@ export class RegistrationPage extends Block {
             AuthService.createUser(userObj)
               .then(() => UserService.getUserInfo())
               .then(() => {
-                router.go("/messenger");
+                router.go('/messenger');
               })
               .catch(error => {
-                console.error("Ошибка при регистрации пользователя:", error);
+                console.error('Ошибка при регистрации пользователя:', error);
               });
           }
         },
@@ -110,7 +110,7 @@ export class RegistrationPage extends Block {
         className: 'form-auth__link',
         type: 'submit',
         onClick: () => {
-          router.go("/");
+          router.go('/');
         },
         id: 'login',
       }),

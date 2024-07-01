@@ -1,14 +1,14 @@
-import { Button, FormAuthElement } from "../../../components";
-import Block from "../../../core/Block";
-import "./login.css";
+import { Button, FormAuthElement } from '../../../components';
+import Block from '../../../core/Block';
+import './login.css';
 
-import LoginPageRaw from "./login.hbs";
-import { ComponentsName } from "../../../utils/validationRules";
-import router from "../../../core/Router";
-import UserService from "../../../services/user";
-import AuthService from "../../../services/auth";
-import { LoginRequestData } from "../../../api/types";
-import isBlock from "../../../core/BlockGuard";
+import LoginPageRaw from './login.hbs';
+import { ComponentsName } from '../../../utils/validationRules';
+import router from '../../../core/Router';
+import UserService from '../../../services/user';
+import AuthService from '../../../services/auth';
+import { LoginRequestData } from '../../../api/types';
+import isBlock from '../../../core/BlockGuard';
 import { submit } from '../../../utils/formValidator';
 
 interface Props {
@@ -20,29 +20,29 @@ export class LoginPage extends Block {
     super({
       ...props,
       input_login: new FormAuthElement({
-        title: "Логин",
+        title: 'Логин',
         name: ComponentsName.LOGIN,
-        id: "login",
-        type: "text",
+        id: 'login',
+        type: 'text',
         onChange: (value: boolean) => {
           this.setProps({ isLoginError: value });
         },
       }),
       input_password: new FormAuthElement({
-        title: "Password",
+        title: 'Password',
         name: ComponentsName.PASSWORD,
-        type: "password",
-        id: "password",
+        type: 'password',
+        id: 'password',
         onChange: (value: boolean) => {
           this.setProps({ isPasswordError: value });
         },
       }),
 
       button_login: new Button({
-        text: "Авторизоваться",
-        page: "login",
-        className: "button__form-auth",
-        type: "submit",
+        text: 'Авторизоваться',
+        page: 'login',
+        className: 'button__form-auth',
+        type: 'submit',
         onClick: (e: SubmitEvent) => {
           const valid = submit(e);
           if (valid) {
@@ -60,22 +60,22 @@ export class LoginPage extends Block {
             AuthService.signinUser(userObj)
               .then(() => UserService.getUserInfo())
               .then(() => {
-                router.go("/messenger");
+                router.go('/messenger');
               })
               .catch(error => {
-                console.error("Ошибка при авторизации пользователя:", error);
+                console.error('Ошибка при авторизации пользователя:', error);
               });
           }
         },
-        id: "login-button",
+        id: 'login-button',
       }),
       button_register: new Button({
-        text: "Нет аккаунта?",
-        page: "register",
-        className: "form-auth__link",
-        id: "register",
+        text: 'Нет аккаунта?',
+        page: 'register',
+        className: 'form-auth__link',
+        id: 'register',
         onClick: () => {
-          router.go("/sign-up");
+          router.go('/sign-up');
         },
       }),
     });

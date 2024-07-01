@@ -1,6 +1,6 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
-import searchUserItemRaw from "./searchUserItem.hbs";
+import Block from '../../core/Block';
+import { Button } from '../button';
+import searchUserItemRaw from './searchUserItem.hbs';
 
 interface SearchUserItemProps {
   handler?: () => void;

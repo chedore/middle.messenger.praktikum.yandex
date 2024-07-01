@@ -1,6 +1,6 @@
-import { ComponentsName } from "./validationRules";
+import { ComponentsName } from './validationRules';
 
-import { validate } from "./validate";
+import { validate } from './validate';
 
 // Функция для сбора данных формы и валидации
 export function submit(e: SubmitEvent): boolean {

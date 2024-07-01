@@ -1,6 +1,6 @@
-import Block from "../../../core/Block";
-import ProfileAvatarRaw from "./profile__avatar.hbs";
-import "./profile__avatar.css";
+import Block from '../../../core/Block';
+import ProfileAvatarRaw from './profile__avatar.hbs';
+import './profile__avatar.css';
 
 interface Props {
   download: () => void;

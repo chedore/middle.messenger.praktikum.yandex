@@ -1,15 +1,16 @@
-import HTTP from "../core/HTTPTransport";
-import { BASE_URL } from "./config";
+import HTTP from '../core/HTTPTransport';
+import { BASE_URL } from './config';
 import {
   AddUsersRequest,
   CreateChatRequest,
   DeleteUserFromChatRequest,
-} from "./types";
+} from './types';
 
 const chatApi = new HTTP();
 
 export default class ChatAPI {
   static baseURL: string = BASE_URL;
+  
   static createChat(data: CreateChatRequest) {
     return chatApi.post(`${this.baseURL}/chats`, {
       data,
@@ -25,6 +26,7 @@ export default class ChatAPI {
   static getChats() {
     return chatApi.get(`${this.baseURL}/chats`);
   }
+
   static getChatToken(id: number): Promise<XMLHttpRequest> {
     return chatApi.post(`${this.baseURL}/chats/token/${id}`);
   }
@@ -32,6 +34,7 @@ export default class ChatAPI {
   static getChatUsers(id: number) {
     return chatApi.get(`${this.baseURL}/chats/${id}/users`);
   }
+
   static DeleteUserFromChat(data: DeleteUserFromChatRequest) {
     return chatApi.delete(`${this.baseURL}/chats/users`, { data });
   }

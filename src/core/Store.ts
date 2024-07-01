@@ -1,10 +1,10 @@
-import Block from "./Block";
-import EventBus from "./EventBus";
-import { isEqual, set } from "../tools/helpers";
-import MyWebSocket from "../tools/webSocket";
+import Block from './Block';
+import EventBus from './EventBus';
+import { isEqual, set } from '../tools/helpers';
+import MyWebSocket from '../tools/webSocket';
 
 export enum StoreEvents {
-  Updated = "updated",
+  Updated = 'updated',
 }
 
 export interface User {
@@ -84,7 +84,7 @@ export class Store extends EventBus {
     this.emit(StoreEvents.Updated);
   }
   public clearSearchResults() {
-    this.dispatch("usersSearchResult", []);
+    this.dispatch('usersSearchResult', []);
   }
 }
 

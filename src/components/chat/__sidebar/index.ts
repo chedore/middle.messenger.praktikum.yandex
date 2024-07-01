@@ -1,16 +1,16 @@
-import Block from "../../../core/Block";
-import { ChatCard } from "../__card";
-import "./chat__sidebar.css";
-import store, { ChatInfo, StoreEvents } from "../../../core/Store";
+import Block from '../../../core/Block';
+import { ChatCard } from '../__card';
+import './chat__sidebar.css';
+import store, { ChatInfo, StoreEvents } from '../../../core/Store';
 
-import ChatSidebarRaw from "./chat__sidebar.hbs";
-import UserController from "../../../services/user";
-import MyWebSocket from "../../../tools/webSocket";
+import ChatSidebarRaw from './chat__sidebar.hbs';
+import UserController from '../../../services/user';
+import MyWebSocket from '../../../tools/webSocket';
 
-import { Button } from "../../button";
-import { ModalCreateChat } from "../../modalCreateChat";
-import ChatController from "../../../services/chat";
-import isBlock from "../../../core/BlockGuard";
+import { Button } from '../../button';
+import { ModalCreateChat } from '../../modalCreateChat';
+import ChatController from '../../../services/chat';
+import isBlock from '../../../core/BlockGuard';
 
 interface Props {
   [key: string]: unknown;
@@ -32,12 +32,14 @@ export class ChatSidebar extends Block {
       this.setProps(store.getState());
     });
   }
+
   override init() {
     const openCreateChatModal = () => {
       if (isBlock(this.children.modalCreatechat)) {
         this.children.modalCreatechat.setProps({ isOpen: true });
       }
     };
+
     const closeCreateChatModal = () => {
       if (isBlock(this.children.modalCreatechat)) {
         this.children.modalCreatechat.setProps({ isOpen: false });
@@ -47,13 +49,15 @@ export class ChatSidebar extends Block {
     this.children.modalCreatechat = new ModalCreateChat({
       closeModal: closeCreateChatModal,
     });
+
     this.children.button_create_chat = new Button({
-      text: "Создать чат",
-      page: "chat",
-      className: "button__form-auth",
+      text: 'Создать чат',
+      page: 'chat',
+      className: 'button__form-auth',
       onClick: openCreateChatModal,
     });
   }
+
   override render() {
     return this.compile(ChatSidebarRaw, this.props);
   }
@@ -70,7 +74,7 @@ export class ChatSidebar extends Block {
             lastMessage: chat.last_message?.content,
             unreadCount: chat.unread_count,
             click: async () => {
-              store.dispatch("currentChat", chat.id);
+              store.dispatch('currentChat', chat.id);
               try {
                 await ChatController.chatTokenId(chat.id);
 
@@ -83,16 +87,17 @@ export class ChatSidebar extends Block {
               const socket = new MyWebSocket(
                 `wss://ya-praktikum.tech/ws/chats/${currentStore.user.id}/${currentStore.currentChat}/${currentStore.currentChatToken}`
               );
-              store.dispatch("currentSocket", socket);
+              store.dispatch('currentSocket', socket);
 
-              socket.on("messages", data => {
+              socket.on('messages', data => {
                 if (Array.isArray(data)) {
-                  store.dispatch("messages", data);
-                } else {
+                  store.dispatch('messages', data);
+                }
+                else {
                   const lastMessages = store.getState().messages;
                   const newMessagesToDispatch = [data, ...lastMessages!];
                   if (lastMessages) {
-                    store.dispatch("messages", newMessagesToDispatch);
+                    store.dispatch('messages', newMessagesToDispatch);
                   }
                 }
               });
@@ -106,7 +111,8 @@ export class ChatSidebar extends Block {
               const currentState = store.getState();
               try {
                 ChatController.getUsersInChat(currentState.currentChat!);
-              } catch (error) {
+              }
+              catch (error) {
                 alert(`Ошибка запроса: ${error}`);
               }
             },

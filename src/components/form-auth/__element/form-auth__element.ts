@@ -1,10 +1,10 @@
-import Block from "../../../core/Block";
-import "./form-auth__element.css";
+import Block from '../../../core/Block';
+import './form-auth__element.css';
 
-import FormAuthElementRaw from "./form-auth__element.hbs";
-import { Input } from "../../input";
-import { ComponentsName } from "../../../utils/validationRules";
-import isBlock from "../../../core/BlockGuard";
+import FormAuthElementRaw from './form-auth__element.hbs';
+import { Input } from '../../input';
+import { ComponentsName } from '../../../utils/validationRules';
+import isBlock from '../../../core/BlockGuard';
 
 interface Props {
   type: string;

@@ -1,7 +1,7 @@
-import Block from "../../core/Block";
+import Block from '../../core/Block';
 
-import MessageBlockRaw from "./messageBlockEmpty.hbs";
-import "./messageBlockEmpty.css";
+import MessageBlockRaw from './messageBlockEmpty.hbs';
+import './messageBlockEmpty.css';
 
 interface Props {
   [key: string]: unknown;

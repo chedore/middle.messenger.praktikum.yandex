@@ -1,4 +1,4 @@
-import { UpdateProfileRequest } from "../api/types";
+import { UpdateProfileRequest } from '../api/types';
 
 export type Indexed<T = any> = {
   [key in string]: T;
@@ -6,10 +6,10 @@ export type Indexed<T = any> = {
 
 export const isPlainObject = (value: unknown): value is Indexed => {
   return (
-    typeof value === "object" &&
+    typeof value === 'object' &&
     value !== null &&
     value.constructor === Object &&
-    Object.prototype.toString.call(value) === "[object Object]"
+    Object.prototype.toString.call(value) === '[object Object]'
   );
 };
 
@@ -49,11 +49,11 @@ export const set = (
   path: string,
   value: unknown
 ): Indexed | unknown => {
-  if (typeof object !== "object" || object === null) {
+  if (typeof object !== 'object' || object === null) {
     return object;
   }
 
-  const result = path.split(".").reduceRight<Indexed>(
+  const result = path.split('.').reduceRight<Indexed>(
     (acc, key) => ({
       [key]: acc,
     }),
@@ -86,7 +86,7 @@ export const merge = (lhs: Indexed, rhs: Indexed): Indexed => {
 export function filterEmptyStrings(data: UpdateProfileRequest) {
   const filteredData = {} as UpdateProfileRequest;
   for (const key in data) {
-    if (data[key] && data[key]!.trim() !== "") {
+    if (data[key] && data[key]!.trim() !== '') {
       filteredData[key] = data[key];
     }
   }

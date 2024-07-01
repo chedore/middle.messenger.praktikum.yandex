@@ -1,4 +1,4 @@
-import Block from "./Block";
+import Block from './Block';
 
 interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
@@ -12,10 +12,10 @@ const render = (query: string, block: Block) => {
   const root = document.querySelector(query);
 
   if (root === null) {
-    throw new Error(`Root not found by selector "${query}"`);
+    throw new Error(`Root not found by selector '${query}'`);
   }
 
-  root.innerHTML = "";
+  root.innerHTML = '';
 
   root.append(block.getContent()!);
 

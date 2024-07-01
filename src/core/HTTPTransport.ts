@@ -1,10 +1,10 @@
-type Method = "GET" | "POST" | "PUT" | "DELETE";
+type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 const METHODS: Record<Method, Method> = {
-  GET: "GET",
-  POST: "POST",
-  PUT: "PUT",
-  DELETE: "DELETE",
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
 };
 
 interface Options {
@@ -19,15 +19,15 @@ type QueryString = string;
 type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>;
 
 function queryStringify(data: Record<string, unknown>): QueryString {
-  if (typeof data !== "object") {
-    throw new Error("Data must be object");
+  if (typeof data !== 'object') {
+    throw new Error('Data must be object');
   }
 
   const keys = Object.keys(data);
   return keys.reduce(
     (result, key, index) =>
-      `${result}${key}=${data[key]}${index < keys.length - 1 ? "&" : ""}`,
-    "?"
+      `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`,
+    '?'
   );
 }
 
@@ -54,7 +54,7 @@ export default class HTTPTransport {
 
     return new Promise((resolve, reject) => {
       if (!method) {
-        reject(new Error("No method"));
+        reject(new Error('No method'));
         return;
       }
 
@@ -76,19 +76,19 @@ export default class HTTPTransport {
         resolve(xhr);
       };
 
-      xhr.onabort = () => reject(new Error("Request was aborted"));
-      xhr.onerror = () => reject(new Error("Request failed"));
+      xhr.onabort = () => reject(new Error('Request was aborted'));
+      xhr.onerror = () => reject(new Error('Request failed'));
 
       xhr.timeout = timeout;
       xhr.withCredentials = true;
-      xhr.ontimeout = () => reject(new Error("Request timeout exceeded"));
+      xhr.ontimeout = () => reject(new Error('Request timeout exceeded'));
 
-      if (method === "GET" || !data) {
+      if (method === 'GET' || !data) {
         xhr.send();
       } else if (data instanceof FormData) {
         xhr.send(data);
       } else {
-        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
       }
     });

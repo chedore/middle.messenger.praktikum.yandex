@@ -1,14 +1,14 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
+import Block from '../../core/Block';
+import { Button } from '../button';
 
-import ModaltRaw from "./modalUserAdd.hbs";
-import "./modalUserAdd.css";
-import { InputField } from "../input-field";
-import UserController from "../../services/user";
-import store, { SearchAddUser, StoreEvents } from "../../core/Store";
-import { UserItem } from "../searchUserItem";
-import { ComponentsName } from "../../utils/validationRules";
-import ChatController from "../../services/chat";
+import ModaltRaw from './modalUserAdd.hbs';
+import './modalUserAdd.css';
+import { InputField } from '../input-field';
+import UserController from '../../services/user';
+import store, { SearchAddUser, StoreEvents } from '../../core/Store';
+import { UserItem } from '../searchUserItem';
+import { ComponentsName } from '../../utils/validationRules';
+import ChatController from '../../services/chat';
 
 interface Props {
   closeModal: () => void;
@@ -20,14 +20,14 @@ export class Modal extends Block {
       ...props,
       button_close: new Button({
         onClick: props.closeModal,
-        text: "close",
+        text: 'close',
       }),
       button_search: new Button({
-        text: "Поиск",
-        className: "button__form-auth",
+        text: 'Поиск',
+        className: 'button__form-auth',
         onClick: () => {
           const input = document.querySelector(
-            "#find-user"
+            '#find-user'
           ) as HTMLInputElement;
 
           try {
@@ -39,8 +39,8 @@ export class Modal extends Block {
       }),
       input_find_user: new InputField({
         onChange: () => {},
-        id: "find-user",
-        type: "input",
+        id: 'find-user',
+        type: 'input',
         name: ComponentsName.MESSAGE,
       }),
     });
@@ -84,7 +84,7 @@ export class Modal extends Block {
         return new UserItem({
           login: user.login,
           handler: handler,
-          text: "Add user",
+          text: 'Add user',
         });
       });
     }

@@ -1,12 +1,12 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
-import ModalCreateChattRaw from "./modalCreateChat.hbs";
-import "./modalCreateChat.css";
-import { InputField } from "../input-field";
-import store, { SearchAddUser, StoreEvents } from "../../core/Store";
-import { UserItem } from "../searchUserItem";
-import ChatController from "../../services/chat";
-import { ComponentsName } from "../../utils/validationRules";
+import Block from '../../core/Block';
+import { Button } from '../button';
+import ModalCreateChattRaw from './modalCreateChat.hbs';
+import './modalCreateChat.css';
+import { InputField } from '../input-field';
+import store, { SearchAddUser, StoreEvents } from '../../core/Store';
+import { UserItem } from '../searchUserItem';
+import ChatController from '../../services/chat';
+import { ComponentsName } from '../../utils/validationRules';
 
 interface Props {
   closeModal: () => void;
@@ -18,14 +18,14 @@ export class ModalCreateChat extends Block {
       ...props,
       button_close: new Button({
         onClick: props.closeModal,
-        text: "close",
+        text: 'close',
       }),
       button_create: new Button({
-        text: "Создать чат",
-        className: "button__form-auth",
+        text: 'Создать чат',
+        className: 'button__form-auth',
         onClick: () => {
           const input = document.querySelector(
-            "#chat-title"
+            '#chat-title'
           ) as HTMLInputElement;
 
           try {
@@ -47,8 +47,8 @@ export class ModalCreateChat extends Block {
       }),
       input_title_chat: new InputField({
         onChange: () => {},
-        id: "chat-title",
-        type: "input",
+        id: 'chat-title',
+        type: 'input',
         name: ComponentsName.MESSAGE,
       }),
     });
@@ -80,7 +80,7 @@ export class ModalCreateChat extends Block {
         return new UserItem({
           login: user.login,
           handler: handler,
-          text: "Add user",
+          text: 'Add user',
         });
       });
     }

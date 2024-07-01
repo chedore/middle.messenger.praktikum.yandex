@@ -1,10 +1,10 @@
-import store from "../core/Store";
-import UserAPI from "../api/user";
+import store from '../core/Store';
+import UserAPI from '../api/user';
 import {
   ChangePasswordRequest,
   UpdateProfileRequest,
   UserSearchRequest,
-} from "../api/types";
+} from '../api/types';
 
 export default class UserService {
   public static updateUserProfile(data: UpdateProfileRequest) {
@@ -21,13 +21,13 @@ export default class UserService {
 
   public static getUserInfo() {
     return UserAPI.UserInfo().then(userInfo => {
-      return store.dispatch("user", JSON.parse(userInfo.response));
+      return store.dispatch('user', JSON.parse(userInfo.response));
     });
   }
 
   public static userSearch(data: UserSearchRequest) {
     return UserAPI.userSearch(data).then(data =>
-      store.dispatch("usersSearchResult", JSON.parse(data.response))
+      store.dispatch('usersSearchResult', JSON.parse(data.response))
     );
   }
 }
