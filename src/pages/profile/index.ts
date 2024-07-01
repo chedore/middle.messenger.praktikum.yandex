@@ -1,8 +1,10 @@
+
+/* eslint-disable no-console */
 import {
   Button,
   Input,
   ProfileAvatar,
-  ProfileInfo
+  ProfileInfo,
 } from '../../components';
 import Block from '../../core/Block';
 import { ComponentsName } from '../../utils/validationRules';

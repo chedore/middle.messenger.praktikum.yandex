@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ProfileSettings, ChatSidebar, ChatHeader } from '../../components';
 import Block from '../../core/Block';
 

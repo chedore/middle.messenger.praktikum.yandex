@@ -9,6 +9,8 @@ import store, { SearchAddUser, StoreEvents } from '../../core/Store';
 import { UserItem } from '../searchUserItem';
 import { ComponentsName } from '../../utils/validationRules';
 import ChatController from '../../services/chat';
+/* eslint-disable no-console */
+/* eslint-disable object-shorthand */
 
 interface Props {
   closeModal: () => void;
@@ -56,7 +58,7 @@ export class Modal extends Block {
     newProps: { usersSearchResult: SearchAddUser[] },
   ): boolean {
     if (newProps.usersSearchResult) {
-      var currentState = store.getState();
+      const currentState = store.getState();
       this.children.usersList = newProps.usersSearchResult?.map((user) => {
         const handler = () => {
           try {

@@ -10,6 +10,7 @@ import { MessageBlockEmpty } from '../messageBlockEmpty';
 import { Modal } from '../modalUserAdd';
 import { ModalUserDelete } from '../modalUserDelete';
 import './message-list.css';
+/* eslint-disable object-shorthand */
 
 import MessageListRaw from './message-list.hbs';
 

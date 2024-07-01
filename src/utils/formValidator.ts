@@ -1,4 +1,5 @@
 import { ComponentsName } from './validationRules';
+/* eslint-disable no-console */
 
 import { validate } from './validate';
 

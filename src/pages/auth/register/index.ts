@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Button, FormAuthElement } from '../../../components';
 import Block from '../../../core/Block';
 import './register.css';

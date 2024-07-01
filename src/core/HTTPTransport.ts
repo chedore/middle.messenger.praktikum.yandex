@@ -1,4 +1,5 @@
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const METHODS: Record<Method, Method> = {
   GET: 'GET',
@@ -24,7 +25,7 @@ function queryStringify(data: Record<string, any>): QueryString {
   }
 
   const keys = Object.keys(data);
-  return keys.reduce( (result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
+  return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -53,11 +54,9 @@ export default class HTTPTransport {
       const xhr = new XMLHttpRequest();
       const isGet = method === METHODS.GET;
 
-      xhr.open(
-        method,
-        isGet && data ? `${url}${queryStringify(data as Record<string, unknown>)}` : url);
+      xhr.open( method, isGet && data ? `${url}${queryStringify(data as Record<string, unknown>)}` : url );
 
-      Object.keys(headers).forEach(key => {
+      Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 

@@ -1,4 +1,5 @@
 import EventBus from '../core/EventBus';
+/* eslint-disable no-console */
 
 export default class MyWebSocket extends EventBus {
   socket;

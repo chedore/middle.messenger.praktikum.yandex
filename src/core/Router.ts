@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-constructor-return */
+/* eslint-disable no-extra-bind */
 import Route from './Route';
 import Block from './Block';
 
@@ -44,7 +49,7 @@ class Router {
   };
 
   private _onRoute = (pathname: string) => {
-    let route = this.getRoute(pathname);
+    const route = this.getRoute(pathname);
 
     if (!route) {
       return;
@@ -74,11 +79,11 @@ class Router {
   };
 
   private getRoute = (pathname: string) => {
-    const route = this.routes.find(route => route.match(pathname));
-    if (route) return route;
+    const _route = this.routes.find((route) => route.match(pathname));
+    if (_route) return _route
     else {
       window.location.pathname = '404';
-      return this.routes.find(el => el.match('404'));
+      return this.routes.find((el) => el.match('404'));
     }
   };
 }

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import store from '../core/Store';
 import ChatAPI from '../api/chat';
 import {

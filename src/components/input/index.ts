@@ -3,6 +3,7 @@ import Block from '../../core/Block';
 import { validate } from '../../utils/validate';
 import { ComponentsName } from '../../utils/validationRules';
 import './input.css';
+/* eslint-disable prefer-destructuring */
 
 interface Props {
   name: ComponentsName;

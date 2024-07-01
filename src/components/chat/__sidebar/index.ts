@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable brace-style */
 import Block from '../../../core/Block';
 import { ChatCard } from '../__card';
 import './chat__sidebar.css';
@@ -69,7 +71,6 @@ export class ChatSidebar extends Block {
     if (newProps.chats) {
       this.children.chatsList = newProps.chats?.map(
         (chat) =>
-
           new ChatCard({
             name: chat.title,
             lastMessage: chat.last_message?.content,
@@ -91,7 +92,7 @@ export class ChatSidebar extends Block {
               store.dispatch('currentSocket', socket);
 
               socket.on('messages', (data) => {
-                if (Array.isArray(data)) { store.dispatch('messages', data); }
+                if (Array.isArray(data)) { store.dispatch('messages', data) }
                 else {
                   const lastMessages = store.getState().messages;
                   const newMessagesToDispatch = [data, ...lastMessages!];
@@ -108,12 +109,10 @@ export class ChatSidebar extends Block {
               socket.recieveMessages();
 
               const currentState = store.getState();
-              try {
-                ChatController.getUsersInChat(currentState.currentChat!);
-              }
+              try { ChatController.getUsersInChat(currentState.currentChat!); }
               catch (error) { console.log(`Ошибка запроса: ${error}`); }
-            }
-          })
+            },
+          }),
       );
     }
 

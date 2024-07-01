@@ -1,4 +1,9 @@
 import Block from './Block';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-useless-constructor*/
+/* eslint-disable no-empty-function */
+/* eslint-disable new-cap */
 
 interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
@@ -44,7 +49,6 @@ class Route {
       this.view = new this.componentClass({});
 
       render(this.query, this.view);
-      return;
     }
   }
 }

@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-shadow */
+/* eslint-disable operator-linebreak */
 import Block from './Block';
 import EventBus from './EventBus';
 import { isEqual, set } from '../tools/helpers';
@@ -90,7 +94,6 @@ export class Store extends EventBus {
 }
 
 const store = new Store();
-
 
 export const withStore =
   (mapStateToProps: (state: State) => any) => (Comp: typeof Block) => {

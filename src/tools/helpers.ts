@@ -3,6 +3,7 @@ import { UpdateProfileRequest } from '../api/types';
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-continue */
 /* eslint-disable no-param-reassign */
+/* eslint-disable arrow-body-style */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type Indexed<T = any> = {
@@ -10,17 +11,17 @@ export type Indexed<T = any> = {
 };
 
 export const isPlainObject = (value: unknown): value is Indexed => {
-  return typeof value === 'object' && value !== null && value.constructor === Object && Object.prototype.toString.call(value) === '[object Object]'
+  return typeof value === 'object' && value !== null && value.constructor === Object && Object.prototype.toString.call(value) === '[object Object]';
 };
 
-export const isArray = (value: unknown): value is [] => {return Array.isArray(value) };
+export const isArray = (value: unknown): value is [] => { return Array.isArray(value); };
 
-export const isArrayOrObject = (value: unknown): value is [] | Indexed => { return isPlainObject(value) || isArray(value)};
+export const isArrayOrObject = (value: unknown): value is [] | Indexed => { return isPlainObject(value) || isArray(value); };
 
 export const isEqual = (lhs: Indexed, rhs: Indexed) => {
   if (Object.keys(lhs).length !== Object.keys(rhs).length) {
     return false;
-  };
+  }
 
   for (const [key, value] of Object.entries(lhs)) {
     const rightValue = rhs[key];
@@ -73,8 +74,6 @@ export const set = (
 
   return merge(object as Indexed, result);
 };
-
-
 
 export function filterEmptyStrings(data: UpdateProfileRequest) {
   const filteredData = {} as UpdateProfileRequest;

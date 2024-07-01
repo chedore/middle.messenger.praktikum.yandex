@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable brace-style */
 import Block from '../../../core/Block';
 import './chat__header.css';
 import { Button } from '../../button';
@@ -21,10 +23,10 @@ export class ChatHeader extends Block {
         type: 'submit',
         onClick: () => {
           try { AuthService.signoutUser(); }
-          catch (error) { console.log (`Ошибка запроса: ${error}`); }
+          catch (error){ console.log(`Ошибка запроса: ${error}`); }
           router.go('/');
-      } 
-    }),
+        },
+      }),
     });
   }
 

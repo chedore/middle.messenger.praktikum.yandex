@@ -1,5 +1,8 @@
 import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
+/* eslint-disable no-console */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-param-reassign */
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
@@ -44,9 +47,7 @@ class Block<P extends Record<string, any> = any> {
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
       if (
-        Array.isArray(value) &&
-        value.length > 0 &&
-        value.every(v => v instanceof Block)
+        Array.isArray(value) && value.length > 0 && value.every((v) => v instanceof Block)
       ) {
         children[key as string] = value;
       } else if (value instanceof Block) {
@@ -64,7 +65,7 @@ class Block<P extends Record<string, any> = any> {
       events: Record<string, () => void>;
     };
 
-    Object.keys(events).forEach(eventName => {
+    Object.keys(events).forEach((eventName) => {
       this._element?.addEventListener(eventName, events[eventName]);
     });
   }
@@ -94,9 +95,9 @@ class Block<P extends Record<string, any> = any> {
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => {
+    Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
-        child.forEach(ch => ch.dispatchComponentDidMount());
+        child.forEach((ch) => ch.dispatchComponentDidMount());
       } else {
         child.dispatchComponentDidMount();
       }
@@ -146,7 +147,7 @@ class Block<P extends Record<string, any> = any> {
       try {
         if (Array.isArray(component)) {
           contextAndStubs[name] = component.map(
-            child => `<div data-id='${child.id}'></div>`
+            (child) => `<div data-id='${child.id}'></div>`,
           );
         } else {
           contextAndStubs[name] = `<div data-id='${component.id}'></div>`;

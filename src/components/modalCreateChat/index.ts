@@ -7,6 +7,8 @@ import store, { SearchAddUser, StoreEvents } from '../../core/Store';
 import { UserItem } from '../searchUserItem';
 import ChatController from '../../services/chat';
 import { ComponentsName } from '../../utils/validationRules';
+/* eslint-disable no-console */
+/* eslint-disable object-shorthand */
 
 interface Props {
   closeModal: () => void;
@@ -24,7 +26,7 @@ export class ModalCreateChat extends Block {
         text: 'Создать чат',
         className: 'button__form-auth',
         onClick: () => {
-          const input = document.querySelector( '#chat-title') as HTMLInputElement;
+          const input = document.querySelector('#chat-title') as HTMLInputElement;
 
           try {
             ChatController.createChats({ title: input.value })
@@ -71,7 +73,7 @@ export class ModalCreateChat extends Block {
             users: [user.id],
             chatId: currentState.currentChat!,
           }).catch((error) => {
-            alert(`Ошибка при добавлении пользователей в чат: ${error}`);
+            console.log(`Ошибка при добавлении пользователей в чат: ${error}`);
           });
         };
 

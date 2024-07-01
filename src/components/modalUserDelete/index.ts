@@ -5,6 +5,8 @@ import './modalUserDelete.css';
 import store, { StoreEvents, User } from '../../core/Store';
 import { UserItem } from '../searchUserItem';
 import ChatController from '../../services/chat';
+/* eslint-disable no-console */
+/* eslint-disable object-shorthand */
 
 interface Props {
   closeModal: () => void;
@@ -35,7 +37,7 @@ export class ModalUserDelete extends Block {
     newProps: { usersInCurrentChat: User[] },
   ): boolean {
     if (newProps.usersInCurrentChat) {
-      var currentState = store.getState();
+      const currentState = store.getState();
       this.children.usersList = newProps.usersInCurrentChat?.map((user) => {
         const handler = () => {
           ChatController.DeleteUserFromChat({

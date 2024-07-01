@@ -1,10 +1,10 @@
 import { PluginOption } from 'vite';
 import Handlebars from 'handlebars';
+/* eslint-disable consistent-return */
 
 export default function vitePluginHandlebarsPrecompile(): PluginOption {
   return {
     name: 'vite-plugin-handlebars-precompile',
-    // eslint-disable-line consistent-return
     transform(code, id): { code: string; } | undefined {
       if (id.endsWith('.hbs') || id.endsWith('.handlebars')) {
         return {

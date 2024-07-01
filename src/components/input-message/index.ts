@@ -3,6 +3,8 @@ import store from '../../core/Store';
 import { validate } from '../../utils/validate';
 import { ComponentsName } from '../../utils/validationRules';
 import './input-message.css';
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-console */
 
 import InputMessageRaw from './input-message.hbs';
 
