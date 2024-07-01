@@ -37,7 +37,7 @@ export class ModalUserDelete extends Block {
     newProps: { usersInCurrentChat: User[] },
   ): boolean {
     if (newProps.usersInCurrentChat) {
-      const currentState = store.getState();
+      let currentState = store.getState();
       this.children.usersList = newProps.usersInCurrentChat?.map((user) => {
         const handler = () => {
           ChatController.DeleteUserFromChat({

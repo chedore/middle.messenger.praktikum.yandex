@@ -58,7 +58,7 @@ export class Modal extends Block {
     newProps: { usersSearchResult: SearchAddUser[] },
   ): boolean {
     if (newProps.usersSearchResult) {
-      const currentState = store.getState();
+      let currentState = store.getState();
       this.children.usersList = newProps.usersSearchResult?.map((user) => {
         const handler = () => {
           try {
