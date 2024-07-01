@@ -10,7 +10,7 @@ const chatApi = new HTTP();
 
 export default class ChatAPI {
   static baseURL: string = BASE_URL;
-  
+
   static createChat(data: CreateChatRequest) {
     return chatApi.post(`${this.baseURL}/chats`, {
       data,

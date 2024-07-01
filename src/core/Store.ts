@@ -30,28 +30,6 @@ export interface ChatInfo {
   };
 }
 
-export interface State {
-  user: User;
-  chats: ChatInfo[];
-  findedUsers?: User[];
-  selectUser?: number;
-  messages?: Message[];
-  currentChat?: number;
-  currentChatToken?: string;
-  currentSocket?: MyWebSocket;
-  usersSearchResult?: SearchAddUser[];
-  usersInCurrentChat?: User[];
-}
-
-export interface SearchAddUser {
-  id: number;
-  first_name: string;
-  second_name: string;
-  display_name?: string;
-  login: string;
-  avatar?: string;
-}
-
 export interface Message {
   chat_id: number;
   time: string;
@@ -69,6 +47,28 @@ export interface Message {
   };
 }
 
+export interface SearchAddUser {
+  id: number;
+  first_name: string;
+  second_name: string;
+  display_name?: string;
+  login: string;
+  avatar?: string;
+}
+
+export interface State {
+  user: User;
+  chats: ChatInfo[];
+  findedUsers?: User[];
+  selectUser?: number;
+  messages?: Message[];
+  currentChat?: number;
+  currentChatToken?: string;
+  currentSocket?: MyWebSocket;
+  usersSearchResult?: SearchAddUser[];
+  usersInCurrentChat?: User[];
+}
+
 export class Store extends EventBus {
   private state: State = {
     user: {} as User,
@@ -83,12 +83,14 @@ export class Store extends EventBus {
     set(this.state, path, value);
     this.emit(StoreEvents.Updated);
   }
+
   public clearSearchResults() {
     this.dispatch('usersSearchResult', []);
   }
 }
 
 const store = new Store();
+
 
 export const withStore =
   (mapStateToProps: (state: State) => any) => (Comp: typeof Block) => {

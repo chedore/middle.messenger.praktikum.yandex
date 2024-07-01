@@ -5,11 +5,13 @@ interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
 }
 
-
 class Router {
   private static __instance: Router;
+
   private routes: Route[] = [];
+
   private _currentRoute: Route | null = null;
+
   private history = window.history;
 
   constructor(private readonly rootQuery: string) {

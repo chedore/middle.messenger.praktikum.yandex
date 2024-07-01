@@ -20,14 +20,11 @@ export class ChatHeader extends Block {
         className: 'button',
         type: 'submit',
         onClick: () => {
-          try {
-            AuthService.signoutUser();
-          }
-          catch (error) {
-            alert(`Ошибка запроса: ${error}`);
-          }
+          try { AuthService.signoutUser(); }
+          catch (error) { console.log (`Ошибка запроса: ${error}`); }
           router.go('/');
-      }}),
+      } 
+    }),
     });
   }
 

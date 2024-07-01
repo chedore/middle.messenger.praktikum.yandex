@@ -3,7 +3,7 @@ import * as Pages from './pages';
 import { withStore } from './core/Store';
 import router from './core/Router';
 
-const connect = withStore(state => ({ ...state }));
+const connect = withStore((state) => ({ ...state }));
 
 const connectedLoginPage = connect(Pages.LoginPage);
 const connectedRegistrationPage = connect(Pages.RegistrationPage);

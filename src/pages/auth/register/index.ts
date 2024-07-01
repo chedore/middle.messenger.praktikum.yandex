@@ -88,9 +88,7 @@ export class RegistrationPage extends Block {
             const userObj = {} as SignUpRequest;
 
             Array.from(formData.entries()).forEach(
-              ([key, value]: [string, string]) => {
-                userObj[key] = value;
-              }
+              ([key, value]: [string, string]) => { userObj[key] = value; }
             );
 
             AuthService.createUser(userObj)
@@ -98,7 +96,7 @@ export class RegistrationPage extends Block {
               .then(() => {
                 router.go('/messenger');
               })
-              .catch(error => {
+              .catch((error) => {
                 console.error('Ошибка при регистрации пользователя:', error);
               });
           }
@@ -124,44 +122,38 @@ export class RegistrationPage extends Block {
 
   componentDidUpdate(oldProps: Props, newProps: Props) {
     if (
-      oldProps.isEmailError !== newProps.isEmailError &&
-      isBlock(this.children.input_email)
+      oldProps.isEmailError !== newProps.isEmailError && isBlock(this.children.input_email)
     ) {
       this.children.input_email.setProps({ isError: newProps.isEmailError });
     }
     if (
-      oldProps.isLoginError !== newProps.isLoginError &&
-      isBlock(this.children.input_login)
+      oldProps.isLoginError !== newProps.isLoginError && isBlock(this.children.input_login)
     ) {
       this.children.input_login.setProps({ isError: newProps.isLoginError });
     }
     if (
-      oldProps.isFirstNameError !== newProps.isFirstNameError &&
-      isBlock(this.children.input_first_name)
+      oldProps.isFirstNameError !== newProps.isFirstNameError && isBlock(this.children.input_first_name)
     ) {
       this.children.input_first_name.setProps({
         isError: newProps.isFirstNameError,
       });
     }
     if (
-      oldProps.isSecondNameError !== newProps.isSecondNameError &&
-      isBlock(this.children.input_second_name)
+      oldProps.isSecondNameError !== newProps.isSecondNameError && isBlock(this.children.input_second_name)
     ) {
       this.children.input_second_name.setProps({
         isError: newProps.isSecondNameError,
       });
     }
     if (
-      oldProps.isPasswordError !== newProps.isPasswordError &&
-      isBlock(this.children.input_password)
+      oldProps.isPasswordError !== newProps.isPasswordError && isBlock(this.children.input_password)
     ) {
       this.children.input_password.setProps({
         isError: newProps.isPasswordError,
       });
     }
     if (
-      oldProps.isPhoneError !== newProps.isPhoneError &&
-      isBlock(this.children.input_phone)
+      oldProps.isPhoneError !== newProps.isPhoneError && isBlock(this.children.input_phone)
     ) {
       this.children.input_phone.setProps({ isError: newProps.isPhoneError });
     }

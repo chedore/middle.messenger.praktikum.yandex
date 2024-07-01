@@ -1,6 +1,6 @@
 import HTTP from '../core/HTTPTransport';
 import { BASE_URL } from './config';
-import { SignInRequest, SignUpRequest } from './types';
+import { LoginRequestData, SignUpRequest } from './types';
 
 const authApi = new HTTP();
 
@@ -11,7 +11,7 @@ export default class AuthAPI {
     return authApi.post(`${this.baseURL}/auth/signup`, { data });
   }
 
-  static signin(data: SignInRequest) {
+  static signin(data: LoginRequestData) {
     return authApi.post(`${this.baseURL}/auth/signin`, { data });
   }
 

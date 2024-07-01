@@ -20,9 +20,9 @@ export class InputMessage extends Block {
           const inputElement = form.elements.namedItem('message') as HTMLInputElement;
           const message = inputElement.value;
           if (!validate(ComponentsName.MESSAGE, message)) {
-            alert('Сообщение не должно быть пустым');
+            console.log('Сообщение не должно быть пустым');
             return;
-          };
+          }
 
           const currentStore = store.getState();
           const currentSocket = currentStore.currentSocket;

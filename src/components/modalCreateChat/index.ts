@@ -24,9 +24,7 @@ export class ModalCreateChat extends Block {
         text: 'Создать чат',
         className: 'button__form-auth',
         onClick: () => {
-          const input = document.querySelector(
-            '#chat-title'
-          ) as HTMLInputElement;
+          const input = document.querySelector( '#chat-title') as HTMLInputElement;
 
           try {
             ChatController.createChats({ title: input.value })
@@ -34,14 +32,14 @@ export class ModalCreateChat extends Block {
                 try {
                   ChatController.getUsersChats();
                 } catch (innerError) {
-                  alert(`Ошибка при получении списка чатов: ${innerError}`);
+                  console.log(`Ошибка при получении списка чатов: ${innerError}`);
                 }
               })
-              .catch(error => {
-                alert(`Ошибка при создании чата: ${error}`);
+              .catch((error) => {
+                console.log(`Ошибка при создании чата: ${error}`);
               });
           } catch (error) {
-            alert(`Неожиданная ошибка при инициации создания чата: ${error}`);
+            console.log(`Неожиданная ошибка при инициации создания чата: ${error}`);
           }
         },
       }),
@@ -63,16 +61,16 @@ export class ModalCreateChat extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { usersSearchResult: SearchAddUser[] }
+    newProps: { usersSearchResult: SearchAddUser[] },
   ): boolean {
     if (newProps.usersSearchResult) {
       const currentState = store.getState();
-      this.children.usersList = newProps.usersSearchResult?.map(user => {
+      this.children.usersList = newProps.usersSearchResult?.map((user) => {
         const handler = () => {
           ChatController.addUsersToChat({
             users: [user.id],
             chatId: currentState.currentChat!,
-          }).catch(error => {
+          }).catch((error) => {
             alert(`Ошибка при добавлении пользователей в чат: ${error}`);
           });
         };

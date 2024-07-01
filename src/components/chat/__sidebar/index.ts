@@ -25,7 +25,7 @@ export class ChatSidebar extends Block {
     try {
       ChatController.getUsersChats();
     } catch (error) {
-      alert(`Ошибка запроса: ${error}`);
+      console.log(`Ошибка запроса: ${error}`);
     }
 
     store.on(StoreEvents.Updated, () => {
@@ -64,11 +64,12 @@ export class ChatSidebar extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { chats: ChatInfo[] }
+    newProps: { chats: ChatInfo[] },
   ): boolean {
     if (newProps.chats) {
       this.children.chatsList = newProps.chats?.map(
-        chat =>
+        (chat) =>
+
           new ChatCard({
             name: chat.title,
             lastMessage: chat.last_message?.content,
@@ -80,19 +81,17 @@ export class ChatSidebar extends Block {
 
                 await UserController.getUserInfo();
               } catch (error) {
-                alert(`Ошибка запроса: ${error}`);
+                console.log(`Ошибка запроса: ${error}`);
               }
 
               const currentStore = store.getState();
               const socket = new MyWebSocket(
-                `wss://ya-praktikum.tech/ws/chats/${currentStore.user.id}/${currentStore.currentChat}/${currentStore.currentChatToken}`
+                `wss://ya-praktikum.tech/ws/chats/${currentStore.user.id}/${currentStore.currentChat}/${currentStore.currentChatToken}`,
               );
               store.dispatch('currentSocket', socket);
 
-              socket.on('messages', data => {
-                if (Array.isArray(data)) {
-                  store.dispatch('messages', data);
-                }
+              socket.on('messages', (data) => {
+                if (Array.isArray(data)) { store.dispatch('messages', data); }
                 else {
                   const lastMessages = store.getState().messages;
                   const newMessagesToDispatch = [data, ...lastMessages!];
@@ -112,10 +111,8 @@ export class ChatSidebar extends Block {
               try {
                 ChatController.getUsersInChat(currentState.currentChat!);
               }
-              catch (error) {
-                alert(`Ошибка запроса: ${error}`);
-              }
-            },
+              catch (error) { console.log(`Ошибка запроса: ${error}`); }
+            }
           })
       );
     }

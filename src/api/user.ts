@@ -10,7 +10,7 @@ const userApi = new HTTP();
 
 export default class UserAPI {
   static baseURL: string = BASE_URL;
-  
+
   static updateProfile(data: UpdateProfileRequest) {
     return userApi.put(`${this.baseURL}/user/profile`, { data });
   }

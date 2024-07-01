@@ -36,7 +36,7 @@ export class FormAuthElement extends Block {
 
   override componentDidUpdate(
     _oldProps: unknown,
-    newProps: { value: string }
+    newProps: { value: string },
   ): boolean {
     if (newProps.value && isBlock(this.children.input)) {
       this.children.input.setProps({ value: newProps.value });

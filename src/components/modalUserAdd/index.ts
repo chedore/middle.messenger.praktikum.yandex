@@ -26,14 +26,12 @@ export class Modal extends Block {
         text: 'Поиск',
         className: 'button__form-auth',
         onClick: () => {
-          const input = document.querySelector(
-            '#find-user'
-          ) as HTMLInputElement;
+          const input = document.querySelector('#find-user') as HTMLInputElement;
 
           try {
             UserController.userSearch({ login: input.value });
           } catch (error) {
-            alert(`Ошибка запроса: ${error}`);
+            console.log(`Ошибка запроса: ${error}`);
           }
         },
       }),
@@ -55,11 +53,11 @@ export class Modal extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { usersSearchResult: SearchAddUser[] }
+    newProps: { usersSearchResult: SearchAddUser[] },
   ): boolean {
     if (newProps.usersSearchResult) {
-      const currentState = store.getState();
-      this.children.usersList = newProps.usersSearchResult?.map(user => {
+      var currentState = store.getState();
+      this.children.usersList = newProps.usersSearchResult?.map((user) => {
         const handler = () => {
           try {
             ChatController.addUsersToChat({
@@ -68,17 +66,17 @@ export class Modal extends Block {
             })
               .then(() => {
                 try {
-                  const currentState = store.getState();
+                  currentState = store.getState();
                   ChatController.getUsersInChat(currentState.currentChat!);
                 } catch (error) {
-                  alert(`Ошибка при получении пользователей в чате: ${error}`);
+                  console.log(`Ошибка при получении пользователей в чате: ${error}`);
                 }
               })
-              .catch(error => {
-                alert(`Ошибка при добавлении пользователей в чат: ${error}`);
+              .catch((error) => {
+                console.log(`Ошибка при добавлении пользователей в чат: ${error}`);
               });
           } catch (error) {
-            alert(`Неожиданная ошибка при добавлении пользователей: ${error}`);
+            console.log(`Неожиданная ошибка при добавлении пользователей: ${error}`);
           }
         };
         return new UserItem({

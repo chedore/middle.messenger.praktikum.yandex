@@ -133,7 +133,7 @@ export class SettingsPage extends Block {
         className: 'profile__button',
         type: 'submit',
 
-        onClick: e => {
+        onClick: (e) => {
           const target = e!.target as HTMLInputElement;
           const formData = new FormData(target.form!);
 
@@ -153,8 +153,7 @@ export class SettingsPage extends Block {
           Array.from(formData.entries()).forEach(
             ([key, value]: [string, string]) => {
               if (
-                key === ComponentsName.OLD_PASSWORD ||
-                key === ComponentsName.NEW_PASSWORD
+                key === ComponentsName.OLD_PASSWORD || key === ComponentsName.NEW_PASSWORD
               ) {
                 passwordObj[key] = value;
               }
@@ -172,20 +171,20 @@ export class SettingsPage extends Block {
             UserService.changeUserPassword(request)
               .then(() => router.go('/messenger'))
               .catch((error: string) => {
-                alert(`Ошибка запроса: ${error}`);
+                console.log(`Ошибка запроса: ${error}`);
               });
           }
 
-          if (Object.values(userObj).some(value => value)) {
+          if (Object.values(userObj).some((value) => value)) {
             const filterObj = filterEmptyStrings(userObj);
             try {
               UserService.updateUserProfile(filterObj)
                 .then(() => router.go('/messenger'))
-                .catch(error => {
-                  alert(`Ошибка при обновлении профиля пользователя: ${error}`);
+                .catch((error) => {
+                  console.log(`Ошибка при обновлении профиля пользователя: ${error}`);
                 });
             } catch (error) {
-              alert(`Ошибка запроса: ${error}`);
+              console.log(`Ошибка запроса: ${error}`);
             }
           }
         },
@@ -235,50 +234,43 @@ export class SettingsPage extends Block {
     }
 
     if (
-      oldProps.isFirstNameError !== newProps.isFirstNameError &&
-      isBlock(this.children.input_first_name)
+      oldProps.isFirstNameError !== newProps.isFirstNameError && isBlock(this.children.input_first_name)
     ) {
       this.children.input_first_name.setProps({
         isError: newProps.isFirstNameError,
       });
     }
     if (
-      oldProps.isSecondNameError !== newProps.isSecondNameError &&
-      isBlock(this.children.input_second_name)
+      oldProps.isSecondNameError !== newProps.isSecondNameError && isBlock(this.children.input_second_name)
     ) {
       this.children.input_second_name.setProps({
         isError: newProps.isSecondNameError,
       });
     }
     if (
-      oldProps.isEmailError !== newProps.isEmailError &&
-      isBlock(this.children.input_email)
+      oldProps.isEmailError !== newProps.isEmailError && isBlock(this.children.input_email)
     ) {
       this.children.input_email.setProps({ isError: newProps.isEmailError });
     }
     if (
-      oldProps.isPhoneError !== newProps.isPhoneError &&
-      isBlock(this.children.input_phone)
+      oldProps.isPhoneError !== newProps.isPhoneError && isBlock(this.children.input_phone)
     ) {
       this.children.input_phone.setProps({ isError: newProps.isPhoneError });
     }
     if (
-      oldProps.isLoginError !== newProps.isLoginError &&
-      isBlock(this.children.input_login)
+      oldProps.isLoginError !== newProps.isLoginError && isBlock(this.children.input_login)
     ) {
       this.children.input_login.setProps({ isError: newProps.isLoginError });
     }
     if (
-      oldProps.isPasswordError !== newProps.isPasswordError &&
-      isBlock(this.children.input_oldPassword)
+      oldProps.isPasswordError !== newProps.isPasswordError && isBlock(this.children.input_oldPassword)
     ) {
       this.children.input_oldPassword.setProps({
         isError: newProps.isPasswordError,
       });
     }
     if (
-      oldProps.isNewPasswordError !== newProps.isNewPasswordError &&
-      isBlock(this.children.input_newPassword)
+      oldProps.isNewPasswordError !== newProps.isNewPasswordError && isBlock(this.children.input_newPassword)
     ) {
       this.children.input_newPassword.setProps({
         isError: newProps.isNewPasswordError,

@@ -32,22 +32,22 @@ export class ModalUserDelete extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { usersInCurrentChat: User[] }
+    newProps: { usersInCurrentChat: User[] },
   ): boolean {
     if (newProps.usersInCurrentChat) {
-      const currentState = store.getState();
-      this.children.usersList = newProps.usersInCurrentChat?.map(user => {
+      var currentState = store.getState();
+      this.children.usersList = newProps.usersInCurrentChat?.map((user) => {
         const handler = () => {
           ChatController.DeleteUserFromChat({
             users: [user.id],
             chatId: currentState.currentChat!,
           })
             .then(() => {
-              const currentState = store.getState();
+              currentState = store.getState();
               ChatController.getUsersInChat(currentState.currentChat!);
             })
-            .catch(error => {
-              alert(`Ошибка: ${error}`);
+            .catch((error) => {
+              console.log(`Ошибка: ${error}`);
             });
         };
         return new UserItem({

@@ -54,12 +54,12 @@ export class MessageList extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { messages: Message[] }
+    newProps: { messages: Message[] },
   ): boolean {
     if (newProps.messages && newProps.messages.length >= 0) {
       const currentStore = store.getState();
-      this.children.messageItems = newProps.messages.map(message => {
-        const isMessageFromCurrentUser = currentStore.user.id == message.user_id;
+      this.children.messageItems = newProps.messages.map((message) => {
+        const isMessageFromCurrentUser = currentStore.user.id === message.user_id;
         return new MessageItem({
           text: message.content,
           timestamp: formatChatTimestamp(message.time),

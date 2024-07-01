@@ -33,7 +33,7 @@ export class ChatPage extends Block {
     try {
       UserService.getUserInfo();
     } catch (error) {
-      alert(`Ошибка запроса: ${error}`);
+      console.log(`Ошибка запроса: ${error}`);
     }
 
     store.on(StoreEvents.Updated, () => {

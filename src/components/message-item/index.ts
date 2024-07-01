@@ -1,4 +1,4 @@
-import Block from '../../tools/Block';
+import Block from '../../core/Block';
 import './message-item.css';
 
 import MessageItemRaw from './message-item.hbs';

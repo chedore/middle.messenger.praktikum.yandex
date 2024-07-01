@@ -28,7 +28,7 @@ class Route {
   constructor(
     private pathname: string,
     private readonly componentClass: ComponentConstructable,
-    private readonly query: string
+    private readonly query: string,
   ) {}
 
   leave() {

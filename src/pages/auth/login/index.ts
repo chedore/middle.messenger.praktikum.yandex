@@ -52,9 +52,7 @@ export class LoginPage extends Block {
             const userObj = {} as LoginRequestData;
 
             Array.from(formData.entries()).forEach(
-              ([key, value]: [string, string]) => {
-                userObj[key] = value;
-              }
+              ([key, value]: [string, string]) => { userObj[key] = value; }
             );
 
             AuthService.signinUser(userObj)
@@ -62,7 +60,7 @@ export class LoginPage extends Block {
               .then(() => {
                 router.go('/messenger');
               })
-              .catch(error => {
+              .catch((error) => {
                 console.error('Ошибка при авторизации пользователя:', error);
               });
           }
@@ -83,14 +81,12 @@ export class LoginPage extends Block {
 
   componentDidUpdate(oldProps: Props, newProps: Props) {
     if (
-      oldProps.isLoginError !== newProps.isLoginError &&
-      isBlock(this.children.input_login)
+      oldProps.isLoginError !== newProps.isLoginError && isBlock(this.children.input_login)
     ) {
       this.children.input_login.setProps({ isError: newProps.isLoginError });
     }
     if (
-      oldProps.isPasswordError !== newProps.isPasswordError &&
-      isBlock(this.children.input_password)
+      oldProps.isPasswordError !== newProps.isPasswordError && isBlock(this.children.input_password)
     ) {
       this.children.input_password.setProps({
         isError: newProps.isPasswordError,
