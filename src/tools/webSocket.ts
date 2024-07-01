@@ -10,7 +10,7 @@ export default class MyWebSocket extends EventBus {
       console.log('Соединение установлено');
     });
 
-    this.socket.addEventListener('close', event => {
+    this.socket.addEventListener('close', (event) => {
       if (event.wasClean) {
         console.log('Соединение закрыто чисто');
       } else {
@@ -20,13 +20,13 @@ export default class MyWebSocket extends EventBus {
       console.log(`Код: ${event.code} | Причина: ${event.reason}`);
     });
 
-    this.socket.addEventListener('error', event => {
+    this.socket.addEventListener('error', (event) => {
       console.log('Ошибка', event);
     });
   }
 
   recieveMessages() {
-    this.socket.addEventListener('message', event => {
+    this.socket.addEventListener('message', (event) => {
       console.log('Получены данные', event.data);
       try {
         const data = JSON.parse(event.data);
@@ -42,7 +42,7 @@ export default class MyWebSocket extends EventBus {
       JSON.stringify({
         content: message,
         type: 'message',
-      })
+      }),
     );
   }
 
@@ -51,7 +51,7 @@ export default class MyWebSocket extends EventBus {
       JSON.stringify({
         content: '0',
         type: 'get old',
-      })
+      }),
     );
   }
 }

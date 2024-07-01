@@ -20,14 +20,11 @@ export default class UserService {
   }
 
   public static getUserInfo() {
-    return UserAPI.UserInfo().then(userInfo => {
-      return store.dispatch('user', JSON.parse(userInfo.response));
-    });
+    return UserAPI.UserInfo().then((userInfo) => {return store.dispatch('user', JSON.parse(userInfo.response));});
   }
 
   public static userSearch(data: UserSearchRequest) {
-    return UserAPI.userSearch(data).then(data =>
-      store.dispatch('usersSearchResult', JSON.parse(data.response))
-    );
+    return UserAPI.userSearch(data).then((user) => {store.dispatch('usersSearchResult', JSON.parse(user.response));});
   }
+
 }

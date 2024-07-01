@@ -160,7 +160,7 @@ export class SettingsPage extends Block {
               if (key in userObj) {
                 userObj[key] = value;
               }
-            }
+            },
           );
 
           if (passwordObj.old_password && passwordObj.new_password) {
@@ -284,18 +284,14 @@ export class SettingsPage extends Block {
   }
 
   public initAvatarChange(): void {
-    const avatarInput = document.getElementById(
-      'for_avatar'
-    ) as HTMLInputElement;
+    const avatarInput = document.getElementById('for_avatar') as HTMLInputElement;
     avatarInput.click();
 
     avatarInput?.addEventListener('change', this.handleAvatarChange.bind(this));
   }
 
   private handleAvatarChange() {
-    const avatarInput = document.getElementById(
-      'for_avatar'
-    ) as HTMLInputElement;
+    const avatarInput = document.getElementById('for_avatar') as HTMLInputElement;
     if (!avatarInput.files || avatarInput.files.length === 0) {
       return;
     }
@@ -303,14 +299,12 @@ export class SettingsPage extends Block {
     formData.append('avatar', avatarInput.files[0]);
 
     UserService.updateUserAvatar(formData)
-      .then(avatar => {
-        const avatarImage = document.getElementById(
-          'avatarImage'
-        ) as HTMLImageElement;
+      .then((avatar) => {
+        const avatarImage = document.getElementById('avatarImage') as HTMLImageElement;
 
         avatarImage.src = `${BASE_URL}/resources/${JSON.parse(avatar.response).avatar}`;
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Ошибка при обновлении аватара:', error);
       });
   }

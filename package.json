@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "start": "npm run build && node app.js",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "eslint ./src/**/*.{js,jsx,ts,tsx} --fix",
+    "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix",
     "lint:css": "stylelint '**/*.css'",
     "lint:css:fix": "stylelint '**/*.css' --fix && find . -type f -name '*.css' -exec awk 'END{if(substr($0,length) != \" \") print \" \" >> FILENAME}' {} \\;",
     "lint:css:fix:space": "stylelint '**/*.css' --fix && find . -type f -name '*.css' -exec awk 'END{if(substr($0,length) != \" \") print \" \" >> FILENAME}' {} \\;",

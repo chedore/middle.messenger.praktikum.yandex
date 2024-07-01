@@ -51,9 +51,7 @@ export class LoginPage extends Block {
 
             const userObj = {} as LoginRequestData;
 
-            Array.from(formData.entries()).forEach(
-              ([key, value]: [string, string]) => { userObj[key] = value; }
-            );
+            Array.from(formData.entries()).forEach(([key, value]: [string, string]) => { userObj[key] = value; });
 
             AuthService.signinUser(userObj)
               .then(() => UserService.getUserInfo())

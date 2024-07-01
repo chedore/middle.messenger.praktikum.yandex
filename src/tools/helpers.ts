@@ -6,20 +6,13 @@ export type Indexed<T = any> = {
 
 export const isPlainObject = (value: unknown): value is Indexed => {
   return (
-    typeof value === 'object' &&
-    value !== null &&
-    value.constructor === Object &&
-    Object.prototype.toString.call(value) === '[object Object]'
+    typeof value === 'object' && value !== null && value.constructor === Object && Object.prototype.toString.call(value) === '[object Object]'
   );
 };
 
-export const isArray = (value: unknown): value is [] => {
-  return Array.isArray(value);
-};
+export const isArray = (value: unknown): value is [] => { return Array.isArray(value); };
 
-export const isArrayOrObject = (value: unknown): value is [] | Indexed => {
-  return isPlainObject(value) || isArray(value);
-};
+export const isArrayOrObject = (value: unknown): value is [] | Indexed => { return isPlainObject(value) || isArray(value);};
 
 export const isEqual = (lhs: Indexed, rhs: Indexed) => {
   if (Object.keys(lhs).length !== Object.keys(rhs).length) {
@@ -53,12 +46,7 @@ export const set = (
     return object;
   }
 
-  const result = path.split('.').reduceRight<Indexed>(
-    (acc, key) => ({
-      [key]: acc,
-    }),
-    value as any
-  );
+  const result = path.split('.').reduceRight<Indexed>((acc, key) => ({ [key]: acc, }), value as any);
 
   return merge(object as Indexed, result);
 };
