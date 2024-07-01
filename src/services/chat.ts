@@ -22,11 +22,11 @@ export default class ChatController {
   }
 
   public static getUsersChats() {
-    return ChatAPI.getChats().then((data: XMLHttpRequest) => {store.dispatch('chats', JSON.parse(data.response));});
+    return ChatAPI.getChats().then((data: XMLHttpRequest) => { store.dispatch('chats', JSON.parse(data.response)); });
   }
 
   public static getUsersInChat(id: number) {
-    return ChatAPI.getChatUsers(id).then((data: XMLHttpRequest) => {store.dispatch('usersInCurrentChat', JSON.parse(data.response));});
+    return ChatAPI.getChatUsers(id).then((data: XMLHttpRequest) => { store.dispatch('usersInCurrentChat', JSON.parse(data.response)); });
   }
 
   public static DeleteUserFromChat(data: DeleteUserFromChatRequest) {

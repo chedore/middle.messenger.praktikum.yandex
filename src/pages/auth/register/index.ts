@@ -87,7 +87,7 @@ export class RegistrationPage extends Block {
 
             const userObj = {} as SignUpRequest;
 
-            Array.from(formData.entries()).forEach( ([key, value]: [string, string]) => { userObj[key] = value; });
+            Array.from(formData.entries()).forEach(([key, value]: [string, string]) => { userObj[key] = value; });
 
             AuthService.createUser(userObj)
               .then(() => UserService.getUserInfo())

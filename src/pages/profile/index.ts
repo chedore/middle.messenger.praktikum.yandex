@@ -1,4 +1,9 @@
-import { Button, Input, ProfileAvatar, ProfileInfo } from '../../components';
+import {
+  Button,
+  Input,
+  ProfileAvatar,
+  ProfileInfo
+} from '../../components';
 import Block from '../../core/Block';
 import { ComponentsName } from '../../utils/validationRules';
 import './profile.css';
