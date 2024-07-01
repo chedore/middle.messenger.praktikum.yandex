@@ -1,0 +1,24 @@
+.input-message-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+.input-message-container input  {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: var(--gray-color);
+  border: none;
+}
+
+.send-message-btn {
+  background-color: var(--button-color);
+  color: white;
+  border-radius: 80%;
+  padding: 10px 16px;
+  margin-left: 8px;
+  border: none;
+}
+ 

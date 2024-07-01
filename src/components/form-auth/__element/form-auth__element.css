@@ -1,53 +1,48 @@
-.input__item {
-  padding: 10px 0 0;
-  margin: 0;
-  height: 42px;
-}
-
-.input__container {
+.input-container {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
-  height: 31px;
+  position: relative;
 }
 
-.input__label {
-  transform: translateY(-21px);
+.input-container input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--button-color);
+  padding: 10px 0 4px;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: var(--text-secondary-color);
   font-size: 13px;
   font-weight: 500;
-  user-select: none;
-  transition: font-size 0.5s, transform 0.5s;
+  transition: all 0.2s;
+  pointer-events: none;
 }
 
-.input__element {
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid var(--button-color);
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 13px;
-  padding: 7px 0;
-  margin: 0;
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
 }
 
-.input__element:focus-visible {
+.input-container input:focus {
+  border-color: var(--button-color);
   outline: none;
 }
 
-.input__text-error {
-  transform: translateY(-7px);
+.incorrect {
   color: var(--error-color);
-  font-size: 10px;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
+  margin-top: 5px;
+  font-size: 12px;
+  visibility: hidden;
 }
 
-.input__element:not(:placeholder-shown) + .input__label,
-.input__element:focus + .input__label {
-  transform: translateY(-36px);
-  font-size: 9px;
+.show-error {
+  visibility: unset;
 }
+ 

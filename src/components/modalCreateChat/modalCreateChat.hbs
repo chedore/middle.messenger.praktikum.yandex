@@ -1,0 +1,18 @@
+{{#if isOpen}}
+<div>
+  <div class="overlay"></div>
+    <div class="wrapper" id="modalBackdrop">
+      <div class="modal" id="modal">
+        {{{ button_close }}}
+        <p>Придумайте название для нового чата</p>
+        <form>
+          {{{ button_create }}}
+          {{{ input_title_chat }}}
+        </form>
+      </div>
+    </div>
+</div>
+
+{{else}}
+  <div> </div>
+{{/if}}

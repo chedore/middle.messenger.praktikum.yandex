@@ -1,49 +1,55 @@
+/* eslint-disable no-console */
+import { ProfileSettings, ChatSidebar, ChatHeader } from '../../components';
 import Block from '../../core/Block';
-import './chat.css';
-import { ChatHeader, ChatCard, ChatFooter } from '../../components';
 
-import ChatPageRaw from './chat.hbs?raw';
+import './chat.css';
+import ChatPageRaw from './chat.hbs';
+import UserService from '../../services/user';
+import store, { StoreEvents, User } from '../../core/Store';
+import router from '../../core/Router';
+import { MessageBlock } from '../../components/messageBlock';
+import isBlock from '../../core/BlockGuard';
+import { BASE_URL } from '../../api/config';
 
 interface Props {
   [key: string]: unknown;
 }
 
 export class ChatPage extends Block {
-  constructor(props: Props) {
+  constructor() {
     super({
-      ...props,
+      children: {},
       header: new ChatHeader({}),
-      cards: [
-        new ChatCard({
-          name: 'Андрей',
-          message: 'Изображение',
-          time: '10:49',
-          count: '2',
-        }),
-        new ChatCard({
-          name: 'Киноклуб',
-          message: 'стикер',
-          owner: true,
-          time: '12:00',
-        }),
-        new ChatCard({
-          name: 'Илья',
-          message: 'Друзья, у меня для вас особенный выпуск новостей!...',
-          time: '15:12',
-          count: '4',
-        }),
-        new ChatCard({
-          name: 'Вадим',
-          message: 'Круто!',
-          owner: true,
-          time: 'Пт',
-        }),
-      ],
-      footer: new ChatFooter({}),
+      profile: new ProfileSettings({
+        className: 'profile-settings',
+        navigate: () => {
+          router.go('/settings');
+        },
+        baseUrl: BASE_URL,
+      }),
+
+      sidebar: new ChatSidebar({}),
+      messageBlock: new MessageBlock({}),
+    });
+    try {
+      UserService.getUserInfo();
+    } catch (error) {
+      console.log(`Ошибка запроса: ${error}`);
+    }
+
+    store.on(StoreEvents.Updated, () => {
+      this.setProps(store.getState());
     });
   }
 
-  override render() {
-    return ChatPageRaw;
+  override componentDidUpdate(_oldProps: Props, newProps: { user?: User }) {
+    if (newProps.user && isBlock(this.children.profile)) {
+      this.children.profile.setProps({ url: newProps.user.avatar });
+    }
+    return true;
+  }
+
+  render() {
+    return this.compile(ChatPageRaw, this.props);
   }
 }
