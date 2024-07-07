@@ -15,7 +15,7 @@ class Block<P extends Record<string, any> = any> {
 
   public id;
 
-  protected props: P;
+  public props: P;
 
   public children: Record<string, Block | Block[]>;
 
@@ -111,7 +111,7 @@ class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(_oldProps: P, _newProps: P) {
+  public componentDidUpdate(_oldProps: P, _newProps: P) {
     return true;
   }
 
