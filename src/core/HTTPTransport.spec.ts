@@ -1,12 +1,13 @@
-import { expect } from "chai";
+import { expect } from 'chai';
+/* eslint-disable arrow-parens */
 import sinon, {
   SinonFakeXMLHttpRequest,
   SinonFakeXMLHttpRequestStatic,
-} from "sinon";
+} from 'sinon';
 
-import HTTPTransport from "./HTTPTransport";
+import HTTPTransport from './HTTPTransport';
 
-describe("HTTPTransport", () => {
+describe('HTTPTransport', () => {
   let xhr: SinonFakeXMLHttpRequestStatic;
   let request: SinonFakeXMLHttpRequest;
   let http: HTTPTransport;
@@ -28,35 +29,35 @@ describe("HTTPTransport", () => {
     xhr.restore();
   });
 
-  it("тест, GET-запроса с данными", async () => {
-    http.get("http://example.com");
+  it('тест, GET-запроса с данными', async () => {
+    http.get('http://example.com');
 
-    expect(request.method).to.equal("GET");
-    expect(request.url).to.equal("http://example.com");
+    expect(request.method).to.equal('GET');
+    expect(request.url).to.equal('http://example.com');
   });
 
-  it("тест, POST-запроса", async () => {
-    const data = { key: "1" };
-    http.post("http://example.com", { data });
+  it('тест, POST-запроса', async () => {
+    const data = { key: '1' };
+    http.post('http://example.com', { data });
 
-    expect(request.method).to.equal("POST");
-    expect(request.url).to.equal("http://example.com");
+    expect(request.method).to.equal('POST');
+    expect(request.url).to.equal('http://example.com');
     expect(request.requestBody).to.equal(JSON.stringify(data));
   });
 
-  it("тест, PUT-запрос с данными", async () => {
-    const data = { key: "1" };
-    http.put("http://example.com", { data });
+  it('тест, PUT-запрос с данными', async () => {
+    const data = { key: '1' };
+    http.put('http://example.com', { data });
 
-    expect(request.method).to.equal("PUT");
-    expect(request.url).to.equal("http://example.com");
+    expect(request.method).to.equal('PUT');
+    expect(request.url).to.equal('http://example.com');
     expect(request.requestBody).to.equal(JSON.stringify(data));
   });
 
-  it("тест, DELETE-запрос", async () => {
-    http.delete("http://example.com");
+  it('тест, DELETE-запрос', async () => {
+    http.delete('http://example.com');
 
-    expect(request.method).to.equal("DELETE");
-    expect(request.url).to.equal("http://example.com");
+    expect(request.method).to.equal('DELETE');
+    expect(request.url).to.equal('http://example.com');
   });
 });

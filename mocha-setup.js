@@ -1,7 +1,7 @@
-import { JSDOM } from "jsdom";
+import { JSDOM } from 'jsdom';
 
 const { window } = new JSDOM('<div id="app"></div>', {
-  url: "http://localhost:5175",
+  url: 'http://localhost:5175',
 });
 
 global.FormData = window.FormData;
