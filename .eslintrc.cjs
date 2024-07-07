@@ -32,6 +32,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'max-classes-per-file': 'off',
     'import/extensions': ['error', 'ignorePackages', {
       js: 'never',
       ts: 'never',
