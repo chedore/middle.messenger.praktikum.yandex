@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { isPlainObject, isArray, isArrayOrObject} from './helpers';
+import { isPlainObject, isArray, isArrayOrObject } from './helpers';
 /* eslint-disable no-unused-expressions */
 
 describe('isPlainObject', () => {

@@ -1,9 +1,10 @@
-import { expect } from 'chai'
+import { expect } from 'chai';
 import sinon from 'sinon';
 import router from './Router';
 import Block from './Block';
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable max-classes-per-file */
 
 describe('Router', () => {
   const getContentFake = sinon.fake.returns(document.createElement('div'));
