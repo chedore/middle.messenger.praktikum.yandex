@@ -1,4 +1,4 @@
-import { ComponentsName, validationRules } from "./validationRules";
+import { ComponentsName, validationRules } from './validationRules';
 
 export function validate(name: ComponentsName, value: string): boolean {
   const rule = validationRules[name];

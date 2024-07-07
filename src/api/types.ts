@@ -1,4 +1,3 @@
-
 export interface CreateChatRequest {
   title: string;
 }
@@ -42,6 +41,7 @@ export interface ChangePasswordRequest {
   oldPassword: string;
   newPassword: string;
 }
+
 export interface UserSearchRequest {
   login: string;
 }

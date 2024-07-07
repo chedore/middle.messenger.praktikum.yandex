@@ -1,7 +1,7 @@
-import Block from "../../../core/Block";
-import "./profile__settings.css";
+import Block from '../../../core/Block';
+import './profile__settings.css';
 
-import ProfileSettingsRaw from "./profile__settings.hbs";
+import ProfileSettingsRaw from './profile__settings.hbs';
 
 interface Props {
   navigate: () => void;

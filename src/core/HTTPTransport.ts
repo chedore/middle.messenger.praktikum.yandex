@@ -1,10 +1,12 @@
-type Method = "GET" | "POST" | "PUT" | "DELETE";
+type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable space-in-parens */
 
 const METHODS: Record<Method, Method> = {
-  GET: "GET",
-  POST: "POST",
-  PUT: "PUT",
-  DELETE: "DELETE",
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
 };
 
 interface Options {
@@ -18,57 +20,44 @@ type QueryString = string;
 
 type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>;
 
-function queryStringify(data: Record<string, unknown>): QueryString {
-  if (typeof data !== "object") {
-    throw new Error("Data must be object");
+function queryStringify(data: Record<string, any>): QueryString {
+  if (typeof data !== 'object') {
+    throw new Error('Data must be object');
   }
 
   const keys = Object.keys(data);
-  return keys.reduce(
-    (result, key, index) =>
-      `${result}${key}=${data[key]}${index < keys.length - 1 ? "&" : ""}`,
-    "?"
-  );
+  return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default class HTTPTransport {
-  get: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
+  get: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
 
-  post: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
+  post: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-  put: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
+  put: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-  delete: HTTPMethod = (url, options) =>
-    this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
+  delete: HTTPMethod = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
   request(
     url: string,
     options: Options = {},
-    timeout: number = 5000
+    timeout: number = 5000,
   ): Promise<XMLHttpRequest> {
     const { headers = {}, method, data } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
-        reject(new Error("No method"));
+        reject(new Error('No method'));
         return;
       }
 
       const xhr = new XMLHttpRequest();
       const isGet = method === METHODS.GET;
 
-      xhr.open(
-        method,
-        isGet && data
-          ? `${url}${queryStringify(data as Record<string, unknown>)}`
-          : url // Предполагается, что data - это объект
-      );
+      xhr.open( method, isGet && data ? `${url}${queryStringify(data as Record<string, unknown>)}` : url );
 
-      Object.keys(headers).forEach(key => {
+      Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 
@@ -76,19 +65,19 @@ export default class HTTPTransport {
         resolve(xhr);
       };
 
-      xhr.onabort = () => reject(new Error("Request was aborted"));
-      xhr.onerror = () => reject(new Error("Request failed"));
+      xhr.onabort = () => reject(new Error('Request was aborted'));
+      xhr.onerror = () => reject(new Error('Request failed'));
 
       xhr.timeout = timeout;
       xhr.withCredentials = true;
-      xhr.ontimeout = () => reject(new Error("Request timeout exceeded"));
+      xhr.ontimeout = () => reject(new Error('Request timeout exceeded'));
 
-      if (method === "GET" || !data) {
+      if (method === 'GET' || !data) {
         xhr.send();
       } else if (data instanceof FormData) {
         xhr.send(data);
       } else {
-        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
       }
     });

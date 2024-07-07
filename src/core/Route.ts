@@ -1,4 +1,9 @@
-import Block from "./Block";
+import Block from './Block';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-useless-constructor */
+/* eslint-disable no-empty-function */
+/* eslint-disable new-cap */
 
 interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
@@ -12,10 +17,10 @@ const render = (query: string, block: Block) => {
   const root = document.querySelector(query);
 
   if (root === null) {
-    throw new Error(`Root not found by selector "${query}"`);
+    throw new Error(`Root not found by selector '${query}'`);
   }
 
-  root.innerHTML = "";
+  root.innerHTML = '';
 
   root.append(block.getContent()!);
 
@@ -28,7 +33,7 @@ class Route {
   constructor(
     private pathname: string,
     private readonly componentClass: ComponentConstructable,
-    private readonly query: string
+    private readonly query: string,
   ) {}
 
   leave() {
@@ -44,7 +49,6 @@ class Route {
       this.view = new this.componentClass({});
 
       render(this.query, this.view);
-      return;
     }
   }
 }

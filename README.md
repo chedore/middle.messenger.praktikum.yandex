@@ -9,6 +9,7 @@
 - `npm run dev` — разработка проекта
 - `npm run lint` — линтер
 - `npm run start` — запуск локальной версии на http://localhost:3000/
+- `npm run test` - запуск тестов
 
 ## Проект в интернете
 

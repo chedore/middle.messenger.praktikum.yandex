@@ -1,8 +1,8 @@
-import Block from "../../../core/Block";
+import Block from '../../../core/Block';
 import { ErrorTitle, ErrorDescription, ErrorLink } from '../../../components';
-import "./500error.css";
+import './500error.css';
 
-import Error500PageRaw from "./500error.hbs";
+import Error500PageRaw from './500error.hbs';
 
 export class Error500Page extends Block {
   constructor() {

@@ -1,15 +1,24 @@
-import Route from "./Route";
-import Block from "./Block";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-constructor-return */
+/* eslint-disable no-extra-bind */
+/* eslint-disable semi */
+/* eslint-disable no-else-return */
+import Route from './Route';
+import Block from './Block';
 
 interface ComponentConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
 }
 
-
 class Router {
   private static __instance: Router;
-  private routes: Route[] = [];
+
+  public routes: Route[] = [];
+
   private _currentRoute: Route | null = null;
+
   private history = window.history;
 
   constructor(private readonly rootQuery: string) {
@@ -42,7 +51,7 @@ class Router {
   };
 
   private _onRoute = (pathname: string) => {
-    let route = this.getRoute(pathname);
+    const route = this.getRoute(pathname);
 
     if (!route) {
       return;
@@ -58,7 +67,7 @@ class Router {
   };
 
   public go = (pathname: string) => {
-    this.history.pushState({}, "", pathname);
+    this.history.pushState({}, '', pathname);
 
     this._onRoute(pathname);
   };
@@ -72,12 +81,12 @@ class Router {
   };
 
   private getRoute = (pathname: string) => {
-    const route = this.routes.find(route => route.match(pathname));
-    if (route) return route;
+    const _route = this.routes.find((route) => route.match(pathname));
+    if (_route) return _route
     else {
-      window.location.pathname = "404";
-      return this.routes.find(el => el.match("404"));
+      window.location.pathname = '404';
+      return this.routes.find((el) => el.match('404'));
     }
   };
 }
-export default new Router("#app");
+export default new Router('#app');

@@ -1,17 +1,18 @@
-import Block from "../../core/Block";
-import isBlock from "../../core/BlockGuard";
-import store, { Message, StoreEvents } from "../../core/Store";
-import formatChatTimestamp from "../../tools/formatChatTimestamp";
-import { ComponentsName } from "../../utils/validationRules";
-import { Button } from "../button";
-import { InputMessage } from "../input-message";
-import { MessageItem } from "../message-item";
-import { MessageBlockEmpty } from "../messageBlockEmpty";
-import { Modal } from "../modalUserAdd";
-import { ModalUserDelete } from "../modalUserDelete";
-import "./message-list.css";
+import Block from '../../core/Block';
+import isBlock from '../../core/BlockGuard';
+import store, { Message, StoreEvents } from '../../core/Store';
+import formatChatTimestamp from '../../tools/formatChatTimestamp';
+import { ComponentsName } from '../../utils/validationRules';
+import { Button } from '../button';
+import { InputMessage } from '../input-message';
+import { MessageItem } from '../message-item';
+import { MessageBlockEmpty } from '../messageBlockEmpty';
+import { Modal } from '../modalUserAdd';
+import { ModalUserDelete } from '../modalUserDelete';
+import './message-list.css';
+/* eslint-disable object-shorthand */
 
-import MessageListRaw from "./message-list.hbs";
+import MessageListRaw from './message-list.hbs';
 
 interface Props {
   [key: string]: unknown;
@@ -54,13 +55,12 @@ export class MessageList extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { messages: Message[] }
+    newProps: { messages: Message[] },
   ): boolean {
     if (newProps.messages && newProps.messages.length >= 0) {
       const currentStore = store.getState();
-      this.children.messageItems = newProps.messages.map(message => {
-        const isMessageFromCurrentUser =
-          currentStore.user.id == message.user_id;
+      this.children.messageItems = newProps.messages.map((message) => {
+        const isMessageFromCurrentUser = currentStore.user.id === message.user_id;
         return new MessageItem({
           text: message.content,
           timestamp: formatChatTimestamp(message.time),
@@ -80,22 +80,22 @@ export class MessageList extends Block {
       };
 
       this.children.button_primary = new Button({
-        text: "Добавить пользователя",
-        page: "chat-page",
-        className: "button-for-chat",
-        type: "button",
+        text: 'Добавить пользователя',
+        page: 'chat-page',
+        className: 'button-for-chat',
+        type: 'button',
         onClick: openModal,
       });
       this.children.button_delete_user = new Button({
-        text: "Удалить пользователя",
-        page: "chat-page",
-        className: "button-for-chat",
-        type: "button",
+        text: 'Удалить пользователя',
+        page: 'chat-page',
+        className: 'button-for-chat',
+        type: 'button',
         onClick: openModalDeleteUser,
       });
 
       this.children.inputmessage = new InputMessage({
-        type: "submit",
+        type: 'submit',
 
         name: ComponentsName.MESSAGE,
       });

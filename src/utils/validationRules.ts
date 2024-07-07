@@ -1,16 +1,16 @@
 // правила валидации
 // eslint-disable-next-line no-shadow
 export enum ComponentsName {
-  FIRST_NAME = "first_name",
-  SECOND_NAME = "second_name",
-  LOGIN = "login",
-  EMAIL = "email",
-  PASSWORD = "password",
-  PHONE = "phone",
-  MESSAGE = "message",
-  DISPLAY_NAME = "display_name",
-  OLD_PASSWORD = "old_password",
-  NEW_PASSWORD = "new_password",
+  FIRST_NAME = 'first_name',
+  SECOND_NAME = 'second_name',
+  LOGIN = 'login',
+  EMAIL = 'email',
+  PASSWORD = 'password',
+  PHONE = 'phone',
+  MESSAGE = 'message',
+  DISPLAY_NAME = 'display_name',
+  OLD_PASSWORD = 'old_password',
+  NEW_PASSWORD = 'new_password',
 }
 
 export const validationRules = {

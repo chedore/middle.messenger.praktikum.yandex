@@ -1,10 +1,10 @@
-import Block from "../../../core/Block";
-import "./form-auth__element.css";
+import Block from '../../../core/Block';
+import './form-auth__element.css';
 
-import FormAuthElementRaw from "./form-auth__element.hbs";
-import { Input } from "../../input";
-import { ComponentsName } from "../../../utils/validationRules";
-import isBlock from "../../../core/BlockGuard";
+import FormAuthElementRaw from './form-auth__element.hbs';
+import { Input } from '../../input';
+import { ComponentsName } from '../../../utils/validationRules';
+import isBlock from '../../../core/BlockGuard';
 
 interface Props {
   type: string;
@@ -36,7 +36,7 @@ export class FormAuthElement extends Block {
 
   override componentDidUpdate(
     _oldProps: unknown,
-    newProps: { value: string }
+    newProps: { value: string },
   ): boolean {
     if (newProps.value && isBlock(this.children.input)) {
       this.children.input.setProps({ value: newProps.value });

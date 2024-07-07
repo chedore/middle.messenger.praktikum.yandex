@@ -1,6 +1,7 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
-import searchUserItemRaw from "./searchUserItem.hbs";
+import Block from '../../core/Block';
+import { Button } from '../button';
+import searchUserItemRaw from './searchUserItem.hbs';
+/* eslint-disable object-shorthand */
 
 interface SearchUserItemProps {
   handler?: () => void;

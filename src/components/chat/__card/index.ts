@@ -1,7 +1,7 @@
-import Block from "../../../core/Block";
-import "./chat__card.css";
+import Block from '../../../core/Block';
+import './chat__card.css';
 
-import ChatCardRaw from "./chat__card.hbs";
+import ChatCardRaw from './chat__card.hbs';
 
 interface Props {
   click: () => void;

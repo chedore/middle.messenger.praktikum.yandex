@@ -1,8 +1,8 @@
-import Block from "../../core/Block";
+import Block from '../../core/Block';
 
-import { MessageList } from "../message-list";
+import { MessageList } from '../message-list';
 
-import MessageBlockRaw from "./messageBlock.hbs";
+import MessageBlockRaw from './messageBlock.hbs';
 
 interface Props {
   [key: string]: unknown;

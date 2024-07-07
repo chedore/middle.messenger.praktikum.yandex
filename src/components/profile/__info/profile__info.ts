@@ -4,8 +4,8 @@ import { ProfileLabel } from '../__info-label';
 import { ProfileInput } from '../__info-input';
 
 import ProfileInfoRaw from './profile__info.hbs';
-import { ComponentsName } from "../../../utils/validationRules";
-import isBlock from "../../../core/BlockGuard";
+import { ComponentsName } from '../../../utils/validationRules';
+import isBlock from '../../../core/BlockGuard';
 
 interface Props {
   type: string;
@@ -44,7 +44,7 @@ export class ProfileInfo extends Block {
 
   override componentDidUpdate(
     _oldProps: unknown,
-    newProps: { value: string }
+    newProps: { value: string },
   ): boolean {
     if (newProps.value && isBlock(this.children.input)) {
       this.children.input.setProps({ value: newProps.value });

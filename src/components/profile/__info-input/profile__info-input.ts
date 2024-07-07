@@ -3,8 +3,8 @@ import './profile__info-input.css';
 import { Input } from '../../input';
 
 import ProfileInputRaw from './profile__info-input.hbs';
-import { ComponentsName } from "../../../utils/validationRules";
-import isBlock from "../../../core/BlockGuard";
+import { ComponentsName } from '../../../utils/validationRules';
+import isBlock from '../../../core/BlockGuard';
 
 interface Props {
   type: string;
@@ -36,7 +36,7 @@ export class ProfileInput extends Block {
 
   override componentDidUpdate(
     _oldProps: unknown,
-    newProps: { value: string }
+    newProps: { value: string },
   ): boolean {
     if (newProps.value && isBlock(this.children.input)) {
       this.children.input.setProps({ value: newProps.value });

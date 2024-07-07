@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 220px;
 }
+
 .profile__info-error {
   color: var(--error-color);
   font-size: 10px;

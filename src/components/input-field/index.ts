@@ -1,9 +1,9 @@
-import Block from "../../core/Block";
+import Block from '../../core/Block';
 
-import InputFieldRaw from "./input-field.hbs";
-import { Input } from "../input";
-import { ComponentsName } from "../../utils/validationRules";
-import isBlock from "../../core/BlockGuard";
+import InputFieldRaw from './input-field.hbs';
+import { Input } from '../input';
+import { ComponentsName } from '../../utils/validationRules';
+import isBlock from '../../core/BlockGuard';
 
 interface InputFieldProps {
   type: string;
@@ -35,7 +35,7 @@ export class InputField extends Block {
 
   override componentDidUpdate(
     _oldProps: unknown,
-    newProps: { value: string }
+    newProps: { value: string },
   ): boolean {
     if (newProps.value && isBlock(this.children.input)) {
       this.children.input.setProps({ value: newProps.value });

@@ -1,10 +1,12 @@
-import Block from "../../core/Block";
-import { Button } from "../button";
-import ModalUserDeletetRaw from "./modalUserDelete.hbs";
-import "./modalUserDelete.css";
-import store, { StoreEvents, User } from "../../core/Store";
-import { UserItem } from "../searchUserItem";
-import ChatController from "../../services/chat";
+import Block from '../../core/Block';
+import { Button } from '../button';
+import ModalUserDeletetRaw from './modalUserDelete.hbs';
+import './modalUserDelete.css';
+import store, { StoreEvents, User } from '../../core/Store';
+import { UserItem } from '../searchUserItem';
+import ChatController from '../../services/chat';
+/* eslint-disable no-console */
+/* eslint-disable object-shorthand */
 
 interface Props {
   closeModal: () => void;
@@ -16,7 +18,7 @@ export class ModalUserDelete extends Block {
       ...props,
       button_close: new Button({
         onClick: props.closeModal,
-        text: "close",
+        text: 'close',
       }),
       users_list: new UserItem({}),
     });
@@ -32,28 +34,28 @@ export class ModalUserDelete extends Block {
 
   componentDidUpdate(
     _oldProps: Props,
-    newProps: { usersInCurrentChat: User[] }
+    newProps: { usersInCurrentChat: User[] },
   ): boolean {
     if (newProps.usersInCurrentChat) {
-      const currentState = store.getState();
-      this.children.usersList = newProps.usersInCurrentChat?.map(user => {
+      let currentState = store.getState();
+      this.children.usersList = newProps.usersInCurrentChat?.map((user) => {
         const handler = () => {
           ChatController.DeleteUserFromChat({
             users: [user.id],
             chatId: currentState.currentChat!,
           })
             .then(() => {
-              const currentState = store.getState();
+              currentState = store.getState();
               ChatController.getUsersInChat(currentState.currentChat!);
             })
-            .catch(error => {
-              alert(`Ошибка: ${error}`);
+            .catch((error) => {
+              console.log(`Ошибка: ${error}`);
             });
         };
         return new UserItem({
           login: user.login,
           handler: handler,
-          text: "Delete user",
+          text: 'Delete user',
         });
       });
     }

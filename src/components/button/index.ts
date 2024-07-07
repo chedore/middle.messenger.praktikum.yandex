@@ -1,6 +1,6 @@
-import Block from "../../core/Block";
+import Block from '../../core/Block';
 
-import ButtonRaw from "./button.hbs";
+import ButtonRaw from './button.hbs';
 
 interface Props {
   onClick?: (e?: SubmitEvent) => void;
