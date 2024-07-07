@@ -15,7 +15,7 @@ interface ComponentConstructable<P extends Record<string, any> = any> {
 class Router {
   private static __instance: Router;
 
-  private routes: Route[] = [];
+  public routes: Route[] = [];
 
   private _currentRoute: Route | null = null;
 
